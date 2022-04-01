@@ -2,7 +2,7 @@ import os
 import os.path
 from data_information import notebook_crawl_target, cpu_crawl_target, gpu_crawl_target
 
-OUTPUT_DIRECTORY = "./../data/"
+OUTPUT_DIRECTORY = "./data/"
 OUTPUT_FILE_TYPE = ".csv"
 
 
