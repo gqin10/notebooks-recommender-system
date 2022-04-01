@@ -1,3 +1,26 @@
+"""
+All attributes of notebooks
+['Brand', 'Model', 'Product Type', 'Processor Brand', 'Processor Model',
+'CPU Cores', 'Processor Speed (GHz)', 'Processor Max Speed', 'RAM (GB)',
+'RAM Type', 'Storage Type', 'Storage Size (GB)', 'Operating System',
+'Screen Size (inches)', 'Screen Definition', 'Resolution',
+'Graphics Card Type', 'Camera Resolution (MP)', 'Type', 'Bluetooth',
+'Ethernet', 'HDMI', 'USB', 'Wireless Ready', 'Weight (kg)',
+'Product Height (cm)', 'Product Width (cm)', 'Product Depth (cm)',
+'Price (RM)']
+"""
+notebook_required_attributes = [
+    "Brand", "Model", "Processor Brand", "Processor Model", "RAM (GB)",
+    "Storage Size (GB)", "Screen Size (inches)", "Graphics Card Type", "Weight (kg)",
+    "Product Height (cm)", "Product Width (cm)", "Product Depth (cm)", "Price (RM)"
+]
+
+notebook_update_attribute_names = [
+    "brand", "model", "cpu_brand", "cpu", "ram",
+    "storage", "screen_size", "gpu", "weight",
+    "height", "width", "depth", "price"
+]
+
 notebook_crawl_target = {
     "notebook": "https://www.harveynorman.com.my/computing/computers-en/laptops-en"
 }
