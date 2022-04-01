@@ -19,4 +19,5 @@ class NotebookCheckSpider(scrapy.Spider):
             name = item.xpath("./td[contains(@class,'specs')]/a/text()").get()
             mark = item.xpath(
                 "./td[contains(@class,'value')]/div[contains(@class,'bl_ch_sur')]/span/span[contains(@class,'bl_med_val')]/text()").get()
-            yield {"name": name, "mark": mark}
+            if name != None and mark != None:
+                yield {"name": name, "mark": mark}
