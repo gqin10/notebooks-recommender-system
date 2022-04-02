@@ -33,7 +33,7 @@ def process_notebook_data():
     # remove notebooks that do not have information about cpu, ram, and storage
     notebook_data = notebook_data.dropna(subset=["cpu", "ram", "storage"])
 
-    # notebook_data.loc[:, ["height", "width", "depth"]].apply(reorder_sizes, axis=1)
+    # switch the positions of height, width, and depth to unify
     notebook_data.loc[:, ["height", "width", "depth"]] = notebook_data.loc[:, ["height", "width", "depth"]].apply(
         reorder_sizes, axis=1)
 
@@ -85,5 +85,5 @@ if __name__ == "__main__":
         os.mkdir(OUTPUT_DIRECTORY)
 
     notebook_data.to_csv(OUTPUT_DIRECTORY + "notebook_data" + OUTPUT_FILE_TYPE, index=False)
-    cpu_data.to_csv(OUTPUT_DIRECTORY + "cpu" + OUTPUT_FILE_TYPE, index = False)
-    gpu_data.to_csv(OUTPUT_DIRECTORY + "gpu" + OUTPUT_FILE_TYPE, index = False)
+    cpu_data.to_csv(OUTPUT_DIRECTORY + "cpu" + OUTPUT_FILE_TYPE, index=False)
+    gpu_data.to_csv(OUTPUT_DIRECTORY + "gpu" + OUTPUT_FILE_TYPE, index=False)
