@@ -16,7 +16,7 @@ spec_list = [
 7. Microsoft
 8. MSI
 """
-brand = ["", "acer", "asus", "dell", "hp", "huawei", "lenovo", "microsoft", "msi"]
+brand_list = ["", "acer", "asus", "dell", "hp", "huawei", "lenovo", "microsoft", "msi"]
 
 """
 # CPU
@@ -33,7 +33,7 @@ brand = ["", "acer", "asus", "dell", "hp", "huawei", "lenovo", "microsoft", "msi
 10. AMD Ryzen 7
 11. AMD Ryzen 9
 """
-cpu = ["", "celeron", "pentium", "i3", "i5", "i7", "i9", "athlon", "ryzen 3", "ryzen 5", "ryzen 7", "ryzen 9"]
+cpu_list = ["", "celeron", "pentium", "i3", "i5", "i7", "i9", "athlon", "ryzen 3", "ryzen 5", "ryzen 7", "ryzen 9"]
 
 """
 # GPU
@@ -44,4 +44,4 @@ cpu = ["", "celeron", "pentium", "i3", "i5", "i7", "i9", "athlon", "ryzen 3", "r
 4. Nvidia GTX
 5. Nvidia RTX
 """
-gpu = ["", "radeon", "iris", "mx", "gtx", "rtx"]
+gpu_list = ["", "radeon", "iris", "mx", "gtx", "rtx"]

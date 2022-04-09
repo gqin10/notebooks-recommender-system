@@ -1,4 +1,5 @@
 from Notebook import Notebook
+from spec_list import brand_list, cpu_list, gpu_list
 
 
 def get_requirements():
@@ -6,15 +7,21 @@ def get_requirements():
 
     user_constraint.brand.priority = input("Enter brand priority: ")
     if float(user_constraint.brand.priority) > 0:
-        user_constraint.brand.value = input("Enter brand option: ")
+        temp = input("Enter brand option: ")
+        temp = [int(x) for x in temp.split(",")]
+        user_constraint.brand.value = [brand_list[t] for t in temp]
 
     user_constraint.cpu.priority = input("Enter CPU priority: ")
     if float(user_constraint.cpu.priority) > 0:
-        user_constraint.cpu.value = input("Enter CPU option: ")
+        temp = input("Enter CPU option: ")
+        temp = [int(x) for x in temp.split(",")]
+        user_constraint.cpu.value = [cpu_list[t] for t in temp]
 
-    user_constraint.gpu.priority = input("Enter GPU priority")
+    user_constraint.gpu.priority = input("Enter GPU priority: ")
     if float(user_constraint.gpu.priority) > 0:
-        user_constraint.gpu.value = input("Enter CPU option: ")
+        temp = input("Enter GPU option: ")
+        temp = [int(x) for x in temp.split(",")]
+        user_constraint.gpu.value = [gpu_list[t] for t in temp]
 
     user_constraint.ram.priority = input("Enter RAM priority: ")
     if float(user_constraint.ram.priority) > 0:
@@ -48,6 +55,8 @@ if __name__ == "__main__":
     print("Refer to notebook-spec-option.md for the available options")
 
     user_constraint = get_requirements()
+    print(user_constraint)
+
 
     """
     user_constraint.brand.value = "HP"
