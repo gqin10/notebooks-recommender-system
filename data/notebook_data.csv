@@ -1,142 +1,142 @@
 brand,model,cpu_brand,cpu,ram,storage,screen_size,gpu,weight,height,width,depth,price
-Asus,ExpertBook P2451FA (P2451F-AEK0442R),Intel,Core i5-10210U,8,256,14,Intel UHD Graphics 620,1.6,1.99cm,32.53cm,23.29cm,3297
-HP,Pavilion (13-bb0065TU),Intel,i5-1135G7,8 GB,512 GB,"13.3""",Intel® Iris® Xᵉ Graphics,1.24,1.77cm,30.9cm,20.5cm,3599
-Huawei,MateBook 13,Intel,Intel Core i5-10210U,16,512,13,Nvidia GeForce MX250,1.3,1.49cm,28.6cm,21.1cm,4397
-Microsoft,"Surface Laptop 3 15"" (VGZ-00037)",AMD,Ryzen 5 3580U,8,256,15,AMD Radeon RX Vega 9,1.542,1.47cm,33.95cm,24.4cm,5987
-Acer,Aspire 5 (A515-56-33DS),Intel,i3-1115G4,4,512,15.6,Intel UHD Graphics,1.90,0.79cm,36.34cm,23.85cm,2397
-Microsoft,Surface Laptop Go (THJ-00018),Intel,Core i5-1035G1,8,256,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57cm,27.82cm,20.57cm,4288
-HP,ENVY 15-ep0010TX,Intel,Core i7-10750H,16,1 TB,15.6,NVIDIA GeForce GTX 1660 Ti with Max-Q design,2.14,1.84cm,35.79cm,23.68cm,5999
-Microsoft,"Surface Laptop 3 13.5"" (VGZ-00037)",Intel,Core i7-1065G7,16,256,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.288,1.45cm,30.8cm,22.3cm,6386
-Huawei,D15 i3 (10th Gen),Intel,i3-10110U,8 GB,256 GB,15.6, Intel UHD Graphics 620,1.53,1.69cm,35.78cm,22.99cm,2097
-Acer,Chromebook 311 (C733-C8F7),Intel,Intel® Celeron® N4120,4,32,"11.6""",UHD Graphics 600,1.25,2.13cm,30.2cm,20.9cm,1349
-HP,ProBook 440 G7,Intel,Core i5-10210U,8,256,14,,1.6,1.8cm,32.42cm,23.77cm,3499
-Microsoft,Surface Laptop Studio (ABY-00017),,Core i7-11370H,32,1 TB,14.4,NVIDIA GeForce RTX 3050Ti,1.82,1.89cm,32.33cm,22.83cm,11999
+Asus,ExpertBook P2451FA (P2451F-AEK0442R),Intel,Core i5-10210U,8,256,14,Intel UHD Graphics 620,1.6,1.99,32.53,23.29,3297
+HP,Pavilion (13-bb0065TU),Intel,i5-1135G7,8,512,13.3,Intel® Iris® Xe Graphics,1.24,1.77,30.9,20.5,3599
+Huawei,MateBook 13,Intel,Intel Core i5-10210U,16,512,13,Nvidia GeForce MX250,1.3,1.49,28.6,21.1,4397
+Microsoft,"Surface Laptop 3 15"" (VGZ-00037)",AMD,Ryzen 5 3580U,8,256,15,AMD Radeon RX Vega 9,1.542,1.47,33.95,24.4,5987
+Acer,Aspire 5 (A515-56-33DS),Intel,i3-1115G4,4,512,15.6,Intel UHD Graphics,1.90,0.79,36.34,23.85,2397
+Microsoft,Surface Laptop Go (THJ-00018),Intel,Core i5-1035G1,8,256,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57,27.82,20.57,4288
+HP,ENVY 15-ep0010TX,Intel,Core i7-10750H,16,1024,15.6,NVIDIA GeForce GTX 1660 Ti with Max-Q design,2.14,1.84,35.79,23.68,5999
+Microsoft,"Surface Laptop 3 13.5"" (VGZ-00037)",Intel,Core i7-1065G7,16,256,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.288,1.45,30.8,22.3,6386
+Huawei,D15 i3 (10th Gen),Intel,i3-10110U,8,256,15.6, Intel UHD Graphics 620,1.53,1.69,35.78,22.99,2097
+Acer,Chromebook 311 (C733-C8F7),Intel,Intel® Celeron® N4120,4,32,11.6,UHD Graphics 600,1.25,2.13,30.2,20.9,1349
+HP,ProBook 440 G7,Intel,Core i5-10210U,8,256,14,,1.6,1.8,32.42,23.77,3499
+Microsoft,Surface Laptop Studio (ABY-00017),,Core i7-11370H,32,1024,14.4,NVIDIA GeForce RTX 3050Ti,1.82,1.89,32.33,22.83,11999
 Huawei,D14,Intel,Core i5-10210U,8,512,14,,,,,,3399
-Microsoft,Surface Laptop Go (THH-00018),Intel,Core i5-1035G1,8,128,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57cm,27.82cm,20.57cm,3388
-MSI,Prestige 14 (A10RBS-255) ,Intel,Core i7-10510U,16,512,14,Nvidia Geforce MX350,1.29,1.59cm,31.9cm,21.5cm,3697
-Microsoft,"Surface Laptop 3 13.5"" (V4C-00037)",Intel,Core i5-1035G7,8,256,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.288,1.45cm,30.8cm,22.3cm,5287
-Microsoft,Surface Laptop Go (1ZO-00018),Intel,Core i5-1035G1,4,64,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57cm,27.82cm,20.57cm,2758
-,Surface Laptop Studio (A1Y-00017),Intel,Core i7-11370H,16,512,14.4,NVIDIA GeForce RTX 3050 Ti,1.82,1.89cm,32.33cm,22.83cm,9399
-HP,Pavilion 14-DV0072TX,Intel,Core i5-1135G7,8,512,14,NVIDIA GeForce MX450,1.41,1.7cm,32.5cm,21.66cm,3499
-Microsoft,"Surface Laptop 3 13.5"" (VGY-00016)",Intel,Core i5-1035G7,8,128,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.265,1.45cm,30.8cm,22.3cm,3999
-Lenovo,Thinkpad T490 (20RYS0MD00),Intel,Core i5-10210U,8,256,14,Intel UHD Graphics 620,1.46,1.89cm,32.9cm,22.7cm,3659
-Acer,Swift 5 (SF514-54GT-53FE),Intel,Core i5-1035G1,8,512,14,NVIDIA GeForce MX350,0.99,1.5cm,31.87cm,21.05cm,3997
-Microsoft,Surface Laptop 4 (5PB-00018),,Ryzen 5 4680U,8,256,13.5,AMD Radeon RX Vega 6,1.265,1.45cm,30.8cm,22.3cm,4599
-Acer,Swift 3 (SF314-43-R6WW),AMD,Ryzen 5 5500U,8,512,14,AMD Radeon RX Vega 7,1.2,1.6cm,31.95cm,21.7cm,3399
-Huawei,MateBook 13,Intel,Core i5-8565U,8,512,13,NVIDIA GeForce MX250,1.28,1.49cm,28.6cm,21.1cm,3999
-Huawei,53011PVM,Intel,Core i5-1135G7,16,512,"14""",Intel Iris Xe Graphics G7 80EUs,1.5,1.59cm,30.6cm,22.2cm,4497
-HP,HP Spectre x360 Convertible (14-ea0054TU),Intel,Core i7-1165G7,16,1 TB,13.5,Intel Iris Xe Graphics G7 96EUs,1.34,1.69cm,29.83cm,22.01cm,7099
-HP,Envy 15-EP0009TX,Intel,Core i5-10300H,16,512,15.6,Intel UHD Graphics 630,2.14,1.84cm,35.79cm,23.68cm,5799
-MSI,Modern 15 (A11SB-075),Intel,Core i7-1165G7,8,512,15.6,NVIDIA GeForce MX450,1.6,1.69cm,35.68cm,23.38cm,4399
-Microsoft,Surface Laptop 4 (5UI-00018),AMD,Ryzen 7 4980U,8,256,15,AMD Radeon RX Vega 8,1.542,1.47cm,33.95cm,24.4cm,5999
-Lenovo,Ideapad D330 (82H0000PMJ),Intel,Celeron N4020,4,128,10.1,Intel UHD Graphics 600,1.10,0.95cm,24.9cm,17.8cm,1397
-Acer,Nitro 5 (AN515-56-763W),Intel,Core i7-11370H,8,512,15.6,NVIDIA GeForce GTX 1650,2.3,2.39cm,36.34cm,25.5cm,4499
-MSI,B10RBSW-407 ,Intel,i5-10210U ,8,256,14,NVIDIA Geforce® MX350 ,1.3,1.69cm,31.9cm,22.0cm,3199
-HP,Pavilion Aero Laptop 13-be0048AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69cm,29.7cm,20.9cm,3549
-MSI,14EVO A11M-239,Intel,i7-1185G7,16,512,14,Intel® Iris® Xe Graphics,1.3,1.69cm,31.9cm,21.9cm,5199
-Huawei,MateBook D15,,Core i5-10210U,8,512,15.6,Intel UHD Graphics 620,1.53,1.69cm,35.78cm,22.99cm,2797
-MSI,Summit E13 Flip Evo (A11MT-085),Intel,Core i5-1135G7,16,512,13.4,,1.35,1.49cm,30.02cm,22.23cm,4997
-HP,245 G8,,Ryzen 3 3300U,4,256,14,AMD Radeon RX Vega 6,1.47,1.99cm,32.4cm,22.59cm,2199
-Lenovo,ThinkPad E14 Gen 2 (AMD),AMD,Ryzen 5 PRO 4650U,8,512,14,AMD Radeon RX Vega 6,1.59,1.79cm,32.4cm,22.0cm,3299
-Microsoft,Surface Laptop 4 (5IM-00018),Intel,Core i7-1185G7,16,512,15,Intel Iris Xe Graphics G7 96EUs,1.542,1.47cm,33.95cm,24.4cm,8299
-Asus,ExpertBook B9450 (B9450F-ABM0285R),Intel,Core i5-10210 processor,8,512,14,  Integrated Intel UHD Graphics 620,0.870,1.49cm,32.0cm,20.3cm,6599
-Acer,Chromebook Spin 311 (CP311-2HN-C61K),Intel, Intel® Celeron® N4100,8,64,11.6″,Intel® HD Graphics 600,1.25,1.99cm,29.6cm,20.6cm,1899
-Dell,Latitude 3420,Intel,Core i5-1135G7,8,256,14,Intel Iris Xe Graphics G7 80EUs,1.52,1.76cm,32.6cm,22.6cm,3599
-Asus,A516 (A516E-ABQ1300TS),Intel,Core i3-i3-1115G4,8,256,15.6,Intel UHD Graphics Xe G4 48EUs,1.8,1.99cm,36.02cm,23.49cm,2599
-Microsoft,Surface Laptop 4 (5EB-00018),Intel,Core i7-1185G7,16,512,13.5,Intel Iris Xe Graphics G7 96EUs,1.288,1.45cm,30.8cm,22.3cm,7999
-Huawei,MateBook D15,Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.53,1.69cm,35.78cm,22.99cm,3397
-HP,Laptop 14S-FQ1047AU,AMD,Ryzen 5 5500U,8,512,14,AMD Radeon RX Vega 7,1.47,1.79cm,32.4cm,22.5cm,2799
-HP,Victus 16-E0122AX,AMD,Ryzen 5 5600H,8,512,16.1,NVIDIA GeForce RTX 3050,2.47,2.35cm,37.0cm,26.0cm,3799
-Acer,Enduro Urban N3 (EUN314-51W-58TL),Intel,Core i5-1135G7,4,512,14,Intel Iris Xe Graphics G7 80EUs,1.85,2.19cm,35.1cm,24.5cm,3097
-Asus,Laptop 14 A416 (A416M-ABV344T),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.5,1.99cm,32.54cm,21.6cm,1799
-MSI,Bravo 15 B5DD-098,AMD,Ryzen 7 5800H,8,512,15.6,AMD Radeon RX5500M,2.35,2.5cm,35.9cm,25.9cm,4499
-Lenovo,IdeaPad 3 (81WH004WMJ),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.41,1.99cm,32.42cm,21.57cm,1597
-HP,ProBook 440 G8,Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.38,1.99cm,32.19cm,21.39cm,3691
-Huawei,MateBook 14,AMD,Ryzen 5 4600H,8,512,14,AMD Radeon RX Vega 6,1.49,1.59cm,30.75cm,22.38cm,3999
-HP,Pavilion Aero 13.3 (13-BE0029AU),AMD,Ryzen 7 5800U,8,51,13.3,AMD Radeon RX Vega 8,< 1,1.69cm,29.7cm,20.9cm,3999
-HP,Laptop 14s-dq3001TU,Intel,Celeron N4500,4,512,14,Intel UHD Graphics,1.47,1.79cm,32.4cm,22.5cm,1887
-HP,Laptop 14S-FQ1044AU,AMD,Ryzen 3 5300U,8,512,14,AMD Radeon RX Vega 6,1.47,1.79cm,32.4cm,22.5cm,2699
-Acer,Enduro Urban N3 (EUN314-51W-72QE),Intel,Core i7-1165G7,8,512,14,Intel Iris Xe Graphics,1.85,2.19cm,35.1cm,24.5cm,3899
-Asus,E410M-ABV1254TS,Intel,Celeron N4020,4,512,14,Intel UHD Graphics 600,1.3,1.84cm,32.5cm,21.7cm,2099
-Huawei,MateBook 14s,Intel,Core i7-11370H,16,1 TB,14,Intel Iris Xe Graphics G7 96EUs,1.43,1.67cm,31.38cm,22.98cm,6699
-HP,Omen 16-B0075TX,Intel,Core i7-11800,16,512,16.1,NVIDIA GeForce RTX 3060,2.3,2.3cm,36.92cm,24.8cm,6697
-Lenovo,IdeaPad 3 (82H700D9MJ,Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99cm,32.42cm,21.57cm,2299
-Acer,Predator Helios 300 (PH317-55-76CR),Intel,Core i7-11800H,16,512,17.3,NVIDIA GeForce RTX™ 3060,2.9,2.66cm,39.8cm,27.53cm,7397
-Huawei,MateBook 14s,Intel,Core i5-11300H,8,512,14.2,Intel Iris Xe Graphics G7 80EUs,1.43,1.67cm,31.38cm,22.98cm,4999
-HP,Laptop 14s-dq3000TU,Intel,Celeron N4500,4,512,14,Intel UHD Graphics,1.47,1.79cm,32.4cm,22.5cm,1697
-HP,Laptop 15s-du1510TU,Intel,Core i3-10110U,8,512,15.6,Intel UHD Graphics 620,1.74,1.99cm,35.85cm,24.2cm,2519
-Asus,VivoBook 15 OLED K513 (K513E-AL11109TS),Intel,Core i3-1115G4,4,512,"15,6",Intel UHD Graphics Xe G4 48EUs,1.8,1.79cm,35.9cm,23.5cm,2697
-Lenovo,ThinkPad E14 Gen 2,Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.59,1.79cm,32.4cm,22.0cm,4297
-Asus,A416J-ABV1235TS,Intel,Core i3-1005G1,4,256,14,Intel UHD Graphics G1 (Ice Lake 32 EU),1.6,1.99cm,32.54cm,21.6cm,2199
-,IdeaPad 3 (81WH004VMJ),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.41,1.99cm,32.42cm,21.57cm,1597
-HP,Pavilion Aero Laptop 13-be0045AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69cm,29.7cm,20.9cm,3497
-HP,Pavilion Aero Laptop 13-be0044AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69cm,29.7cm,20.9cm,3749
-HP,Pavilion Aero Laptop 13-be0028AU,AMD,Ryzen 7 5800U,8,512,13.3,AMD Radeon RX Vega 8,< 1,1.69cm,29.7cm,20.9cm,3999
-Huawei,MateBook 14 (2021),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.49,1.59cm,30.6cm,22.2cm,4197
-Lenovo,IdeaPad 3 (82H700D8MJ),Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99cm,32.42cm,21.57cm,2297
-HP,Pavilion Laptop 14-DV1006TX,Intel,Core i5-1155G7,8,512,14,NVIDIA GeForce MX450,1.41,1.7cm,32.5cm,21.66cm,3899
-Acer,Nitro 5 (AN515-45-R7ND),AMD,Ryzen 5 5600H,8,512,15.6,NVIDIA GeForce GTX1650,2.20,2.39cm,36.34cm,25.5cm,3699
-Acer,Nitro 5 (AN515-45-R91U),AMD,Ryzen 7 5800H,8,512,15.6,NVIDIA GeForce RTX 3050Ti,2.20,2.39cm,36.34cm,25.5cm,4699
-Asus,VivoBook Pro 15 OLED (M3500Q-CL1212TS),AMD,Ryzen 9 5900HX,16,512,15.6,NVIDIA GeForce RTX 3050, 1.65,1.89cm,35.98cm,23.53cm,5199
-Acer,Aspire 3 (A314-35-C1EO),Intel,Celeron N4500,4,256,15.6,Intel UHD Graphics,1.9,1.99cm,36.34cm,23.84cm,1625
-Acer,Swift 3 (SF314-511-76QE),Intel,Core i7-1165G7,16,512,14,Intel Iris Xe Graphics G7 96EUs,1.2,1.59cm,32.28cm,21.22cm,4399
-Asus,Laptop 14 A416 (A416M-ABV550W),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.5,1.99cm,32.54cm,21.6cm,1597
-Asus,Vivobook Pro 15 OLED (M3500Q-CL1185TS),AMD,Ryzen 5 5600H,8,512,15.6,NVIDIA GeForce RTX 3050,1.65,1.99cm,35.98cm,23.53cm,4299
-HP,Omen 16-B0074TX,Intel,Core i7-11800H,16,512,16.1,NVIDIA GeForce RTX 3070 with Max-Q design,2.3,2.3cm,36.92cm,24.8cm,7397
-HP,Spectre x360 Convertible 14-ea1022TU,Intel,Core i7-1195G7,16,1 TB,13.5,Intel Iris Xe Graphics G7 96EUs,1.34,1.69cm,29.83cm,22.01cm,7099
-Acer,Nitro 5 (AN515-45-R7N5),AMD,Ryzen 7 5800H ,8,512,15.6,NVIDIA GeForce GTX 1650,2.2,2.39cm,36.34cm,25.5cm,4199
-Acer,Enduro Urban N3 (EUN314A-51W-592A),Intel,1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.85,2.19cm,35.1cm,24.5cm,3257
-Asus,Zenbook Duo 14 (UX482E-GHY269TS),Intel,Core i7-1165G7,16,512,14,NVIDIA GeForce MX450,1.62,1.73cm,32.42cm,22.2cm,6999
-MSI,Creator Z16 A11UET 207,Intel,Core i7-11800H,32,1 TB,16,NVIDIA GeForce RTX 3060,2.2,1.59cm,35.9cm,25.6cm,11999
-HP,Laptop 15S-EQ1017AU,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon RX Vega 2,1.7,1.79cm,35.85cm,24.2cm,1699
-Acer,Swift X (SFX14-41G-R8QW),AMD,Ryzen 5 5600U,8,512,14,NVIDIA GeForce RTX 3050Ti,1.5,1.79cm,32.28cm,21.22cm,4299
-HP,Laptop 15S-EQ1017AU,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon RX Vega 2,1.7,1.79cm,35.85cm,24.2cm,1597
-MSI,Modern 14 B11MOU-870,Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.3,1.81cm,31.9cm,21.9cm,2497
-MSI,GF65 Thin (10UE-266),Intel,Core i7 10750H,8,512,15.6,NVIDIA GeForce RTX 3060 Max-Q,1.86,2.17cm,35.9cm,25.4cm,5299
-,Laptop 15S-FQ2511TU,Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics,1.7,1.79cm,35.8cm,24.2cm,3029
-HP,Envy x360 Convert 13-BD0507TU,Intel,Core i7-1165G7,8,512,13.3,Intel Iris Xe Graphics,1.33,1.64cm,30.65cm,19.46cm,5159
-Asus,ZenBook Duo 14 (UX482E-GHY071TS),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.62,1.73cm,32.4cm,22.2cm,5797
-Acer,Swift 1 (SF114-34-P9TR),Intel,N6000,8,256,14,Intel UHD Graphics,1.30,1.4cm,32.28cm,21.2cm,2199
-Acer,Nitro 5 (AN515-57-73H1),Intel,Core i7-11800H,16,512,15.6,NVIDIA GeForce GTX 1650,2.2,2.39cm,36.34cm,25.5cm,4599
-Acer,Nitro 5 (AN515-55-79CU),Intel,Core i7-10750H,8,512,15.6,NVIDIA GeForce GTX 1660 Ti,2.3,2.39cm,36.34cm,25.5cm,4899
-Acer,Nitro 5 (AN515-57-536D),Intel,Core i5-11400H,8,512,15.6,NVIDIA GeForce RTX 3050,2.2,2.39cm,36.34cm,25.5cm,4099
-Acer,Nitro 5 (AN515-57-76RF),Intel,Core i7-11800H,8,512,15.6,NVIDIA GeForce RTX 3050,2.2,2.39cm,36.34cm,25.5cm,4799
-,Aspire 3 (A315-35-P4R5),Intel,Pentium Silver N6000,4,256,15.6,Intel UHD Graphics,1.65,1.99cm,34.3cm,24.5cm,1799
-Asus,ROG Zephyrus (GA503Q-MHQ077T),AMD,5900HS,16 GB,512 GB,"15.6""",GeForce RTX 3060,1.90,1.99cm,35.5cm,24.3cm,6999
-Acer,Aspire 3 (A315-35-C1E0),Intel,Celeron N4500,4,256,15.6,Intel UHD Graphics,1.65,1.99cm,34.3cm,24.5cm,1799
-HP,Pavilion Laptop 15-EG1031TU,Intel,Core i5-1155G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.7,1.79cm,36.02cm,23.4cm,3559
-HP,Laptop 14s-fq1043AU,AMD,Ryzen 3 5300U,8,512,14,AMD Radeon RX Vega 6,1.47,1.79cm,32.4cm,22.5cm,2599
-HP,ENVY x360 Laptop 13-ay1012AU,AMD,5800U,16 GB,512 GB,13.3,AMD Radeon Graphics,1.32,1.64cm,30.65cm,19.46cm,4799
-HP,Laptop 15S-EQ1541AU,AMD,Ryzen 3 4300U,8,512,15.6,AMD Radeon Graphics,1.7,1.79cm,35.85cm,24.2cm,2599
-MSI,Modern 15 (A5M-094),AMD,Ryzen 7 5700U,8,512,15.6,AMD Radeon RX Vega 8,1.6,1.69cm,35.68cm,23.38cm,3099
-MSI,Prestige 14 (A11SB-640),Intel,1185G7,16 GB,512GB,14,NVIDIA GeForce MX450,1.29,1.59cm,31.9cm,21.9cm,4333
-HP,Pavilion Laptop 14-DV1028TU,Intel,Core i5-1155G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.41,1.7cm,32.5cm,21.66cm,3559
-Lenovo,IdeaPad 3 (82H80256MJ),Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.65,1.99cm,35.92cm,23.65cm,2897
-HP,Laptop 15S-EQ2070AU,AMD,Ryzen 5 5500U,8,512,15.6,AMD Radeon RX Vega 7,2,1.79cm,35.85cm,24.2cm,2699
-Acer,Swift 3 (SF314-511-51XN),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.2,1.6cm,32.34cm,21.89cm,3197
-Asus,VivoBook Go 14 (E410K-ABV256WS),Intel,Celeron N4500,8,256,14,Intel UHD Graphics,1.3,1.84cm,32.5cm,21.7cm,1849
-MSI,Creator Z16 A11UET 207,Intel,Core i7-11800H,32,1 TB,16,NVIDIA GeForce RTX 3060,2.2,1.59cm,35.9cm,25.6cm,11999
-HP,Laptop 15S-EQ2073AU,AMD,Ryzen 5 5500U,8,512,15.6,AMD Radeon RX Vega 7,1.69,1.79cm,35.85cm,24.2cm,2699
-Lenovo,IdeaPad 3 (81W000RXMJ),AMD,Athlon Gold 3150U,4,256,14,AMD Radeon RX Vega 3,1.6,1.99cm,32.71cm,24.1cm,1799
-Huawei,MateBook 14s,Intel,Core i5-11300H,8,512,14.2,Intel Iris Xe Graphics G7 80EUs,1.43,1.67cm,31.38cm,22.98cm,4999
-Asus,Laptop 15 A516 (A516E-AEJ1847WS),Intel,Core i3-i3-1115G4,4,512,15.6,Intel UHD Graphics Xe G4 48EUs, 1.8,1.99cm,36.02cm,23.49cm,2277
-HP,Envy x360 13-BD0508TU,Intel,Core i5-1135G7,8,512,13.3,Intel Iris Xe Graphics G7 80EUs,1.33,1.64cm,30.65cm,19.46cm,4245
-MSI,Pulse GL66 11UCK-624,Intel,Core i7-11800H,8,512,15.6,NVIDIA GeForce RTX 3050,2.25,2.4cm,35.9cm,25.9cm,5599
-Lenovo,ThinkBook 14 Gen 2 (20VD003HMJ),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.4,1.79cm,32.3cm,21.8cm,3599
-HP,15s-FQ2514TU,Intel,Core i3-1115G4,8,512,15.6,Intel UHD Graphics Xe G4 48EUs,1.7,1.79cm,35.85cm,24.2cm,2699
-HP,ENVY x360 Convert 13-ay1013AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,1.3,1.64cm,30.65cm,19.46cm,3999
-HP,Laptop 15s-du3023TX,Intel,Core i5-1135G7,8,512,15.6,NVIDIA GeForce MX350,2.53,1.99cm,35.85cm,24.2cm,3299
-HP,ProBook 440 G8,Intel,Core i5-1135G7,8,256,14,Intel Iris Xe Graphics G7 80EUs,1.38,1.99cm,32.19cm,21.39cm,3397
-Lenovo,IdeaPad 1 (81VT003RMJ),Intel,Celeron N4020,4,256,11.6,Intel UHD Graphics 600,1.2,1.79cm,28.8cm,20.0cm,1497
-HP,Victus 16-E0120AX,AMD,Ryzen 7 5800H,8,512,16.1,NVIDIA GeForce RTX 3050 Ti ,2.47,2.35cm,37.0cm,26.0cm,4698
-HP,Victus 16-E0127AX,AMD,Ryzen 5 5600H,8,512,16.1,NVIDIA GeForce GTX 1650,2.47,2.35cm,37.0cm,26.0cm,4099
-Lenovo,Ideapad 3 (81WD00N1MJ),Intel,Core i3-1115G4,8,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99cm,32.42cm,21.57cm,2207
-Asus,M415U-AEB160TS,AMD,Ryzen 3 5300,4,512,14,AMD Radeon RX Vega 6,1.6,1.99cm,32.54cm,21.6cm,2499
-HP,Laptop 15s-eq1017au,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon Graphics,1.69,1.79cm,35.85cm,24.2cm,1799
-Acer,Nitro 5 (AN515-55-79VX),Intel,i7-10750H,8,512,15.6,NVIDIA GeForce RTX3060,2.3,2.39cm,36.34cm,25.5cm,5299
-Huawei,MateBook X Pro,Intel,Core i5-1135G7,16,512,13.9,Intel Iris Xe Graphics G7 80EUs,1.33,1.46cm,30.4cm,21.7cm,6899
-Acer,Swift 5 (SF514-54GT-52ZJ),Intel,Core i5-1035G1,8,512,14,NVIDIA GeForce MX350,0.99,1.5cm,31.87cm,21.05cm,4199
-HP,Pavilion Aero Laptop 13 (13-BE0047AU),AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69cm,29.7cm,20.9cm,3549
-HP,Chromebook x360 11 G3,Intel,Celeron N4020,4,32,11.6,Intel UHD Graphics 600,1.45,2.09cm,29.5cm,20.53cm,1097
-HP,14s-FQ0069AU,AMD,Silver 3050U,4 GB,512,"14""",,1.47,,,,1697
-Microsoft,Surface Laptop Studio (THR-00017),Intel,Core i5-11300H,16,256,14.4,Intel Iris Xe Graphics,1.743,1.89cm,32.33cm,22.83cm,7399
+Microsoft,Surface Laptop Go (THH-00018),Intel,Core i5-1035G1,8,128,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57,27.82,20.57,3388
+MSI,Prestige 14 (A10RBS-255) ,Intel,Core i7-10510U,16,512,14,Nvidia Geforce MX350,1.29,1.59,31.9,21.5,3697
+Microsoft,"Surface Laptop 3 13.5"" (V4C-00037)",Intel,Core i5-1035G7,8,256,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.288,1.45,30.8,22.3,5287
+Microsoft,Surface Laptop Go (1ZO-00018),Intel,Core i5-1035G1,4,64,12.4,Intel UHD Graphics G1 (Ice Lake 32 EU),1.11,1.57,27.82,20.57,2758
+,Surface Laptop Studio (A1Y-00017),Intel,Core i7-11370H,16,512,14.4,NVIDIA GeForce RTX 3050 Ti,1.82,1.89,32.33,22.83,9399
+HP,Pavilion 14-DV0072TX,Intel,Core i5-1135G7,8,512,14,NVIDIA GeForce MX450,1.41,1.7,32.5,21.66,3499
+Microsoft,"Surface Laptop 3 13.5"" (VGY-00016)",Intel,Core i5-1035G7,8,128,13.5,Intel Iris Plus Graphics G7 (Ice Lake 64 EU),1.265,1.45,30.8,22.3,3999
+Lenovo,Thinkpad T490 (20RYS0MD00),Intel,Core i5-10210U,8,256,14,Intel UHD Graphics 620,1.46,1.89,32.9,22.7,3659
+Acer,Swift 5 (SF514-54GT-53FE),Intel,Core i5-1035G1,8,512,14,NVIDIA GeForce MX350,0.99,1.5,31.87,21.05,3997
+Microsoft,Surface Laptop 4 (5PB-00018),,Ryzen 5 4680U,8,256,13.5,AMD Radeon RX Vega 6,1.265,1.45,30.8,22.3,4599
+Acer,Swift 3 (SF314-43-R6WW),AMD,Ryzen 5 5500U,8,512,14,AMD Radeon RX Vega 7,1.2,1.6,31.95,21.7,3399
+Huawei,MateBook 13,Intel,Core i5-8565U,8,512,13,NVIDIA GeForce MX250,1.28,1.49,28.6,21.1,3999
+Huawei,53011PVM,Intel,Core i5-1135G7,16,512,14,Intel Iris Xe Graphics G7 80EUs,1.5,1.59,30.6,22.2,4497
+HP,HP Spectre x360 Convertible (14-ea0054TU),Intel,Core i7-1165G7,16,1024,13.5,Intel Iris Xe Graphics G7 96EUs,1.34,1.69,29.83,22.01,7099
+HP,Envy 15-EP0009TX,Intel,Core i5-10300H,16,512,15.6,Intel UHD Graphics 630,2.14,1.84,35.79,23.68,5799
+MSI,Modern 15 (A11SB-075),Intel,Core i7-1165G7,8,512,15.6,NVIDIA GeForce MX450,1.6,1.69,35.68,23.38,4399
+Microsoft,Surface Laptop 4 (5UI-00018),AMD,Ryzen 7 4980U,8,256,15,AMD Radeon RX Vega 8,1.542,1.47,33.95,24.4,5999
+Lenovo,Ideapad D330 (82H0000PMJ),Intel,Celeron N4020,4,128,10.1,Intel UHD Graphics 600,1.10,0.95,24.9,17.8,1397
+Acer,Nitro 5 (AN515-56-763W),Intel,Core i7-11370H,8,512,15.6,NVIDIA GeForce GTX 1650,2.3,2.39,36.34,25.5,4499
+MSI,B10RBSW-407 ,Intel,i5-10210U ,8,256,14,NVIDIA Geforce® MX350 ,1.3,1.69,31.9,22.0,3199
+HP,Pavilion Aero Laptop 13-be0048AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69,29.7,20.9,3549
+MSI,14EVO A11M-239,Intel,i7-1185G7,16,512,14,Intel® Iris® Xe Graphics,1.3,1.69,31.9,21.9,5199
+Huawei,MateBook D15,,Core i5-10210U,8,512,15.6,Intel UHD Graphics 620,1.53,1.69,35.78,22.99,2797
+MSI,Summit E13 Flip Evo (A11MT-085),Intel,Core i5-1135G7,16,512,13.4,,1.35,1.49,30.02,22.23,4997
+HP,245 G8,,Ryzen 3 3300U,4,256,14,AMD Radeon RX Vega 6,1.47,1.99,32.4,22.59,2199
+Lenovo,ThinkPad E14 Gen 2 (AMD),AMD,Ryzen 5 PRO 4650U,8,512,14,AMD Radeon RX Vega 6,1.59,1.79,32.4,22.0,3299
+Microsoft,Surface Laptop 4 (5IM-00018),Intel,Core i7-1185G7,16,512,15,Intel Iris Xe Graphics G7 96EUs,1.542,1.47,33.95,24.4,8299
+Asus,ExpertBook B9450 (B9450F-ABM0285R),Intel,Core i5-10210 processor,8,512,14,  Integrated Intel UHD Graphics 620,0.870,1.49,32.0,20.3,6599
+Acer,Chromebook Spin 311 (CP311-2HN-C61K),Intel, Intel® Celeron® N4100,8,64,11.6,Intel® HD Graphics 600,1.25,1.99,29.6,20.6,1899
+Dell,Latitude 3420,Intel,Core i5-1135G7,8,256,14,Intel Iris Xe Graphics G7 80EUs,1.52,1.76,32.6,22.6,3599
+Asus,A516 (A516E-ABQ1300TS),Intel,Core i3-i3-1115G4,8,256,15.6,Intel UHD Graphics Xe G4 48EUs,1.8,1.99,36.02,23.49,2599
+Microsoft,Surface Laptop 4 (5EB-00018),Intel,Core i7-1185G7,16,512,13.5,Intel Iris Xe Graphics G7 96EUs,1.288,1.45,30.8,22.3,7999
+Huawei,MateBook D15,Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.53,1.69,35.78,22.99,3397
+HP,Laptop 14S-FQ1047AU,AMD,Ryzen 5 5500U,8,512,14,AMD Radeon RX Vega 7,1.47,1.79,32.4,22.5,2799
+HP,Victus 16-E0122AX,AMD,Ryzen 5 5600H,8,512,16.1,NVIDIA GeForce RTX 3050,2.47,2.35,37.0,26.0,3799
+Acer,Enduro Urban N3 (EUN314-51W-58TL),Intel,Core i5-1135G7,4,512,14,Intel Iris Xe Graphics G7 80EUs,1.85,2.19,35.1,24.5,3097
+Asus,Laptop 14 A416 (A416M-ABV344T),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.5,1.99,32.54,21.6,1799
+MSI,Bravo 15 B5DD-098,AMD,Ryzen 7 5800H,8,512,15.6,AMD Radeon RX5500M,2.35,2.5,35.9,25.9,4499
+Lenovo,IdeaPad 3 (81WH004WMJ),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.41,1.99,32.42,21.57,1597
+HP,ProBook 440 G8,Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.38,1.99,32.19,21.39,3691
+Huawei,MateBook 14,AMD,Ryzen 5 4600H,8,512,14,AMD Radeon RX Vega 6,1.49,1.59,30.75,22.38,3999
+HP,Pavilion Aero 13.3 (13-BE0029AU),AMD,Ryzen 7 5800U,8,51,13.3,AMD Radeon RX Vega 8,< 1,1.69,29.7,20.9,3999
+HP,Laptop 14s-dq3001TU,Intel,Celeron N4500,4,512,14,Intel UHD Graphics,1.47,1.79,32.4,22.5,1887
+HP,Laptop 14S-FQ1044AU,AMD,Ryzen 3 5300U,8,512,14,AMD Radeon RX Vega 6,1.47,1.79,32.4,22.5,2699
+Acer,Enduro Urban N3 (EUN314-51W-72QE),Intel,Core i7-1165G7,8,512,14,Intel Iris Xe Graphics,1.85,2.19,35.1,24.5,3899
+Asus,E410M-ABV1254TS,Intel,Celeron N4020,4,512,14,Intel UHD Graphics 600,1.3,1.84,32.5,21.7,2099
+Huawei,MateBook 14s,Intel,Core i7-11370H,16,1024,14,Intel Iris Xe Graphics G7 96EUs,1.43,1.67,31.38,22.98,6699
+HP,Omen 16-B0075TX,Intel,Core i7-11800,16,512,16.1,NVIDIA GeForce RTX 3060,2.3,2.3,36.92,24.8,6697
+Lenovo,IdeaPad 3 (82H700D9MJ,Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99,32.42,21.57,2299
+Acer,Predator Helios 300 (PH317-55-76CR),Intel,Core i7-11800H,16,512,17.3,NVIDIA GeForce RTX™ 3060,2.9,2.66,39.8,27.53,7397
+Huawei,MateBook 14s,Intel,Core i5-11300H,8,512,14.2,Intel Iris Xe Graphics G7 80EUs,1.43,1.67,31.38,22.98,4999
+HP,Laptop 14s-dq3000TU,Intel,Celeron N4500,4,512,14,Intel UHD Graphics,1.47,1.79,32.4,22.5,1697
+HP,Laptop 15s-du1510TU,Intel,Core i3-10110U,8,512,15.6,Intel UHD Graphics 620,1.74,1.99,35.85,24.2,2519
+Asus,VivoBook 15 OLED K513 (K513E-AL11109TS),Intel,Core i3-1115G4,4,512,15.6,Intel UHD Graphics Xe G4 48EUs,1.8,1.79,35.9,23.5,2697
+Lenovo,ThinkPad E14 Gen 2,Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.59,1.79,32.4,22.0,4297
+Asus,A416J-ABV1235TS,Intel,Core i3-1005G1,4,256,14,Intel UHD Graphics G1 (Ice Lake 32 EU),1.6,1.99,32.54,21.6,2199
+,IdeaPad 3 (81WH004VMJ),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.41,1.99,32.42,21.57,1597
+HP,Pavilion Aero Laptop 13-be0045AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69,29.7,20.9,3497
+HP,Pavilion Aero Laptop 13-be0044AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69,29.7,20.9,3749
+HP,Pavilion Aero Laptop 13-be0028AU,AMD,Ryzen 7 5800U,8,512,13.3,AMD Radeon RX Vega 8,< 1,1.69,29.7,20.9,3999
+Huawei,MateBook 14 (2021),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.49,1.59,30.6,22.2,4197
+Lenovo,IdeaPad 3 (82H700D8MJ),Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99,32.42,21.57,2297
+HP,Pavilion Laptop 14-DV1006TX,Intel,Core i5-1155G7,8,512,14,NVIDIA GeForce MX450,1.41,1.7,32.5,21.66,3899
+Acer,Nitro 5 (AN515-45-R7ND),AMD,Ryzen 5 5600H,8,512,15.6,NVIDIA GeForce GTX1650,2.20,2.39,36.34,25.5,3699
+Acer,Nitro 5 (AN515-45-R91U),AMD,Ryzen 7 5800H,8,512,15.6,NVIDIA GeForce RTX 3050Ti,2.20,2.39,36.34,25.5,4699
+Asus,VivoBook Pro 15 OLED (M3500Q-CL1212TS),AMD,Ryzen 9 5900HX,16,512,15.6,NVIDIA GeForce RTX 3050, 1.65,1.89,35.98,23.53,5199
+Acer,Aspire 3 (A314-35-C1EO),Intel,Celeron N4500,4,256,15.6,Intel UHD Graphics,1.9,1.99,36.34,23.84,1625
+Acer,Swift 3 (SF314-511-76QE),Intel,Core i7-1165G7,16,512,14,Intel Iris Xe Graphics G7 96EUs,1.2,1.59,32.28,21.22,4399
+Asus,Laptop 14 A416 (A416M-ABV550W),Intel,Celeron N4020,4,256,14,Intel UHD Graphics 600,1.5,1.99,32.54,21.6,1597
+Asus,Vivobook Pro 15 OLED (M3500Q-CL1185TS),AMD,Ryzen 5 5600H,8,512,15.6,NVIDIA GeForce RTX 3050,1.65,1.99,35.98,23.53,4299
+HP,Omen 16-B0074TX,Intel,Core i7-11800H,16,512,16.1,NVIDIA GeForce RTX 3070 with Max-Q design,2.3,2.3,36.92,24.8,7397
+HP,Spectre x360 Convertible 14-ea1022TU,Intel,Core i7-1195G7,16,1024,13.5,Intel Iris Xe Graphics G7 96EUs,1.34,1.69,29.83,22.01,7099
+Acer,Nitro 5 (AN515-45-R7N5),AMD,Ryzen 7 5800H ,8,512,15.6,NVIDIA GeForce GTX 1650,2.2,2.39,36.34,25.5,4199
+Acer,Enduro Urban N3 (EUN314A-51W-592A),Intel,1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.85,2.19,35.1,24.5,3257
+Asus,Zenbook Duo 14 (UX482E-GHY269TS),Intel,Core i7-1165G7,16,512,14,NVIDIA GeForce MX450,1.62,1.73,32.42,22.2,6999
+MSI,Creator Z16 A11UET 207,Intel,Core i7-11800H,32,1024,16,NVIDIA GeForce RTX 3060,2.2,1.59,35.9,25.6,11999
+HP,Laptop 15S-EQ1017AU,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon RX Vega 2,1.7,1.79,35.85,24.2,1699
+Acer,Swift X (SFX14-41G-R8QW),AMD,Ryzen 5 5600U,8,512,14,NVIDIA GeForce RTX 3050Ti,1.5,1.79,32.28,21.22,4299
+HP,Laptop 15S-EQ1017AU,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon RX Vega 2,1.7,1.79,35.85,24.2,1597
+MSI,Modern 14 B11MOU-870,Intel,Core i3-1115G4,4,512,14,Intel UHD Graphics Xe G4 48EUs,1.3,1.81,31.9,21.9,2497
+MSI,GF65 Thin (10UE-266),Intel,Core i7 10750H,8,512,15.6,NVIDIA GeForce RTX 3060 Max-Q,1.86,2.17,35.9,25.4,5299
+,Laptop 15S-FQ2511TU,Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics,1.7,1.79,35.8,24.2,3029
+HP,Envy x360 Convert 13-BD0507TU,Intel,Core i7-1165G7,8,512,13.3,Intel Iris Xe Graphics,1.33,1.64,30.65,19.46,5159
+Asus,ZenBook Duo 14 (UX482E-GHY071TS),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.62,1.73,32.4,22.2,5797
+Acer,Swift 1 (SF114-34-P9TR),Intel,N6000,8,256,14,Intel UHD Graphics,1.30,1.4,32.28,21.2,2199
+Acer,Nitro 5 (AN515-57-73H1),Intel,Core i7-11800H,16,512,15.6,NVIDIA GeForce GTX 1650,2.2,2.39,36.34,25.5,4599
+Acer,Nitro 5 (AN515-55-79CU),Intel,Core i7-10750H,8,512,15.6,NVIDIA GeForce GTX 1660 Ti,2.3,2.39,36.34,25.5,4899
+Acer,Nitro 5 (AN515-57-536D),Intel,Core i5-11400H,8,512,15.6,NVIDIA GeForce RTX 3050,2.2,2.39,36.34,25.5,4099
+Acer,Nitro 5 (AN515-57-76RF),Intel,Core i7-11800H,8,512,15.6,NVIDIA GeForce RTX 3050,2.2,2.39,36.34,25.5,4799
+,Aspire 3 (A315-35-P4R5),Intel,Pentium Silver N6000,4,256,15.6,Intel UHD Graphics,1.65,1.99,34.3,24.5,1799
+Asus,ROG Zephyrus (GA503Q-MHQ077T),AMD,5900HS,16,512,15.6,GeForce RTX 3060,1.90,1.99,35.5,24.3,6999
+Acer,Aspire 3 (A315-35-C1E0),Intel,Celeron N4500,4,256,15.6,Intel UHD Graphics,1.65,1.99,34.3,24.5,1799
+HP,Pavilion Laptop 15-EG1031TU,Intel,Core i5-1155G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.7,1.79,36.02,23.4,3559
+HP,Laptop 14s-fq1043AU,AMD,Ryzen 3 5300U,8,512,14,AMD Radeon RX Vega 6,1.47,1.79,32.4,22.5,2599
+HP,ENVY x360 Laptop 13-ay1012AU,AMD,5800U,16,512,13.3,AMD Radeon Graphics,1.32,1.64,30.65,19.46,4799
+HP,Laptop 15S-EQ1541AU,AMD,Ryzen 3 4300U,8,512,15.6,AMD Radeon Graphics,1.7,1.79,35.85,24.2,2599
+MSI,Modern 15 (A5M-094),AMD,Ryzen 7 5700U,8,512,15.6,AMD Radeon RX Vega 8,1.6,1.69,35.68,23.38,3099
+MSI,Prestige 14 (A11SB-640),Intel,1185G7,16,512,14,NVIDIA GeForce MX450,1.29,1.59,31.9,21.9,4333
+HP,Pavilion Laptop 14-DV1028TU,Intel,Core i5-1155G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.41,1.7,32.5,21.66,3559
+Lenovo,IdeaPad 3 (82H80256MJ),Intel,Core i5-1135G7,8,512,15.6,Intel Iris Xe Graphics G7 80EUs,1.65,1.99,35.92,23.65,2897
+HP,Laptop 15S-EQ2070AU,AMD,Ryzen 5 5500U,8,512,15.6,AMD Radeon RX Vega 7,2,1.79,35.85,24.2,2699
+Acer,Swift 3 (SF314-511-51XN),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.2,1.6,32.34,21.89,3197
+Asus,VivoBook Go 14 (E410K-ABV256WS),Intel,Celeron N4500,8,256,14,Intel UHD Graphics,1.3,1.84,32.5,21.7,1849
+MSI,Creator Z16 A11UET 207,Intel,Core i7-11800H,32,1024,16,NVIDIA GeForce RTX 3060,2.2,1.59,35.9,25.6,11999
+HP,Laptop 15S-EQ2073AU,AMD,Ryzen 5 5500U,8,512,15.6,AMD Radeon RX Vega 7,1.69,1.79,35.85,24.2,2699
+Lenovo,IdeaPad 3 (81W000RXMJ),AMD,Athlon Gold 3150U,4,256,14,AMD Radeon RX Vega 3,1.6,1.99,32.71,24.1,1799
+Huawei,MateBook 14s,Intel,Core i5-11300H,8,512,14.2,Intel Iris Xe Graphics G7 80EUs,1.43,1.67,31.38,22.98,4999
+Asus,Laptop 15 A516 (A516E-AEJ1847WS),Intel,Core i3-i3-1115G4,4,512,15.6,Intel UHD Graphics Xe G4 48EUs, 1.8,1.99,36.02,23.49,2277
+HP,Envy x360 13-BD0508TU,Intel,Core i5-1135G7,8,512,13.3,Intel Iris Xe Graphics G7 80EUs,1.33,1.64,30.65,19.46,4245
+MSI,Pulse GL66 11UCK-624,Intel,Core i7-11800H,8,512,15.6,NVIDIA GeForce RTX 3050,2.25,2.4,35.9,25.9,5599
+Lenovo,ThinkBook 14 Gen 2 (20VD003HMJ),Intel,Core i5-1135G7,8,512,14,Intel Iris Xe Graphics G7 80EUs,1.4,1.79,32.3,21.8,3599
+HP,15s-FQ2514TU,Intel,Core i3-1115G4,8,512,15.6,Intel UHD Graphics Xe G4 48EUs,1.7,1.79,35.85,24.2,2699
+HP,ENVY x360 Convert 13-ay1013AU,AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,1.3,1.64,30.65,19.46,3999
+HP,Laptop 15s-du3023TX,Intel,Core i5-1135G7,8,512,15.6,NVIDIA GeForce MX350,2.53,1.99,35.85,24.2,3299
+HP,ProBook 440 G8,Intel,Core i5-1135G7,8,256,14,Intel Iris Xe Graphics G7 80EUs,1.38,1.99,32.19,21.39,3397
+Lenovo,IdeaPad 1 (81VT003RMJ),Intel,Celeron N4020,4,256,11.6,Intel UHD Graphics 600,1.2,1.79,28.8,20.0,1497
+HP,Victus 16-E0120AX,AMD,Ryzen 7 5800H,8,512,16.1,NVIDIA GeForce RTX 3050 Ti ,2.47,2.35,37.0,26.0,4698
+HP,Victus 16-E0127AX,AMD,Ryzen 5 5600H,8,512,16.1,NVIDIA GeForce GTX 1650,2.47,2.35,37.0,26.0,4099
+Lenovo,Ideapad 3 (81WD00N1MJ),Intel,Core i3-1115G4,8,512,14,Intel UHD Graphics Xe G4 48EUs,1.41,1.99,32.42,21.57,2207
+Asus,M415U-AEB160TS,AMD,Ryzen 3 5300,4,512,14,AMD Radeon RX Vega 6,1.6,1.99,32.54,21.6,2499
+HP,Laptop 15s-eq1017au,AMD,Athlon Silver 3050U,4,256,15.6,AMD Radeon Graphics,1.69,1.79,35.85,24.2,1799
+Acer,Nitro 5 (AN515-55-79VX),Intel,i7-10750H,8,512,15.6,NVIDIA GeForce RTX3060,2.3,2.39,36.34,25.5,5299
+Huawei,MateBook X Pro,Intel,Core i5-1135G7,16,512,13.9,Intel Iris Xe Graphics G7 80EUs,1.33,1.46,30.4,21.7,6899
+Acer,Swift 5 (SF514-54GT-52ZJ),Intel,Core i5-1035G1,8,512,14,NVIDIA GeForce MX350,0.99,1.5,31.87,21.05,4199
+HP,Pavilion Aero Laptop 13 (13-BE0047AU),AMD,Ryzen 5 5600U,8,512,13.3,AMD Radeon RX Vega 7,< 1,1.69,29.7,20.9,3549
+HP,Chromebook x360 11 G3,Intel,Celeron N4020,4,32,11.6,Intel UHD Graphics 600,1.45,2.09,29.5,20.53,1097
+HP,14s-FQ0069AU,AMD,Silver 3050U,4,512,14,,1.47,,,,1697
+Microsoft,Surface Laptop Studio (THR-00017),Intel,Core i5-11300H,16,256,14.4,Intel Iris Xe Graphics,1.743,1.89,32.33,22.83,7399

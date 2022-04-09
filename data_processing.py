@@ -33,9 +33,21 @@ def process_notebook_data():
     # remove notebooks that do not have information about cpu, ram, and storage
     notebook_data = notebook_data.dropna(subset=["cpu", "ram", "storage"])
 
+    notebook_data["ram"] = (notebook_data["ram"].str.replace("GB", "", regex=True)).str.strip()
+    notebook_data["storage"] = (notebook_data["storage"].str.replace("GB", "", regex=True)).str.strip()
+    notebook_data["storage"] = (notebook_data["storage"].str.replace("1 TB", "1024", regex=True)).str.strip()
+
+    notebook_data["gpu"] = notebook_data["gpu"].str.replace("ᵉ", "e", regex=True)
+    notebook_data["screen_size"] = notebook_data["screen_size"].str.replace(",", ".", regex=True)
+    notebook_data["screen_size"] = notebook_data["screen_size"].str.replace("\"|″", "", regex=True)
+
     # switch the positions of height, width, and depth to unify
     notebook_data.loc[:, ["height", "width", "depth"]] = notebook_data.loc[:, ["height", "width", "depth"]].apply(
         reorder_sizes, axis=1)
+
+    notebook_data["height"] = notebook_data["height"].str.replace("cm", "", regex=True)
+    notebook_data["width"] = notebook_data["width"].str.replace("cm", "", regex=True)
+    notebook_data["depth"] = notebook_data["depth"].str.replace("cm", "", regex=True)
 
     return notebook_data
 
