@@ -1,0 +1,15 @@
+class Notebook:
+    def __init__(self):
+        self.brand = ""
+        self.model = ""
+        self.cpu_brand = ""
+        self.cpu = ""
+        self.ram = ""
+        self.storage = ""
+        self.screen_size = ""
+        self.gpu = ""
+        self.weight = ""
+        self.height = ""
+        self.width = ""
+        self.depth = ""
+        self.price = ""
