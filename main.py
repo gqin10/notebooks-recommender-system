@@ -1,6 +1,7 @@
 from Notebook import Notebook
 from spec_list import brand_list, cpu_list, gpu_list
 from item_extrator import extract_notebooks
+from similarity_calculator import compute_similarity
 
 
 def get_requirements():
@@ -87,4 +88,4 @@ if __name__ == "__main__":
     user_constraint = get_test_constraint()
 
     filtered_notebooks = extract_notebooks(user_constraint)
-    print(filtered_notebooks)
+    compute_similarity(user_constraint, filtered_notebooks)
