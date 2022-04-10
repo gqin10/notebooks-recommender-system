@@ -52,14 +52,10 @@ def get_requirements():
     return user_constraint
 
 
-if __name__ == "__main__":
-    print("Refer to notebook-spec-option.md for the available options")
-
-    # user_constraint = get_requirements()
-
+def get_test_constraint():
     user_constraint = Notebook()
 
-    user_constraint.brand.value = ["hp","dell"]
+    user_constraint.brand.value = ["hp", "dell"]
     user_constraint.brand.priority = 3
     user_constraint.cpu.value = ["i5", "ryzen 5"]
     user_constraint.cpu.priority = 3
@@ -70,7 +66,7 @@ if __name__ == "__main__":
     user_constraint.ram.priority = 0
     user_constraint.storage.min_value = 256
     user_constraint.storage.max_value = 512
-    user_constraint.storage.priority = 3 
+    user_constraint.storage.priority = 3
     user_constraint.screen_size.min_value = 14
     user_constraint.screen_size.max_value = 15.6
     user_constraint.screen_size.priority = 3
@@ -81,4 +77,14 @@ if __name__ == "__main__":
     user_constraint.price.max_value = 4000
     user_constraint.price.priority = 2
 
-    extract_notebooks(user_constraint)
+    return user_constraint
+
+
+if __name__ == "__main__":
+    print("Refer to notebook-spec-option.md for the available options")
+
+    # user_constraint = get_requirements()
+    user_constraint = get_test_constraint()
+
+    filtered_notebooks = extract_notebooks(user_constraint)
+    print(filtered_notebooks)
