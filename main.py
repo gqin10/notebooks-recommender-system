@@ -1,5 +1,6 @@
 from Notebook import Notebook
 from spec_list import brand_list, cpu_list, gpu_list
+from item_extrator import extract_notebooks
 
 
 def get_requirements():
@@ -54,37 +55,30 @@ def get_requirements():
 if __name__ == "__main__":
     print("Refer to notebook-spec-option.md for the available options")
 
-    user_constraint = get_requirements()
-    print(user_constraint)
+    # user_constraint = get_requirements()
 
+    user_constraint = Notebook()
 
-    """
-    user_constraint.brand.value = "HP"
-    user_constraint.brand.priority = 1 
-    
-    user_constraint.cpu.value = "i3"
-    user_constraint.cpu.priority = 1
-    
-    user_constraint.gpu.value = "rtx"
-    user_constraint.gpu.priority = 1
-    
+    user_constraint.brand.value = ["hp","dell"]
+    user_constraint.brand.priority = 3
+    user_constraint.cpu.value = ["i5", "ryzen 5"]
+    user_constraint.cpu.priority = 3
+    user_constraint.gpu.value = ["iris"]
+    user_constraint.gpu.priority = 0
     user_constraint.ram.min_value = 8
     user_constraint.ram.max_value = 16
-    user_constraint.ram.priority = 2 
-    
+    user_constraint.ram.priority = 0
     user_constraint.storage.min_value = 256
     user_constraint.storage.max_value = 512
     user_constraint.storage.priority = 3 
-    
-    user_constraint.screen_size.min_value = 13
-    user_constraint.screen_size.max_value = 15
-    user_constraint.screen_size.priority = 1 
-    
+    user_constraint.screen_size.min_value = 14
+    user_constraint.screen_size.max_value = 15.6
+    user_constraint.screen_size.priority = 3
     user_constraint.weight.min_value = 1.5
-    user_constraint.weight.max_value = 3
-    user_constraint.screen_size.priority = 1 
-    
-    user_constraint.price.min_value = 1000
-    user_constraint.price.max_value = 5000
-    user_constraint.screen_size.priority = 1 
-    """
+    user_constraint.weight.max_value = 2.5
+    user_constraint.weight.priority = 2
+    user_constraint.price.min_value = 3500
+    user_constraint.price.max_value = 4000
+    user_constraint.price.priority = 2
+
+    extract_notebooks(user_constraint)
