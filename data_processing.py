@@ -1,11 +1,11 @@
-import pandas as pd
-import os
 import os.path
+import pandas as pd
+
 from data_information import notebook_required_attributes, notebook_update_attribute_names
+from search_model import search_cpu, cpu_clean_list
 
 OUTPUT_DIRECTORY = "data/"
 OUTPUT_FILE_TYPE = ".csv"
-
 
 # reorder values of height, depth, and width
 def reorder_sizes(sizes):
@@ -88,10 +88,30 @@ def process_gpu_data():
     return gpu_data
 
 
+def clean_cpu_model(cpu):
+    return ((cpu.replace(regex=cpu_clean_list, value="")).str.strip()).str.lower()
+
+
+def merge_data(notebook, cpu, gpu):
+    cpu.columns = "cpu_" + cpu.columns
+    notebook = pd.merge(notebook, cpu["cpu_name"], how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["cpu_name"]))
+
+    unmatched_notebook = notebook[notebook["cpu_name"].isnull()]
+    result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu[["cpu_name"]])
+    notebook.loc[notebook["cpu_name"].isnull(), "cpu_name"] = result
+    notebook = pd.merge(notebook, cpu, how="left", on="cpu_name")
+
+    print(pd.DataFrame([result, unmatched_notebook["cpu"]]).T)
+
+    return notebook
+
+
 if __name__ == "__main__":
     notebook_data = process_notebook_data()
     cpu_data = process_cpu_data()
     gpu_data = process_gpu_data()
+
+    notebook_data = merge_data(notebook_data, cpu_data, gpu_data)
 
     if not os.path.exists(OUTPUT_DIRECTORY):
         os.mkdir(OUTPUT_DIRECTORY)
