@@ -2,7 +2,7 @@ import os.path
 import pandas as pd
 
 from data_information import notebook_required_attributes, notebook_update_attribute_names
-from search_model import search_cpu, cpu_clean_list
+from search_model import search_cpu, cpu_clean_list, search_gpu, gpu_clean_list
 
 OUTPUT_DIRECTORY = "data/"
 OUTPUT_FILE_TYPE = ".csv"
@@ -91,17 +91,31 @@ def process_gpu_data():
 def clean_cpu_model(cpu):
     return ((cpu.replace(regex=cpu_clean_list, value="")).str.strip()).str.lower()
 
+def clean_gpu_model(gpu):
+    return ((gpu.replace(regex=gpu_clean_list, value="")).str.strip()).str.lower()
+
 
 def merge_data(notebook, cpu, gpu):
-    cpu.columns = "cpu_" + cpu.columns
-    notebook = pd.merge(notebook, cpu["cpu_name"], how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["cpu_name"]))
+    notebook = pd.merge(notebook, cpu["name"], how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
 
-    unmatched_notebook = notebook[notebook["cpu_name"].isnull()]
-    result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu[["cpu_name"]])
-    notebook.loc[notebook["cpu_name"].isnull(), "cpu_name"] = result
-    notebook = pd.merge(notebook, cpu, how="left", on="cpu_name")
+    unmatched_notebook = notebook[notebook["name"].isnull()]
+    result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu[["name"]])
+    notebook.loc[notebook["name"].isnull(), "name"] = result
+    notebook = pd.merge(notebook, cpu, how="left", on="name")
 
-    print(pd.DataFrame([result, unmatched_notebook["cpu"]]).T)
+    notebook.drop(columns=["key_0", "name"], inplace=True)
+
+    notebook = pd.merge(notebook, gpu["name"], how="left", left_on=clean_gpu_model(notebook["gpu"]),
+                        right_on=clean_gpu_model(gpu["name"]))
+
+    unmatched_notebook = notebook[notebook["name"].isnull() & notebook["gpu"].notnull()]
+    result = unmatched_notebook.apply(search_gpu, axis=1, gpu_list=gpu)
+    notebook.loc[notebook["name"].isnull() & ~notebook["gpu"].isnull(), "name"] = result
+    notebook = pd.merge(notebook, gpu, how="left", on="name")
+
+    notebook.drop(columns=["key_0", "name"], inplace=True)
+
+    print(pd.DataFrame([result, unmatched_notebook["gpu"]]).T)
 
     return notebook
 
