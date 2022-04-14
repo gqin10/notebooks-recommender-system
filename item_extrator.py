@@ -1,5 +1,6 @@
 import pandas as pd
-from Notebook import Notebook, Number_Attribute, String_Attribute
+
+from Notebook import Number_Attribute, String_Attribute
 
 notebooks = pd.read_csv("data/notebook_data.csv")
 
