@@ -1,5 +1,6 @@
 import os.path
 import pandas as pd
+from sklearn import preprocessing
 
 from data_information import notebook_required_attributes, notebook_update_attribute_names
 from search_model import search_cpu, cpu_clean_list, search_gpu, gpu_clean_list
@@ -67,7 +68,10 @@ def process_cpu_data():
     cpu_data = pd.merge(cpu_data, cpu3_data, how="outer", on="name")
     cpu_data = pd.merge(cpu_data, cpu4_data, how="outer", on="name")
 
-    return cpu_data
+    cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(cpu_data[['cpu_mark_1','cpu_mark_2','cpu_mark_3','cpu_mark_4']])
+    cpu_data['cpu_average'] = (cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']]).mean(axis=1)
+
+    return cpu_data[['name','cpu_average']]
 
 
 def process_gpu_data():
@@ -85,7 +89,10 @@ def process_gpu_data():
     gpu_data = pd.merge(gpu_data, gpu3_data, how="outer", on="name")
     gpu_data = pd.merge(gpu_data, gpu4_data, how="outer", on="name")
 
-    return gpu_data
+    gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(gpu_data[['gpu_mark_1','gpu_mark_2','gpu_mark_3','gpu_mark_4']])
+    gpu_data['gpu_average'] = (gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']]).mean(axis=1)
+
+    return gpu_data[['name','gpu_average']]
 
 
 def clean_cpu_model(cpu):
@@ -98,18 +105,16 @@ def clean_gpu_model(gpu):
 def merge_data(notebook, cpu, gpu):
     notebook = pd.merge(notebook, cpu, how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
     unmatched_notebook = notebook[notebook["name"].isnull()]
-    result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu[["name"]])
+    result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu)
     notebook.loc[notebook["name"].isnull(), "name"] = result
-    notebook = pd.merge(notebook, cpu, how="left", on="name")
-    notebook.drop(columns=["key_0", "name"], inplace=True)
+    notebook.drop(columns=["key_0"], inplace=True)
 
     notebook = pd.merge(notebook, gpu, how="left", left_on=clean_gpu_model(notebook["gpu"]),
                         right_on=clean_gpu_model(gpu["name"]))
-    unmatched_notebook = notebook[notebook["name"].isnull() & notebook["gpu"].notnull()]
+    unmatched_notebook = notebook[notebook["name_y"].isnull() & notebook["gpu"].notnull()]
     result = unmatched_notebook.apply(search_gpu, axis=1, gpu_list=gpu)
-    notebook.loc[notebook["name"].isnull() & ~notebook["gpu"].isnull(), "name"] = result
-    notebook = pd.merge(notebook, gpu, how="left", on="name")
-    notebook.drop(columns=["key_0", "name"], inplace=True)
+    notebook.loc[notebook["name_y"].isnull() & ~notebook["gpu"].isnull(), "name_y"] = result
+    notebook.drop(columns=["key_0"], inplace=True)
 
     return notebook
 
