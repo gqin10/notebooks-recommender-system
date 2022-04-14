@@ -63,23 +63,23 @@ def get_test_constraint():
     user_constraint = Notebook()
 
     user_constraint.brand.value = []
-    user_constraint.brand.priority = 3
-    user_constraint.cpu.value = ["i7"]
+    user_constraint.brand.priority = 0
+    user_constraint.cpu.value = ["i7","i5"]
     user_constraint.cpu.priority = 5
-    user_constraint.gpu.value = ["mx"]
+    user_constraint.gpu.value = ["rtx","gtx"]
     user_constraint.gpu.priority = 3
     user_constraint.ram.min_value = 8
     user_constraint.ram.max_value = 16
-    user_constraint.ram.priority = 5
-    user_constraint.storage.min_value = 500
-    user_constraint.storage.max_value = 1500
+    user_constraint.ram.priority = 3
+    user_constraint.storage.min_value = 0
+    user_constraint.storage.max_value = 0
     user_constraint.storage.priority = 0
     user_constraint.screen_size.min_value = 0
     user_constraint.screen_size.max_value = 0
     user_constraint.screen_size.priority = 0
-    user_constraint.weight.min_value = 0
-    user_constraint.weight.max_value = 0
-    user_constraint.weight.priority = 0
+    user_constraint.weight.min_value = 1
+    user_constraint.weight.max_value = 2.2
+    user_constraint.weight.priority = 1
     user_constraint.price.min_value = 0
     user_constraint.price.max_value = 0
     user_constraint.price.priority = 0
@@ -90,9 +90,13 @@ def get_test_constraint():
 if __name__ == "__main__":
     print("Refer to notebook-spec-option.md for the available options")
 
-    # user_constraint = get_requirements()
-    user_constraint = get_test_constraint()
+    user_constraint = get_requirements()
+    # user_constraint = get_test_constraint()
 
     filtered_notebooks = extract_notebooks(user_constraint)
-    filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
+    print(filtered_notebooks)
+    if len(filtered_notebooks) > 0:
+        filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
+    else:
+        print("Cannot find notebook")
     print(filtered_notebooks)
