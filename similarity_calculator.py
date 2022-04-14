@@ -1,4 +1,3 @@
-import pandas as pd
 from Notebook import String_Attribute, Number_Attribute
 
 def average(a, b):

@@ -96,26 +96,20 @@ def clean_gpu_model(gpu):
 
 
 def merge_data(notebook, cpu, gpu):
-    notebook = pd.merge(notebook, cpu["name"], how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
-
+    notebook = pd.merge(notebook, cpu, how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
     unmatched_notebook = notebook[notebook["name"].isnull()]
     result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu[["name"]])
     notebook.loc[notebook["name"].isnull(), "name"] = result
     notebook = pd.merge(notebook, cpu, how="left", on="name")
-
     notebook.drop(columns=["key_0", "name"], inplace=True)
 
-    notebook = pd.merge(notebook, gpu["name"], how="left", left_on=clean_gpu_model(notebook["gpu"]),
+    notebook = pd.merge(notebook, gpu, how="left", left_on=clean_gpu_model(notebook["gpu"]),
                         right_on=clean_gpu_model(gpu["name"]))
-
     unmatched_notebook = notebook[notebook["name"].isnull() & notebook["gpu"].notnull()]
     result = unmatched_notebook.apply(search_gpu, axis=1, gpu_list=gpu)
     notebook.loc[notebook["name"].isnull() & ~notebook["gpu"].isnull(), "name"] = result
     notebook = pd.merge(notebook, gpu, how="left", on="name")
-
     notebook.drop(columns=["key_0", "name"], inplace=True)
-
-    print(pd.DataFrame([result, unmatched_notebook["gpu"]]).T)
 
     return notebook
 
