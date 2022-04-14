@@ -1,23 +1,55 @@
-from Notebook import String_Attribute, Number_Attribute
+from Notebook import String_Attribute, Number_Attribute, Attribute, NATURE
+import pandas as pd
 
-def average(a, b):
-    return (a+b)/2
+
+def sum_priority(constraint):
+    sum = 0
+    for key, attr in constraint.__dict__.items():
+        if isinstance(attr, Attribute):
+            sum += attr.priority
+    return sum
+
 
 def compute_similarity(constraint, item_list):
-    #assign 0 to each item's similarity
+    # assign 0 to each item's similarity
     item_list["similarity"] = [0 for i in range((item_list.shape)[0])]
+    total_weight = sum_priority(constraint)
 
     for key, attr in constraint.__dict__.items():
         if isinstance(attr, str) or attr.priority <= 0:
             continue
 
+        diff = [0 * i for i in range((item_list.shape)[0])]
+
         if isinstance(attr, String_Attribute) and attr.value != "":
             # process string constraint
-            pass
+            # cpu
+            if key == "cpu":
+                diff = (item_list["average_x"]) / (max(item_list["average_x"]) - min(item_list["average_x"]))
+
+            # gpu
+            elif key == "gpu":
+                diff = (item_list["average_y"]) / (max(item_list["average_y"]) - min(item_list["average_y"]))
+
+            # brand
+            elif attr.nature == NATURE.EQUAL:
+                # since items already filtered, all items fulfill the constraints
+                diff = 1
 
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             # process number constraint
-            s = attr.priority * (average(attr.min_value, attr.max_value) * item_list[key].astype(float))
-            item_list["similarity"] = item_list["similarity"] + s
+            if max(item_list[key]) == min(item_list[key]):
+                diff = 1
+            elif attr.nature == NATURE.MORE:
+                # ram, storage
+                diff = (item_list[key] - attr.min_value) / (max(item_list[key]) - min(item_list[key]))
+            elif attr.nature == NATURE.LESS:
+                # price
+                diff = (attr.max_value - item_list[key]) / (max(item_list[key]) - min(item_list[key]))
+            elif attr.nature == NATURE.NEAR:
+                # screen_size, weight
+                diff = [attr.min_value, attr.max_value].mean() - item_list[key]
 
-    print(item_list)
+        item_list["similarity"] += attr.priority * diff / total_weight * 100
+
+    return item_list

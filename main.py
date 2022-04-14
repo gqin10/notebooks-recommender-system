@@ -3,6 +3,12 @@ from spec_list import brand_list, cpu_list, gpu_list
 from item_extrator import extract_notebooks
 from similarity_calculator import compute_similarity
 
+import pandas as pd
+
+pd.set_option('display.max_columns', None)  # or 1000
+pd.set_option('display.max_rows', None)  # or 1000
+pd.set_option('display.max_colwidth', None)  # or 199
+
 
 def get_requirements():
     user_constraint = Notebook()
@@ -57,26 +63,26 @@ def get_test_constraint():
     user_constraint = Notebook()
 
     user_constraint.brand.value = []
-    user_constraint.brand.priority = 0
-    user_constraint.cpu.value = ["i7", "ryzen 7"]
+    user_constraint.brand.priority = 3
+    user_constraint.cpu.value = ["i7"]
     user_constraint.cpu.priority = 5
-    user_constraint.gpu.value = ["gtx", "rtx"]
+    user_constraint.gpu.value = ["mx"]
     user_constraint.gpu.priority = 3
     user_constraint.ram.min_value = 8
     user_constraint.ram.max_value = 16
     user_constraint.ram.priority = 5
     user_constraint.storage.min_value = 500
     user_constraint.storage.max_value = 1500
-    user_constraint.storage.priority = 3
+    user_constraint.storage.priority = 0
     user_constraint.screen_size.min_value = 0
     user_constraint.screen_size.max_value = 0
     user_constraint.screen_size.priority = 0
     user_constraint.weight.min_value = 0
     user_constraint.weight.max_value = 0
     user_constraint.weight.priority = 0
-    user_constraint.price.min_value = 3500
-    user_constraint.price.max_value = 5500
-    user_constraint.price.priority = 3
+    user_constraint.price.min_value = 0
+    user_constraint.price.max_value = 0
+    user_constraint.price.priority = 0
 
     return user_constraint
 
@@ -88,6 +94,5 @@ if __name__ == "__main__":
     user_constraint = get_test_constraint()
 
     filtered_notebooks = extract_notebooks(user_constraint)
-    for n in range((filtered_notebooks.shape)[0]):
-        print(filtered_notebooks.iloc[n])
-    compute_similarity(user_constraint, filtered_notebooks)
+    filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
+    print(filtered_notebooks)
