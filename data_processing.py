@@ -96,13 +96,18 @@ def process_gpu_data():
 
 
 def clean_cpu_model(cpu):
-    return ((cpu.replace(regex=cpu_clean_list, value="")).str.strip()).str.lower()
+    return (((cpu.replace(regex=cpu_clean_list, value="")).str.strip()).str.lower())
 
 def clean_gpu_model(gpu):
-    return ((gpu.replace(regex=gpu_clean_list, value="")).str.strip()).str.lower()
+    return (((gpu.replace(regex=gpu_clean_list, value="")).str.strip()).str.lower())
 
 
 def merge_data(notebook, cpu, gpu):
+    cpu['name'] = clean_cpu_model(cpu['name'])
+    cpu = cpu.drop_duplicates(subset='name')
+    gpu['name'] = clean_gpu_model(gpu['name'])
+    gpu = gpu.drop_duplicates(subset='name')
+
     notebook = pd.merge(notebook, cpu, how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
     unmatched_notebook = notebook[notebook["name"].isnull()]
     result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu)
@@ -116,6 +121,8 @@ def merge_data(notebook, cpu, gpu):
     notebook.loc[notebook["name"].isnull() & ~notebook["gpu"].isnull(), "average_y"] = result
     notebook.drop(columns=["key_0","name"], inplace=True)
 
+    notebook_data.drop_duplicates(subset=["brand","model","cpu","gpu"])
+
     return notebook
 
 
@@ -124,11 +131,12 @@ if __name__ == "__main__":
     cpu_data = process_cpu_data()
     gpu_data = process_gpu_data()
 
-    notebook_data = merge_data(notebook_data, cpu_data, gpu_data)
-
     if not os.path.exists(OUTPUT_DIRECTORY):
         os.mkdir(OUTPUT_DIRECTORY)
 
-    notebook_data.to_csv(OUTPUT_DIRECTORY + "notebook_data" + OUTPUT_FILE_TYPE, index=False)
     cpu_data.to_csv(OUTPUT_DIRECTORY + "cpu" + OUTPUT_FILE_TYPE, index=False)
     gpu_data.to_csv(OUTPUT_DIRECTORY + "gpu" + OUTPUT_FILE_TYPE, index=False)
+
+    notebook_data = merge_data(notebook_data, cpu_data, gpu_data)
+    notebook_data.to_csv(OUTPUT_DIRECTORY + "notebook_data" + OUTPUT_FILE_TYPE, index=False)
+

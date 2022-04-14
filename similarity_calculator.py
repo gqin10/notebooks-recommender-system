@@ -1,5 +1,4 @@
 from Notebook import String_Attribute, Number_Attribute, Attribute, NATURE
-import pandas as pd
 
 
 def sum_priority(constraint):
