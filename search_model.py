@@ -19,7 +19,7 @@ def search(model, model_list, attr):
             loop += 1
             similarity = (model_length - loop) / model_length
 
-    return (model_list[model_list["name"] == similar_model[0]])[attr + "_average"].item()
+    return (model_list[model_list["name"] == similar_model[0]])["average"].item()
 
 
 def search_cpu(notebook, **kwargs):

@@ -30,6 +30,8 @@ def process_notebook_data():
     notebook_data["screen_size"] = notebook_data["screen_size"].str.replace(",", ".", regex=True)
     notebook_data["screen_size"] = notebook_data["screen_size"].str.replace("\"|″", "", regex=True)
 
+    notebook_data['weight'] = notebook_data['weight'].replace("< 1", "1", regex=True)
+
     return notebook_data
 
 

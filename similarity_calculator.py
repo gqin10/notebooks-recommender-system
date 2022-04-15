@@ -1,3 +1,4 @@
+import Notebook
 from Notebook import String_Attribute, Number_Attribute, Attribute, NATURE
 
 
@@ -24,7 +25,7 @@ def compute_similarity(constraint, item_list):
         if isinstance(attr,String_Attribute) and len(attr.value) <= 0:
             continue
 
-        if isinstance(attr, Number_Attribute) and (attr.min_value <= 0 or attr.max_value <= 0):
+        if isinstance(attr, Number_Attribute) and (attr.min_value < 0 or attr.max_value < 0):
             continue
 
         diff = [0 * i for i in range((item_list.shape)[0])]
@@ -59,10 +60,10 @@ def compute_similarity(constraint, item_list):
                 diff = 1
             elif attr.nature == NATURE.MORE:
                 # ram, storage
-                diff = (item_list[key] - attr.min_value) / (max(item_list[key]) - min(item_list[key]))
+                diff = (item_list[key] - attr.min_value) / (max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
             elif attr.nature == NATURE.LESS:
                 # price, weight
-                diff = (attr.max_value - item_list[key]) / (max(item_list[key]) - min(item_list[key]))
+                diff = (attr.max_value - item_list[key]) / (max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
             elif attr.nature == NATURE.NEAR:
                 # screen_size
                 diff = [attr.min_value, attr.max_value].mean() - item_list[key]
