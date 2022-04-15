@@ -41,14 +41,14 @@ def compute_similarity(constraint, item_list):
 
             # cpu
             if key == "cpu":
-                if max(item_list["cpu_average"] == min(item_list["cpu_average"])):
+                if len(item_list["cpu"].unique()) <= 1:
                     diff = 1
                 else:
                     diff = (item_list["cpu_average"]) / (max(item_list["cpu_average"]) - min(item_list["cpu_average"]))
 
             # gpu
             elif key == "gpu":
-                if max(item_list["gpu_average"] == min(item_list["gpu_average"])):
+                if len(item_list["gpu"].unique()) <= 1:
                     diff = 1
                 else:
                     diff = (item_list["gpu_average"]) / (max(item_list["gpu_average"]) - min(item_list["gpu_average"]))
@@ -66,8 +66,10 @@ def compute_similarity(constraint, item_list):
                 diff = (attr.max_value - item_list[key]) / (max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
             elif attr.nature == NATURE.NEAR:
                 # screen_size
-                diff = [attr.min_value, attr.max_value].mean() - item_list[key]
+                diff = abs(attr.max_value - attr.min_value) / (max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
 
-        item_list["similarity"] += attr.priority * diff / total_weight * 100
+        print(key, attr.priority, total_weight)
+        item_list["similarity"] += attr.priority * diff * 100 / total_weight
+        print(attr.priority * diff * 100 / total_weight)
 
     return item_list
