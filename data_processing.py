@@ -8,18 +8,6 @@ from search_model import search_cpu, cpu_clean_list, search_gpu, gpu_clean_list
 OUTPUT_DIRECTORY = "data/"
 OUTPUT_FILE_TYPE = ".csv"
 
-# reorder values of height, depth, and width
-def reorder_sizes(sizes):
-    if sizes.isnull().values.any():
-        return
-    sizes = (sizes.replace(regex=["cm"], value=""))
-    values = [float(sizes["height"]), float(sizes["width"]), float(sizes["depth"])]
-    values = sorted(values)
-    sizes["height"] = str(values[0]) + "cm"
-    sizes["depth"] = str(values[1]) + "cm"
-    sizes["width"] = str(values[2]) + "cm"
-    return sizes
-
 
 def process_notebook_data():
     # read notebook data
@@ -42,14 +30,6 @@ def process_notebook_data():
     notebook_data["screen_size"] = notebook_data["screen_size"].str.replace(",", ".", regex=True)
     notebook_data["screen_size"] = notebook_data["screen_size"].str.replace("\"|″", "", regex=True)
 
-    # switch the positions of height, width, and depth to unify
-    notebook_data.loc[:, ["height", "width", "depth"]] = notebook_data.loc[:, ["height", "width", "depth"]].apply(
-        reorder_sizes, axis=1)
-
-    notebook_data["height"] = notebook_data["height"].str.replace("cm", "", regex=True)
-    notebook_data["width"] = notebook_data["width"].str.replace("cm", "", regex=True)
-    notebook_data["depth"] = notebook_data["depth"].str.replace("cm", "", regex=True)
-
     return notebook_data
 
 
@@ -68,10 +48,11 @@ def process_cpu_data():
     cpu_data = pd.merge(cpu_data, cpu3_data, how="outer", on="name")
     cpu_data = pd.merge(cpu_data, cpu4_data, how="outer", on="name")
 
-    cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(cpu_data[['cpu_mark_1','cpu_mark_2','cpu_mark_3','cpu_mark_4']])
+    cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(
+        cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']])
     cpu_data['average'] = (cpu_data[['cpu_mark_1', 'cpu_mark_2', 'cpu_mark_3', 'cpu_mark_4']]).mean(axis=1)
 
-    return cpu_data[['name','average']]
+    return cpu_data[['name', 'average']]
 
 
 def process_gpu_data():
@@ -89,14 +70,16 @@ def process_gpu_data():
     gpu_data = pd.merge(gpu_data, gpu3_data, how="outer", on="name")
     gpu_data = pd.merge(gpu_data, gpu4_data, how="outer", on="name")
 
-    gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(gpu_data[['gpu_mark_1','gpu_mark_2','gpu_mark_3','gpu_mark_4']])
+    gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']] = preprocessing.MinMaxScaler().fit_transform(
+        gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']])
     gpu_data['average'] = (gpu_data[['gpu_mark_1', 'gpu_mark_2', 'gpu_mark_3', 'gpu_mark_4']]).mean(axis=1)
 
-    return gpu_data[['name','average']]
+    return gpu_data[['name', 'average']]
 
 
 def clean_cpu_model(cpu):
     return (((cpu.replace(regex=cpu_clean_list, value="")).str.strip()).str.lower())
+
 
 def clean_gpu_model(gpu):
     return (((gpu.replace(regex=gpu_clean_list, value="")).str.strip()).str.lower())
@@ -108,20 +91,22 @@ def merge_data(notebook, cpu, gpu):
     gpu['name'] = clean_gpu_model(gpu['name'])
     gpu = gpu.drop_duplicates(subset='name')
 
-    notebook = pd.merge(notebook, cpu, how="left", left_on=clean_cpu_model(notebook["cpu"]), right_on=clean_cpu_model(cpu["name"]))
+    notebook = pd.merge(notebook, cpu, how="left", left_on=clean_cpu_model(notebook["cpu"]),
+                        right_on=clean_cpu_model(cpu["name"]))
     unmatched_notebook = notebook[notebook["name"].isnull()]
     result = unmatched_notebook.apply(search_cpu, axis=1, cpu_list=cpu)
     notebook.loc[notebook["name"].isnull(), "average"] = result
-    notebook.drop(columns=["key_0","name"], inplace=True)
+    notebook.drop(columns=["key_0", "name"], inplace=True)
 
     notebook = pd.merge(notebook, gpu, how="left", left_on=clean_gpu_model(notebook["gpu"]),
                         right_on=clean_gpu_model(gpu["name"]))
     unmatched_notebook = notebook[notebook["name"].isnull() & notebook["gpu"].notnull()]
     result = unmatched_notebook.apply(search_gpu, axis=1, gpu_list=gpu)
     notebook.loc[notebook["name"].isnull() & ~notebook["gpu"].isnull(), "average_y"] = result
-    notebook.drop(columns=["key_0","name"], inplace=True)
+    notebook.drop(columns=["key_0", "name"], inplace=True)
 
-    notebook_data.drop_duplicates(subset=["brand","model","cpu","gpu"])
+    notebook.drop_duplicates(subset=["brand", "model", "cpu", "gpu"])
+    notebook.rename(columns = {"average_x": "cpu_average", "average_y": "gpu_average"},inplace=True)
 
     return notebook
 
@@ -139,4 +124,3 @@ if __name__ == "__main__":
 
     notebook_data = merge_data(notebook_data, cpu_data, gpu_data)
     notebook_data.to_csv(OUTPUT_DIRECTORY + "notebook_data" + OUTPUT_FILE_TYPE, index=False)
-

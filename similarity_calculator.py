@@ -38,23 +38,19 @@ def compute_similarity(constraint, item_list):
                 diff = 1
                 continue
 
-
-
             # cpu
             if key == "cpu":
-                if max(item_list["average_x"] == min(item_list["average_x"])):
+                if max(item_list["cpu_average"] == min(item_list["cpu_average"])):
                     diff = 1
                 else:
-                    diff = (item_list["average_x"]) / (max(item_list["average_x"]) - min(item_list["average_x"]))
+                    diff = (item_list["cpu_average"]) / (max(item_list["cpu_average"]) - min(item_list["cpu_average"]))
 
             # gpu
             elif key == "gpu":
-                if max(item_list["average_y"] == min(item_list["average_y"])):
+                if max(item_list["gpu_average"] == min(item_list["gpu_average"])):
                     diff = 1
                 else:
-                    diff = (item_list["average_y"]) / (max(item_list["average_y"]) - min(item_list["average_y"]))
-
-
+                    diff = (item_list["gpu_average"]) / (max(item_list["gpu_average"]) - min(item_list["gpu_average"]))
 
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             item_list[key] = item_list[key].astype(float)

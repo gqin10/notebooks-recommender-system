@@ -90,8 +90,8 @@ def get_test_constraint():
 if __name__ == "__main__":
     print("Refer to notebook-spec-option.md for the available options")
 
-    user_constraint = get_requirements()
-    # user_constraint = get_test_constraint()
+    # user_constraint = get_requirements()
+    user_constraint = get_test_constraint()
 
     filtered_notebooks = extract_notebooks(user_constraint)
     print(filtered_notebooks)

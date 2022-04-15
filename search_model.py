@@ -6,7 +6,7 @@ gpu_clean_list = ["nvidia", "intel", "amd", " ", "®", "laptop", "gpu", "graphic
                   "\(laptop\)", "with", "\(.*\)"]
 
 
-def search(model, model_list):
+def search(model, model_list, attr):
     model_length = len(model)
 
     loop = 0
@@ -19,7 +19,7 @@ def search(model, model_list):
             loop += 1
             similarity = (model_length - loop) / model_length
 
-    return (model_list[model_list["name"] == similar_model[0]])["average"].item()
+    return (model_list[model_list["name"] == similar_model[0]])[attr + "_average"].item()
 
 
 def search_cpu(notebook, **kwargs):
@@ -28,7 +28,7 @@ def search_cpu(notebook, **kwargs):
     cpu_list = kwargs.get("cpu_list")
     cpu_list["name"] = cpu_list["name"].str.lower()
 
-    return search(cpu, cpu_list)
+    return search(cpu, cpu_list, "cpu")
 
 
 def search_gpu(notebook, **kwargs):
@@ -38,4 +38,4 @@ def search_gpu(notebook, **kwargs):
     gpu_list["name"] = (gpu_list["name"].str.replace(" ", "")).str.lower()
     gpu_list["name"] = gpu_list["name"].str.replace("|".join(gpu_clean_list), "", regex=True)
 
-    return search(gpu, gpu_list)
+    return search(gpu, gpu_list, "gpu")
