@@ -6,7 +6,7 @@ gpu_clean_list = ["nvidia", "intel", "amd", " ", "®", "laptop", "gpu", "graphic
                   "\(laptop\)", "with", "\(.*\)"]
 
 
-def search(model, model_list, attr):
+def search(model, model_list):
     model_length = len(model)
 
     loop = 0
@@ -28,7 +28,7 @@ def search_cpu(notebook, **kwargs):
     cpu_list = kwargs.get("cpu_list")
     cpu_list["name"] = cpu_list["name"].str.lower()
 
-    return search(cpu, cpu_list, "cpu")
+    return search(cpu, cpu_list)
 
 
 def search_gpu(notebook, **kwargs):
@@ -38,4 +38,4 @@ def search_gpu(notebook, **kwargs):
     gpu_list["name"] = (gpu_list["name"].str.replace(" ", "")).str.lower()
     gpu_list["name"] = gpu_list["name"].str.replace("|".join(gpu_clean_list), "", regex=True)
 
-    return search(gpu, gpu_list, "gpu")
+    return search(gpu, gpu_list)

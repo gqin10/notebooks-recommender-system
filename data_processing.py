@@ -108,7 +108,7 @@ def merge_data(notebook, cpu, gpu):
     notebook.drop(columns=["key_0", "name"], inplace=True)
 
     notebook.drop_duplicates(subset=["brand", "model", "cpu", "gpu"])
-    notebook.rename(columns = {"average_x": "cpu_average", "average_y": "gpu_average"},inplace=True)
+    notebook.rename(columns={"average_x": "cpu_average", "average_y": "gpu_average"}, inplace=True)
 
     return notebook
 

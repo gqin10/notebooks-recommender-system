@@ -4,6 +4,7 @@ from Notebook import Number_Attribute, String_Attribute
 
 notebooks = pd.read_csv("data/notebook_data.csv")
 
+
 def extract_notebooks(constraint):
     filtered_notebooks = notebooks
 
@@ -20,7 +21,8 @@ def extract_notebooks(constraint):
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             # process number constraint
             filtered_notebooks = filtered_notebooks.dropna(subset=[key])
-            filter = (filtered_notebooks[key].astype(float) >= attr.min_value) & (filtered_notebooks[key].astype(float) <= attr.max_value)
+            filter = (filtered_notebooks[key].astype(float) >= attr.min_value) & (
+                        filtered_notebooks[key].astype(float) <= attr.max_value)
             filtered_notebooks = filtered_notebooks[filter]
 
     return filtered_notebooks
