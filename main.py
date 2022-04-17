@@ -2,6 +2,7 @@ from Notebook import Notebook
 from spec_list import brand_list, cpu_list, gpu_list
 from item_extrator import extract_notebooks
 from similarity_calculator import compute_similarity
+from constraint_relax import relax_constraints
 
 import pandas as pd
 
@@ -64,25 +65,25 @@ def get_test_constraint():
 
     user_constraint.brand.value = []
     user_constraint.brand.priority = 0
-    user_constraint.cpu.value = ["i7"]
-    user_constraint.cpu.priority = 5
+    user_constraint.cpu.value = ["celeron", "pentium"]
+    user_constraint.cpu.priority = 10
     user_constraint.gpu.value = ["rtx"]
-    user_constraint.gpu.priority = 100
-    user_constraint.ram.min_value = 8
+    user_constraint.gpu.priority = 8
+    user_constraint.ram.min_value = 16
     user_constraint.ram.max_value = 16
-    user_constraint.ram.priority = 3
-    user_constraint.storage.min_value = 0
-    user_constraint.storage.max_value = 0
-    user_constraint.storage.priority = 0
+    user_constraint.ram.priority = 4
+    user_constraint.storage.min_value = 800
+    user_constraint.storage.max_value = 1000
+    user_constraint.storage.priority = 6
     user_constraint.screen_size.min_value = 0
     user_constraint.screen_size.max_value = 0
     user_constraint.screen_size.priority = 0
-    user_constraint.weight.min_value = 0
-    user_constraint.weight.max_value = 0
+    user_constraint.weight.min_value = 1.5
+    user_constraint.weight.max_value = 2
     user_constraint.weight.priority = 0
-    user_constraint.price.min_value = 7000
-    user_constraint.price.max_value = 9000
-    user_constraint.price.priority = 1
+    user_constraint.price.min_value = 3000
+    user_constraint.price.max_value = 5000
+    user_constraint.price.priority = 10
 
     return user_constraint
 
@@ -92,10 +93,16 @@ if __name__ == "__main__":
 
     # user_constraint = get_requirements()
     user_constraint = get_test_constraint()
+    dropped_constraint = []
 
     filtered_notebooks = extract_notebooks(user_constraint)
-    if len(filtered_notebooks) > 0:
-        filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
-    else:
-        print("Cannot find notebook")
+
+    while len(filtered_notebooks) <= 0:
+        filtered_notebooks, dropped_constraint = relax_constraints(user_constraint)
+
+    filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
+    filtered_notebooks = filtered_notebooks.sort_values(by=["similarity"], ascending=False)
+    if len(dropped_constraint) > 0:
+        print("Dropped constraints:", dropped_constraint)
     print(filtered_notebooks)
+    found_notebook = True

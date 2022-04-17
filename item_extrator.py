@@ -9,6 +9,9 @@ def extract_notebooks(constraint):
     filtered_notebooks = notebooks
 
     for key, attr in constraint.__dict__.items():
+        if (filtered_notebooks.shape)[0] <= 0:
+            break
+
         if isinstance(attr, str) or attr.priority <= 0:
             continue
 
@@ -22,7 +25,7 @@ def extract_notebooks(constraint):
             # process number constraint
             filtered_notebooks = filtered_notebooks.dropna(subset=[key])
             filter = (filtered_notebooks[key].astype(float) >= attr.min_value) & (
-                        filtered_notebooks[key].astype(float) <= attr.max_value)
+                    filtered_notebooks[key].astype(float) <= attr.max_value)
             filtered_notebooks = filtered_notebooks[filter]
 
     return filtered_notebooks
