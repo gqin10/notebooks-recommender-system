@@ -31,7 +31,7 @@ def compute_similarity(constraint, item_list):
         return
 
     # assign 0 to each item's similarity
-    item_list["similarity"] = [0 for i in range((item_list.shape)[0])]
+    item_list["similarity"] = [0*i for i in range((item_list.shape)[0])]
     total_weight = sum_priority(constraint)
 
     for key, attr in constraint.__dict__.items():
@@ -67,6 +67,8 @@ def compute_similarity(constraint, item_list):
                 diff = abs(((attr.max_value + attr.min_value) / 2) - Notebook.NOTEBOOK_LIST[key]) / (
                         max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
 
+
+        print(item_list["similarity"])
         item_list["similarity"] += attr.priority * diff * 100 / total_weight
 
     return item_list

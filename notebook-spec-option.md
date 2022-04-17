@@ -1,4 +1,5 @@
 # Brand
+
 0. Not my concern
 1. Acer
 2. Asus
@@ -10,6 +11,7 @@
 8. MSI
 
 # CPU
+
 0. Not my concern
 1. Intel Celeron
 2. Intel Pentium
@@ -24,6 +26,7 @@
 11. AMD Ryzen 9
 
 # GPU
+
 0. Not my concern
 1. AMD Radeon
 2. Intel Iris

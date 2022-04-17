@@ -71,9 +71,9 @@ def loose_constraint(constraint, key):
     print(constraint.get(key))
     if isinstance(constraint.get(key), Number_Attribute):
         constraint.get(key).min_value = constraint.get(key).min_value - (
-                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
+                0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
         constraint.get(key).max_value = constraint.get(key).max_value + (
-                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
+                0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
     print(constraint.get(key))
     return constraint
 
