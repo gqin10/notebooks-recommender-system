@@ -67,8 +67,6 @@ def compute_similarity(constraint, item_list):
                 diff = abs(((attr.max_value + attr.min_value) / 2) - Notebook.NOTEBOOK_LIST[key]) / (
                         max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
 
-
-        print(item_list["similarity"])
         item_list["similarity"] += attr.priority * diff * 100 / total_weight
 
     return item_list

@@ -6,11 +6,11 @@ def get_test_constraint():
 
     user_constraint.brand.value = []
     user_constraint.brand.priority = 0
-    user_constraint.cpu.value = ["i5", "ryzen 5"]
+    user_constraint.cpu.value = ["n4100"]
     user_constraint.cpu.priority = 10
-    user_constraint.gpu.value = ["rtx"]
-    user_constraint.gpu.priority = 8
-    user_constraint.ram.min_value = 8
+    user_constraint.gpu.value = []
+    user_constraint.gpu.priority = 0
+    user_constraint.ram.min_value = 16
     user_constraint.ram.max_value = 16
     user_constraint.ram.priority = 4
     user_constraint.storage.min_value = 0

@@ -1,5 +1,6 @@
 from Notebook import *
 from item_extrator import extract_notebooks
+from constraint_processor import use_cpu_average, use_gpu_average
 
 
 def relax_constraints(constraint):
@@ -29,6 +30,13 @@ def hard_priority(constraint):
 
 # soft relaxation on low priority constraint
 def soft_relax(constraint):
+
+    if constraint.cpu.priority > 0:
+        constraint = use_cpu_average(constraint)
+
+    if constraint.gpu.priority > 0:
+        constraint = use_gpu_average(constraint)
+
     valid_constraint = [{"key": key, "attr": attr} for key, attr in constraint.__dict__.items() if
                         (isinstance(attr, Attribute) and attr.priority > 0)]
     sorted_constraint = sorted(valid_constraint, key=lambda item: item.get("attr").priority)
