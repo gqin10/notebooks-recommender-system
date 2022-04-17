@@ -48,6 +48,8 @@ class Notebook:
         self.gpu = String_Attribute(NATURE.MORE)
         self.weight = Number_Attribute(NATURE.LESS)
         self.price = Number_Attribute(NATURE.LESS)
+        self.cpu_average = Number_Attribute(NATURE.MORE)
+        self.gpu_average = Number_Attribute(NATURE.MORE)
 
     def __str__(self) -> str:
         res = ""
