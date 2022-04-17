@@ -1,8 +1,11 @@
+import copy
+
 from Notebook import *
 from item_extrator import extract_notebooks
 
 
 def relax_constraints(constraint):
+    # search_minimal_failing_query(constraint)
     return hard_priority(constraint)
 
 
@@ -18,12 +21,7 @@ def hard_priority(constraint):
     for c in sorted_constraint:
         if (notebooks.shape)[0] <= 0:
             dropped_constraints.append(c.get("key"))
-
-            if isinstance(c.get("attr"), String_Attribute):
-                setattr(getattr(constraint, c.get("key")), "value", [])
-            elif isinstance(c.get("attr"), Number_Attribute):
-                setattr(getattr(constraint, c.get("key")), "min_value", min(NOTEBOOK_LIST[c.get("key")]))
-                setattr(getattr(constraint, c.get("key")), "max_value", max(NOTEBOOK_LIST[c.get("key")]))
+            constraint = drop_constraint(constraint, c.get("key"))
             notebooks = extract_notebooks(constraint)
         else:
             break
@@ -37,5 +35,14 @@ def hard_priority(constraint):
 # soft relax attribute that has lower priority in minimal failing subquery
 
 # high priority -> soft relaxation, low priority -> hard relaxation
+
+def drop_constraint(constraint, key):
+    print("dropping constraint")
+    if isinstance(constraint.get(key), String_Attribute) :
+        constraint.get(key).value = []
+    elif isinstance(constraint.get(key), Number_Attribute) :
+        constraint.get(key).min_value = min(NOTEBOOK_LIST[key])
+        constraint.get(key).max_value = max(NOTEBOOK_LIST[key])
+    return constraint
 
 # mfq

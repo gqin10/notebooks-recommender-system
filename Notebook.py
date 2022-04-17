@@ -57,3 +57,6 @@ class Notebook:
         for key, value in self.__dict__.items():
             res += f"{key}:\n{value}\n"
         return res
+
+    def get(self, key):
+        return self.__getattribute__(key)
