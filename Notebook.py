@@ -47,9 +47,6 @@ class Notebook:
         self.screen_size = Number_Attribute(NATURE.NEAR)
         self.gpu = String_Attribute(NATURE.MORE)
         self.weight = Number_Attribute(NATURE.LESS)
-        self.height = ""
-        self.width = ""
-        self.depth = ""
         self.price = Number_Attribute(NATURE.LESS)
 
     def __str__(self) -> str:
