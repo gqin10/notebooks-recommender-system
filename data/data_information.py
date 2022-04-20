@@ -10,13 +10,13 @@ All attributes of notebooks
 'Price (RM)']
 """
 notebook_required_attributes = [
-    "Brand", "Model", "Processor Brand", "Processor Model", "RAM (GB)",
+    "Brand", "Model", "Processor Model", "RAM (GB)",
     "Storage Size (GB)", "Screen Size (inches)", "Graphics Card Type", "Weight (kg)",
     "Price (RM)"
 ]
 
 notebook_update_attribute_names = [
-    "brand", "model", "cpu_brand", "cpu", "ram",
+    "brand", "model", "cpu", "ram",
     "storage", "screen_size", "gpu", "weight",
     "price"
 ]

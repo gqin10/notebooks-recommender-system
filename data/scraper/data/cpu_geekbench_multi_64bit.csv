@@ -2,32 +2,33 @@ name,mark
 AMD Ryzen Threadripper PRO 3995WX,14881
 AMD Ryzen 9 5950X,16248
 AMD Ryzen Threadripper 2970WX,10501
-AMD Ryzen 9 5900X,11749
-Intel Core i9-9980XE,15780
-AMD Ryzen Threadripper 2950X,12160
-Intel Core i9-12900H,12710
-Intel Core i5-12600K,12797
-Intel Core i9-11900KB,8924
-Intel Core i9-10900K,11393
-AMD Ryzen 7 5700G,9544
-Intel Core i7-11700K,10786.5
-Apple M1 Max,12635.5
-Intel Core i9-10910,10244
-AMD Ryzen Threadripper 2920X,9840
-AMD Ryzen 9 6900HS,9207.5
+AMD Ryzen 9 3950X,12363
+Intel Core i9-10980XE,16480
+Intel Core i7-12700K,15557
+Intel Core i9-12900HK,13756.5
+AMD Ryzen 9 3900X,10498
+Intel Core i9-11900K,10596.5
+AMD Ryzen 7 5800X,11354
+AMD Ryzen 9 3900,10190
+Intel Core i9-10850K,11436
+Intel Core i7-12800H,12615.5
+Apple M1 Pro,12499
+Intel Core i9-11980HK,9813
+Intel Core i9-11900H,9645.5
+AMD Ryzen 9 5900HX,8251
 AMD Ryzen Threadripper 1950X,11237
-AMD Ryzen 9 5980HS,8620
-Intel Core i9-11950H,7969
-AMD Ryzen 7 3700X,8960
-Intel Core i9-9900KS,9100
-Intel Core i7-11850H,9250
-AMD Ryzen 5 5600X,8980
-Intel Core i7-11800H,8998.5
-Intel Core i7-10700,8173
-AMD Ryzen 9 4900H,8012
-AMD Ryzen 7 5800HS,7454
-Intel Xeon W-10885M,8378
-AMD Ryzen 5 5600H,6573
+Apple M1 Pro 8-Core,9942
+AMD Ryzen 7 3800XT,8948
+AMD Ryzen 9 5900HS,7867
+Intel Core i7-10700K,8925
+Intel Core i9-9900K,8845
+Intel Core i5-11600K,8429.5
+AMD Ryzen 7 5800H,7687.5
+Intel Core i9-7900X,11222
+Intel Core i9-10980HK,8155.5
+AMD Ryzen 9 4900HS,7675
+Intel Core i9-10885H,6914
+AMD Ryzen 5 5600H,6505
 AMD Ryzen 7 PRO 5850U,6889
 Intel Core i7-10875H,7799
 Intel Core i7-10870H,7735.5
@@ -45,208 +46,24 @@ Intel Core i7-8700,6250
 Intel Core i9-9900T,5888
 Intel Core i7-9750H,5813
 AMD Ryzen 7 1800X,6545
-AMD Ryzen 5 4600H,6021.5
-Intel Core i7-10850H,5753
-Intel Core i7-10750H,6308
-Intel Core i7-11390H,5838.5
-AMD Ryzen 7 PRO 4750U,6153
-Intel Core i7-1195G7,4725
-Intel Core i7-1185G7,5560
-Intel Core i7-8850H,4908
-AMD Ryzen 7 4700U,5656
-Intel Core i7-10810U,4456
-AMD Ryzen 5 2600X,6094
-AMD Ryzen 5 PRO 5650U,5736
-AMD Ryzen 5 2600,6069.5
-AMD Ryzen 5 4600U,5591
-Intel Core i5-11320H,5657
-Intel Core i5-10400H,4332
-Intel Core i5-1135G7,4690
-AMD Ryzen 5 4500U,4632
-Intel Core i5-10200H,4126
-Intel Core i7-8705G,4047
-Intel Core i5-9300HF,4370
-Intel Core i5-8300H,3270
-AMD Ryzen 5 1500X,4603.5
-Intel Core i7-1180G7,5304
-AMD Ryzen 3 3100,5005
-Intel Core i3-10100,4758
-Intel Core i3-9100F,4074
-Intel Core i7-7700HQ,3742
-Intel Core i7-1065G7,4439
-Apple A15 Bionic,4819
-AMD Ryzen 5 1400,3037.5
-Intel Core i5-8257U,3858
-Intel Core i7-10510U,3692
-Intel Core i5-1035G7,2713
-AMD Ryzen 7 3750H,3537
-Intel Core i5-10310U,3717.5
-Intel Core i7-8665U,2671
-Intel Core i7-8565U,3073.5
-Intel Core i7-1060G7,2322
-AMD Ryzen 3 5400U,3095
-Intel Core i5-1140G7,3921
-AMD Ryzen 7 2700U,2969
-AMD Ryzen 3 5300U,3960.5
-AMD Ryzen 5 3500U,3155.5
-Intel Core i5-1130G7,4802
-AMD Ryzen 5 3580U,2990
-Qualcomm Snapdragon 8cx Gen 2 5G,3115.5
-Intel Core i5-1030NG7,2710
-Intel Core i3-1005G1,2425.5
-Intel Core i7-2860QM,2832.5
-AMD Ryzen 3 1200,2882
-AMD Ryzen 5 2500U,2515
-AMD Ryzen Embedded V1605B,3184
-MediaTek Dimensity 9000,4324
-Apple A12X Bionic,4620
-Qualcomm Snapdragon 8 Gen 1,3659
-Qualcomm Snapdragon 8cx,2760
-Qualcomm Snapdragon 888 5G,3601
-Samsung Exynos 2200,3560
-Intel Core i7-2675QM,1928
-AMD Ryzen 3 3350U,2455
-Intel Pentium Gold 7505,2326
-AMD Ryzen 3 PRO 2300U,2156
-Intel Core i3-1000NG4,2028
-Intel Core i5-4258U,1588
-Intel Core i5-10210Y,2735
-Samsung Exynos 2100 5G,3364
-Qualcomm Snapdragon 865+ (Plus),3250.5
-MediaTek Dimensity 1200,2689.5
-Intel Core i5-8200Y,1934
-Intel Core i3-L13G4,1349
-AMD Ryzen Embedded R1606G,1903
-AMD Ryzen 3 2200U,1267
-AMD Ryzen Embedded R1505G,1353
-Intel Pentium Gold 6405U,1320
-AMD Athlon Silver 3050U,1429
-Qualcomm Snapdragon 780G 5G,2998
-HiSilicon Kirin 990 5G,3076.5
-Samsung Exynos 990,2787
-Qualcomm Snapdragon 7c Gen 2,1630
-Qualcomm Snapdragon 855+ / 855 Plus,2658.5
-Apple A11 Bionic,2339
-MediaTek Dimensity 1000+,2762
-MediaTek Dimensity 920,2046
-MediaTek Dimensity 820,2678
-Intel Core m3-8100Y,1396.5
-AMD FX-7600P,1438
-Intel Core i3-5005U,1150
-Intel Pentium Silver N6000,1897
-Intel Pentium Silver N5030,1221
-Intel Pentium Silver N5000,1582
-AMD A10-4600M,1162
-AMD Athlon Silver 3050e,1172
-Intel Celeron 3867U,873
-Samsung Exynos 9820,2259
-MediaTek Dimensity 810,1809
-HiSilicon Kirin 810,1919.5
-Qualcomm Snapdragon 695 5G,2016
-Qualcomm Snapdragon 845,2012
-Qualcomm Snapdragon 765,1911.5
-AMD 3015e,860
-Qualcomm Snapdragon 690 5G,1794.5
-Qualcomm Snapdragon 732G,1787
-MediaTek Dimensity 700,1708.5
-Qualcomm Snapdragon 720G,1694
-Mediatek Helio G90T,1593
-Qualcomm Snapdragon 480 5G,1663
-Mediatek Helio P90,1524
-Qualcomm Snapdragon 835 (8998),1669
-Samsung Exynos 9611,1323.5
-Intel Celeron N4100,1271
-Intel Celeron N4505,1239
-Intel Celeron N4020,858
-Intel Atom x7-Z8750,770
-Mediatek Helio P65,1239.5
-Qualcomm Snapdragon 710,1478
-Qualcomm Snapdragon 665,1371.5
-Qualcomm Snapdragon 660,1440.5
-UNISOC T616,1392
-UNISOC T606,1175
-Mediatek Helio G88,1265
-Mediatek Helio G80,1345
-HiSilicon Kirin 710,1338
-Mediatek Helio P60T,926
-Mediatek MT8183,1198.5
-Samsung Exynos 850,1061.5
-AMD A4-5000,676
-Mediatek Helio G35,758
-Apple A8,627
-Mediatek Helio A25,860
-Qualcomm Snapdragon 632,1233
-UNISOC SC9863A,782
-Qualcomm Snapdragon 439,823
-Mediatek Helio P22T MT8768T,920
-Apple A7,502
-Qualcomm Snapdragon 450,498
-Qualcomm Snapdragon 429,566
-Mediatek MT8766B,455
-Mediatek MT6737,291
-Mediatek MT6580M,248
-AMD Ryzen Threadripper PRO 3975WX,28798
-Intel Core i9-12900K,17776
-AMD Ryzen 9 3950X,12363
-Intel Core i9-10980XE,16480
-Intel Core i7-12700K,15557
-Intel Core i9-12900HK,13756.5
-AMD Ryzen 9 3900X,10498
-Intel Core i9-11900K,10596.5
-AMD Ryzen 7 5800X,11354
-AMD Ryzen 9 3900,10190
-Intel Core i9-10850K,11436
-Intel Core i7-12800H,12615.5
-Apple M1 Pro,12499
-Intel Core i9-11980HK,9813
-Intel Core i9-11900H,9645.5
-AMD Ryzen 9 5900HX,8251
-Intel Core i7-12700H,13033
-Apple M1 Pro 8-Core,9942
-AMD Ryzen 7 3800XT,8948
-AMD Ryzen 9 5900HS,7867
-Intel Core i7-10700K,8925
-Intel Core i9-9900K,8845
-Intel Core i5-11600K,8429.5
-AMD Ryzen 7 5800H,7734
-Intel Core i9-7900X,11222
-Intel Core i9-10980HK,8155.5
-AMD Ryzen 9 4900HS,7675
-Intel Core i9-10885H,6914
-AMD Ryzen 7 5800U,6722.5
-AMD Ryzen 7 4800H,7955
-Intel Core i9-9980HK,7568
-Intel Core i7-9700K,7440
-AMD Ryzen 7 4800HS,7611
-Intel Core i9-9880H,7231
-Intel Core i7-8700K,6310
-Intel Core i5-11400F,7681
-AMD Ryzen 7 4980U,7156
-AMD Ryzen 7 5700U,6274
-Intel Core i9-8950HK,5205
-Intel Xeon E-2276M,6595
-Intel Xeon W-2145,9146
-AMD Ryzen 7 4800U,5898
-Intel Core i5-9600K,5855
-Intel Core i7-9850H,5270
-AMD Ryzen 7 2700,6560
-AMD Ryzen 7 1700X,6275
+Intel Core i7-1260P,9513
 Intel Xeon W-10855M,6231
 AMD Ryzen 5 4600HS,6345
 Intel Core i5-10500H,6332
 Intel Core i7-11375H,6098
 Apple M1,7578
-Intel Core i7-11370H,5631.5
+Intel Core i7-11370H,5562
 Intel Core i7-7740X,5107
 Intel Core i7-8750H,4820
-Intel Core i7-1165G7,5187
+Intel Core i7-1165G7,5186.5
 Intel Core i7-10710U,5207
-AMD Ryzen 5 5600U,5080
-AMD Ryzen 5 4680U,5785
-AMD Ryzen 5 5500U,5468
-AMD Ryzen 5 PRO 4650U,4648.5
-Intel Core i5-11300H,4593
-Intel Core i3-10320,4846
+Intel Core i5-1155G7,5654
+AMD Ryzen 5 PRO 5650U,5736
+AMD Ryzen 5 2600,6069.5
+AMD Ryzen 5 4600U,5591
+Intel Core i5-11320H,5657
+Intel Core i5-10400H,4332
+Intel Core i5-1145G7,5055
 Intel Core i5-10300H,4399
 AMD Ryzen 5 1600,5424.5
 Intel Core i5-1038NG7,4564
@@ -276,12 +93,12 @@ AMD Ryzen 7 PRO 2700U,3183
 AMD Ryzen 3 2200G,4881.5
 AMD Ryzen 5 PRO 3500U,2824
 AMD Ryzen 3 4300U,3330
-AMD Ryzen 5 3450U,2916
+AMD Ryzen 5 3450U,2972
 AMD Ryzen 5 2600H,3226
 Intel Core i3-1115G4,2505.5
 Intel Core i3-10110U,2025.5
 Intel Core i5-3470,2095
-Intel Core i5-8250U,3273.5
+Intel Core i5-8250U,3427
 AMD Ryzen 5 PRO 2500U,3135
 Intel Core i5-7287U,2193
 Apple A12Z Bionic,4709.5
@@ -307,7 +124,7 @@ AMD Athlon Gold 3150U,1847
 Intel Core i5-5250U,1427
 AMD Athlon 300U,1840
 Apple A12 Bionic,2814.5
-Google Tensor,2805
+Google Tensor,2873
 HiSilicon Kirin 990,2977.5
 Qualcomm Snapdragon 860,2712.5
 Qualcomm Snapdragon 7c,1725
@@ -330,15 +147,15 @@ HiSilicon Kirin 980,2558
 Qualcomm Snapdragon 850,1923
 Qualcomm Snapdragon 765G,1810
 Qualcomm Snapdragon 750G 5G,1885
-Intel Celeron N4120,1509
-MediaTek Dimensity 800U,1779.5
-Qualcomm Snapdragon 730G,1744.5
-Qualcomm Snapdragon 730,1713.5
-Mediatek Helio G95,1675
-Qualcomm Snapdragon 480 Plus 5G,1661
-MediaTek Dimensity 720,1627
-Intel Pentium N4200,935
-Qualcomm Snapdragon 675,924
+AMD 3015Ce,1135
+Qualcomm Snapdragon 690 5G,1794.5
+Qualcomm Snapdragon 732G,1787
+MediaTek Dimensity 700,1708.5
+Qualcomm Snapdragon 720G,1694
+Mediatek Helio G90T,1593
+Qualcomm Snapdragon 480 5G,1663
+Mediatek Helio P90,1524
+Qualcomm Snapdragon 680 4G,1557
 UNISOC Tangula T740,1727
 Intel Celeron J4115,1420.5
 Apple A10 Fusion,1421
@@ -371,3 +188,193 @@ Intel Core 2 Duo SU7300,392
 Mediatek Helio A22 MT6761,439
 Mediatek Helio A20 MT6761D,477
 AMD E1-2100,238.5
+AMD Ryzen Threadripper PRO 3975WX,28798
+Intel Core i9-12900K,17776
+Intel Core i9-12900,8924
+AMD Ryzen 9 5900X,11749
+Intel Core i9-9980XE,15780
+AMD Ryzen Threadripper 2950X,12160
+Intel Core i9-12900H,12546
+Intel Core i5-12600K,12797
+Intel Core i9-11900KB,8924
+Intel Core i9-10900K,11393
+AMD Ryzen 7 5700G,9544
+Intel Core i7-11700K,10786.5
+Apple M1 Max,12635.5
+Intel Core i9-10910,10244
+AMD Ryzen Threadripper 2920X,9840
+AMD Ryzen 9 6900HS,9207.5
+Intel Core i7-12700H,12821
+AMD Ryzen 9 5980HS,8620
+Intel Core i9-11950H,7969
+AMD Ryzen 7 3700X,8960
+Intel Core i9-9900KS,9100
+Intel Core i7-11850H,9250
+AMD Ryzen 5 5600X,8980
+Intel Core i7-11800H,8998.5
+Intel Core i7-10700,8173
+AMD Ryzen 9 4900H,8012
+AMD Ryzen 7 5800HS,7454
+Intel Xeon W-10885M,8378
+Intel Core i7-1280P,10106
+AMD Ryzen 7 5800U,6722.5
+AMD Ryzen 7 4800H,7955
+Intel Core i9-9980HK,7568
+Intel Core i7-9700K,7440
+AMD Ryzen 7 4800HS,7611
+Intel Core i9-9880H,7231
+Intel Core i7-8700K,6310
+Intel Core i5-11400F,7681
+AMD Ryzen 7 4980U,7156
+AMD Ryzen 7 5700U,6274
+Intel Core i9-8950HK,5205
+Intel Xeon E-2276M,6595
+Intel Xeon W-2145,9146
+AMD Ryzen 7 4800U,6136.5
+Intel Core i5-9600K,5855
+Intel Core i7-9850H,5270
+AMD Ryzen 7 2700,6560
+AMD Ryzen 7 1700X,6275
+AMD Ryzen 5 4600H,6021.5
+Intel Core i7-10850H,5753
+Intel Core i7-10750H,6308
+Intel Core i7-11390H,5838.5
+AMD Ryzen 7 PRO 4750U,6153
+Intel Core i7-1195G7,4725
+Intel Core i7-1185G7,5560
+Intel Core i7-8850H,4908
+AMD Ryzen 7 4700U,5656
+Intel Core i7-10810U,4456
+AMD Ryzen 5 2600X,6094
+AMD Ryzen 5 5600U,5080
+AMD Ryzen 5 4680U,5785
+AMD Ryzen 5 5500U,5471.5
+AMD Ryzen 5 PRO 4650U,4648.5
+Intel Core i5-11300H,4593
+Intel Core i3-10320,4846
+Intel Core i5-1135G7,4690
+AMD Ryzen 5 4500U,4632
+Intel Core i5-10200H,4126
+Intel Core i7-8705G,4047
+Intel Core i5-9300HF,4370
+Intel Core i5-8300H,3270
+AMD Ryzen 5 1500X,4603.5
+Intel Core i7-1180G7,5304
+AMD Ryzen 3 3100,5005
+Intel Core i3-10100,4758
+Intel Core i3-9100F,4074
+Intel Core i7-7700HQ,3742
+Intel Core i7-1065G7,4439
+Apple A15 Bionic,4818
+AMD Ryzen 5 1400,3037.5
+Intel Core i5-8257U,3858
+Intel Core i7-10510U,3692
+Intel Core i5-1035G7,2713
+AMD Ryzen 7 3750H,3537
+Intel Core i5-10310U,3717.5
+Intel Core i7-8665U,2671
+Intel Core i7-8565U,3073.5
+Intel Core i7-1060G7,2322
+AMD Ryzen 3 5400U,3095
+Intel Core i5-1140G7,3921
+AMD Ryzen 7 2700U,2969
+AMD Ryzen 3 5300U,3960.5
+AMD Ryzen 5 3500U,3155.5
+Intel Core i5-1130G7,4802
+AMD Ryzen 5 3580U,2990
+Qualcomm Snapdragon 8cx Gen 2 5G,3115.5
+Intel Core i5-1030NG7,2710
+Intel Core i3-1005G1,2425.5
+Intel Core i7-2860QM,2832.5
+AMD Ryzen 3 1200,2882
+AMD Ryzen 5 2500U,2515
+AMD Ryzen Embedded V1605B,3184
+MediaTek Dimensity 9000,4246.5
+Apple A12X Bionic,4620
+Qualcomm Snapdragon 8 Gen 1,3641
+Qualcomm Snapdragon 8cx,2760
+Qualcomm Snapdragon 888 5G,3601
+Samsung Exynos 2200,3517
+Intel Core i7-2675QM,1928
+AMD Ryzen 3 3350U,2455
+Intel Pentium Gold 7505,2326
+AMD Ryzen 3 PRO 2300U,2156
+Intel Core i3-1000NG4,2028
+Intel Core i5-4258U,1588
+Intel Core i5-10210Y,2735
+Samsung Exynos 2100 5G,3364
+Qualcomm Snapdragon 865+ (Plus),3250.5
+MediaTek Dimensity 1200,2689.5
+Intel Core i5-8200Y,1934
+Intel Core i3-L13G4,1349
+AMD Ryzen Embedded R1606G,1903
+AMD Ryzen 3 2200U,1267
+AMD Ryzen Embedded R1505G,1353
+Intel Pentium Gold 6405U,1320
+AMD Athlon Silver 3050U,1429
+Qualcomm Snapdragon 780G 5G,2998
+HiSilicon Kirin 990 5G,3076.5
+Samsung Exynos 990,2787
+Qualcomm Snapdragon 7c Gen 2,1630
+Qualcomm Snapdragon 855+ / 855 Plus,2658.5
+Apple A11 Bionic,2339
+MediaTek Dimensity 1000+,2762
+MediaTek Dimensity 920,2097.5
+MediaTek Dimensity 820,2678
+Intel Core m3-8100Y,1396.5
+AMD FX-7600P,1438
+Intel Core i3-5005U,1150
+Intel Pentium Silver N6000,1897
+Intel Pentium Silver N5030,1221
+Intel Pentium Silver N5000,1582
+AMD A10-4600M,1162
+AMD Athlon Silver 3050e,1172
+Intel Celeron 3867U,873
+Samsung Exynos 9820,2259
+MediaTek Dimensity 810,1809
+HiSilicon Kirin 810,1919.5
+Qualcomm Snapdragon 695 5G,2016
+Qualcomm Snapdragon 845,2012
+Qualcomm Snapdragon 765,1911.5
+AMD 3015e,860
+Intel Celeron N4120,1509
+MediaTek Dimensity 800U,1779.5
+Qualcomm Snapdragon 730G,1744.5
+Qualcomm Snapdragon 730,1713.5
+Mediatek Helio G95,1675
+Qualcomm Snapdragon 480 Plus 5G,1661
+MediaTek Dimensity 720,1627
+Intel Pentium N4200,935
+Qualcomm Snapdragon 675,924
+Qualcomm Snapdragon 835 (8998),1669
+Samsung Exynos 9611,1323.5
+Intel Celeron N4100,1271
+Intel Celeron N4505,1239
+Intel Celeron N4020,858
+Intel Atom x7-Z8750,770
+Mediatek Helio P65,1239.5
+Qualcomm Snapdragon 710,1478
+Qualcomm Snapdragon 665,1371.5
+Qualcomm Snapdragon 660,1440.5
+UNISOC T616,1392
+UNISOC T606,1144
+Mediatek Helio G88,1265
+Mediatek Helio G80,1345
+HiSilicon Kirin 710,1338
+Mediatek Helio P60T,926
+Mediatek MT8183,1198.5
+Samsung Exynos 850,1061.5
+AMD A4-5000,676
+Mediatek Helio G35,758
+Apple A8,627
+Mediatek Helio A25,860
+Qualcomm Snapdragon 632,1233
+UNISOC SC9863A,782
+Qualcomm Snapdragon 439,823
+Mediatek Helio P22T MT8768T,920
+Apple A7,502
+Qualcomm Snapdragon 450,498
+Qualcomm Snapdragon 429,566
+Mediatek MT8766B,455
+Mediatek MT6737,291
+Mediatek MT6580M,248
