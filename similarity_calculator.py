@@ -1,5 +1,6 @@
-import Notebook
-from Notebook import String_Attribute, Number_Attribute, Attribute, NATURE
+import pandas as pd
+import Constraint
+from Constraint import String_Attribute, Number_Attribute, Attribute, NATURE
 
 
 def sum_priority(constraint):
@@ -11,10 +12,7 @@ def sum_priority(constraint):
 
 
 def need_computation(key, attr):
-    if key == "cpu" or key == "gpu":
-        return False
-
-    if not isinstance(attr, Attribute) or attr.priority <= 0:
+    if attr.priority <= 0:
         return False
 
     if isinstance(attr, String_Attribute) and len(attr.value) <= 0:
@@ -27,7 +25,7 @@ def need_computation(key, attr):
 
 
 def compute_similarity(constraint, item_list):
-    if len(item_list) <= 0:
+    if (item_list.shape)[0] <= 0:
         return
 
     # assign 0 to each item's similarity
@@ -40,33 +38,27 @@ def compute_similarity(constraint, item_list):
 
         diff = [0 * i for i in range((item_list.shape)[0])]
 
-        if isinstance(attr, String_Attribute) and attr.value != "":
-            # process string constraint
-
-            # brand
-            if attr.nature == NATURE.EQUAL:
-                # since items already filtered, all items fulfill the constraints
-                diff = 1
-                continue
+        if isinstance(attr, String_Attribute):
+            # since items already filtered, all items fulfill the constraints
+            diff = 1
 
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             item_list[key] = item_list[key].astype(float)
+            min_value = min(item_list[key])
+            max_value = max(item_list[key])
             # process number constraint
             if max(item_list[key]) == min(item_list[key]):
                 diff = 1
             elif attr.nature == NATURE.MORE:
                 # ram, storage, cpu_average, gpu_average
-                diff = (item_list[key] - attr.min_value) / (
-                        max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
+                diff = (item_list[key] - min_value) / (max_value - min_value)
             elif attr.nature == NATURE.LESS:
                 # price, weight
-                diff = (attr.max_value - item_list[key]) / (
-                        max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
+                diff = (max_value - item_list[key]) / (max_value - min_value)
             elif attr.nature == NATURE.NEAR:
                 # screen_size
-                diff = abs(((attr.max_value + attr.min_value) / 2) - Notebook.NOTEBOOK_LIST[key]) / (
-                        max(Notebook.NOTEBOOK_LIST[key]) - min(Notebook.NOTEBOOK_LIST[key]))
+                diff = 1 - (abs(((attr.max_value + attr.min_value) / 2) - item_list[key]) / (max_value - min_value))
 
-        item_list["similarity"] += attr.priority * diff * 100 / total_weight
+        item_list["similarity"] += diff * attr.priority / total_weight
 
     return item_list

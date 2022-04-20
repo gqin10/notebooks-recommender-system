@@ -36,11 +36,9 @@ class Number_Attribute(Attribute):
         super().__init__(nature)
 
 
-class Notebook:
+class Constraint:
     def __init__(self):
         self.brand = String_Attribute(NATURE.EQUAL)
-        self.model = ""
-        self.cpu_brand = ""
         self.cpu = String_Attribute(NATURE.NEAR)
         self.ram = Number_Attribute(NATURE.MORE)
         self.storage = Number_Attribute(NATURE.MORE)

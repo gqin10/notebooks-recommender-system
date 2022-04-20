@@ -1,4 +1,4 @@
-from Notebook import *
+from Constraint import *
 from item_extrator import extract_notebooks
 from constraint_processor import use_cpu_average, use_gpu_average
 

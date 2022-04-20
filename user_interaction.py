@@ -1,10 +1,10 @@
-from Notebook import Notebook
+from Constraint import Constraint
 from spec_list import brand_list, cpu_list, gpu_list
 from constraint_processor import set_cpu_gpu_average
 
 
 def get_user_requirements():
-    user_constraint = Notebook()
+    user_constraint = Constraint()
 
     user_constraint.brand.priority = float(input("Enter brand priority: "))
     if user_constraint.brand.priority > 0:

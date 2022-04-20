@@ -1,4 +1,4 @@
-from Notebook import NOTEBOOK_LIST
+from Constraint import NOTEBOOK_LIST
 
 
 def set_cpu_gpu_average(user_constraint):

@@ -1,3 +1,4 @@
+import constraint_processor
 from item_extrator import extract_notebooks
 from similarity_calculator import compute_similarity
 from constraint_relax import relax_constraints
@@ -15,16 +16,14 @@ if __name__ == "__main__":
 
     # user_constraint = get_user_requirements()
     user_constraint = get_test_constraint()
+    matching_notebooks = extract_notebooks(user_constraint) # extract items that fulfil constraints
 
-    dropped_constraint = set()
+    # relax constraint if  no items can be found
 
-    filtered_notebooks = extract_notebooks(user_constraint)
+    if (matching_notebooks.shape)[0] > 0:
+        user_constraint = constraint_processor.use_cpu_average(user_constraint)
+        user_constraint = constraint_processor.use_gpu_average(user_constraint)
+        matching_notebooks = compute_similarity(user_constraint, matching_notebooks)
+        matching_notebooks = matching_notebooks.sort_values(by=['similarity'], ascending=False)
 
-    while len(filtered_notebooks) <= 0:
-        filtered_notebooks, dropped_constraint = relax_constraints(user_constraint)
-
-    filtered_notebooks = compute_similarity(user_constraint, filtered_notebooks)
-    filtered_notebooks = filtered_notebooks.sort_values(by=["similarity"], ascending=False)
-    if len(dropped_constraint) > 0:
-        print("Dropped constraints:", dropped_constraint)
-    print(filtered_notebooks)
+    print(matching_notebooks)
