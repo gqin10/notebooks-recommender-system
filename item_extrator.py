@@ -1,8 +1,8 @@
 import pandas as pd
 
-from Notebook import Number_Attribute, String_Attribute
+from Notebook import Number_Attribute, String_Attribute, NOTEBOOK_LIST
 
-notebooks = pd.read_csv("data/notebook_data.csv")
+notebooks = NOTEBOOK_LIST
 
 
 def extract_notebooks(constraint):

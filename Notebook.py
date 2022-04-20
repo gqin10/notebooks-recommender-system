@@ -1,7 +1,7 @@
 import pandas as pd
 from enum import Enum
 
-NOTEBOOK_LIST = pd.read_csv("data/notebook_data.csv")
+NOTEBOOK_LIST = pd.read_csv("./data/data/notebook_data.csv")
 
 
 class NATURE(Enum):
