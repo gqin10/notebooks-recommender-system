@@ -30,9 +30,10 @@ class String_Attribute(Attribute):
 
 
 class Number_Attribute(Attribute):
-    def __init__(self, nature):
+    def __init__(self, nature, increment = 0):
         self.min_value = 0
         self.max_value = 0
+        self.increment = increment
         super().__init__(nature)
 
 
@@ -40,9 +41,9 @@ class Constraint:
     def __init__(self):
         self.brand = String_Attribute(NATURE.EQUAL)
         self.cpu = String_Attribute(NATURE.NEAR)
-        self.ram = Number_Attribute(NATURE.MORE)
-        self.storage = Number_Attribute(NATURE.MORE)
-        self.screen_size = Number_Attribute(NATURE.NEAR)
+        self.ram = Number_Attribute(NATURE.MORE, 4)
+        self.storage = Number_Attribute(NATURE.MORE, 216)
+        self.screen_size = Number_Attribute(NATURE.NEAR, 0.5)
         self.gpu = String_Attribute(NATURE.MORE)
         self.weight = Number_Attribute(NATURE.LESS)
         self.price = Number_Attribute(NATURE.LESS)

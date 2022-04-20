@@ -6,13 +6,13 @@ def get_test_constraint():
 
     user_constraint.brand.value = []
     user_constraint.brand.priority = 0
-    user_constraint.cpu.value = ["i5", "ryzen 5"]
+    user_constraint.cpu.value = ["i7"]
     user_constraint.cpu.priority = 5
-    user_constraint.gpu.value = ["mx","gtx"]
+    user_constraint.gpu.value = ["rtx"]
     user_constraint.gpu.priority = 10
     user_constraint.ram.min_value = 8
     user_constraint.ram.max_value = 16
-    user_constraint.ram.priority = 7
+    user_constraint.ram.priority = 1
     user_constraint.storage.min_value = 0
     user_constraint.storage.max_value = 0
     user_constraint.storage.priority = 0
@@ -22,8 +22,8 @@ def get_test_constraint():
     user_constraint.weight.min_value = 0
     user_constraint.weight.max_value = 0
     user_constraint.weight.priority = 0
-    user_constraint.price.min_value = 3000
-    user_constraint.price.max_value = 5000
-    user_constraint.price.priority = 4
+    user_constraint.price.min_value = 0
+    user_constraint.price.max_value = 0
+    user_constraint.price.priority = 0
 
     return set_cpu_gpu_average(user_constraint)

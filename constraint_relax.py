@@ -78,11 +78,18 @@ def loose_constraint(constraint, key):
     print("loosing", key)
     print(constraint.get(key))
     if isinstance(constraint.get(key), Number_Attribute):
-        constraint.get(key).min_value = constraint.get(key).min_value - (
-                0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
-        constraint.get(key).max_value = constraint.get(key).max_value + (
-                0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
-    print(constraint.get(key))
+        print(key, (constraint.get(key)).increment)
+        if (constraint.get(key)).increment == 0:
+            constraint.get(key).min_value = constraint.get(key).min_value - (
+                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
+            constraint.get(key).max_value = constraint.get(key).max_value + (
+                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
+
+        else:
+            increment = (constraint.get(key)).increment
+            if constraint.get(key).min_value - increment > 0:
+                constraint.get(key).min_value = constraint.get(key).min_value - increment
+            constraint.get(key).max_value = constraint.get(key).max_value + increment
     return constraint
 
 # mfq

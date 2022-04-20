@@ -29,3 +29,9 @@ def use_gpu_average(user_constraint):
     user_constraint.gpu_average.priority = user_constraint.gpu.priority
     user_constraint.gpu.priority = 0
     return user_constraint
+
+def is_using_cpu_average(user_constraint):
+    return user_constraint.cpu_average.priority > 0
+
+def is_using_gpu_average(user_constraint):
+    return user_constraint.gpu_average.priority > 0
