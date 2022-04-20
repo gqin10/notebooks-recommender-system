@@ -26,11 +26,11 @@ def collect_data(key, url, spider_name):
 
 
 if __name__ == "__main__":
-    os.chdir("./scraper")
+    os.chdir("scraper")
 
     for key, url in notebook_crawl_target.items():
         collect_data(key, url, "notebook_spider")
     for key, url in (cpu_crawl_target | gpu_crawl_target).items():
         collect_data(key, url, "notebook_check_spider")
 
-    os.chdir("./..")
+    os.chdir("../..")

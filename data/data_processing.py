@@ -5,7 +5,7 @@ from sklearn import preprocessing
 from data_information import notebook_required_attributes, notebook_update_attribute_names
 from search_model import search_cpu, cpu_clean_list, search_gpu, gpu_clean_list
 
-OUTPUT_DIRECTORY = "data/"
+OUTPUT_DIRECTORY = "././data/"
 OUTPUT_FILE_TYPE = ".csv"
 
 
