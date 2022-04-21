@@ -1,6 +1,7 @@
 import pandas as pd
 import Constraint
 from Constraint import String_Attribute, Number_Attribute, Attribute, NATURE
+from Constraint import NOTEBOOK_LIST
 
 
 def sum_priority(constraint):
@@ -44,12 +45,10 @@ def compute_similarity(constraint, item_list):
 
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             item_list[key] = item_list[key].astype(float)
-            min_value = min(item_list[key])
-            max_value = max(item_list[key])
+            min_value = min(NOTEBOOK_LIST[key])
+            max_value = max(NOTEBOOK_LIST[key])
             # process number constraint
-            if max(item_list[key]) == min(item_list[key]):
-                diff = 1
-            elif attr.nature == NATURE.MORE:
+            if attr.nature == NATURE.MORE:
                 # ram, storage, cpu_average, gpu_average
                 diff = (item_list[key] - min_value) / (max_value - min_value)
             elif attr.nature == NATURE.LESS:
