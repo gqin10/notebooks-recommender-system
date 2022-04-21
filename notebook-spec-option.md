@@ -15,7 +15,7 @@
 1. Intel Pentium
 2. Intel Core i3
 3. Intel Core i5
-4. Intel Core i7 
+4. Intel Core i7
 5. AMD Athlon
 6. AMD Ryzen 3
 7. AMD Ryzen 5

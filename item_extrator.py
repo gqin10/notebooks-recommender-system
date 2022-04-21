@@ -2,6 +2,7 @@ import pandas as pd
 
 from Constraint import Number_Attribute, String_Attribute, NOTEBOOK_LIST
 
+
 def extract_notebooks(constraint):
     filtered_notebooks = NOTEBOOK_LIST
 

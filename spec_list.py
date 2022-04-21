@@ -30,7 +30,7 @@ brand_list = ['acer', 'asus', 'dell', 'hp', 'huawei', 'lenovo', 'microsoft', 'ms
 8. AMD Ryzen 7
 9. AMD Ryzen 9
 """
-cpu_list = ['celeron','pentium','i3','i5','i7','athlon','ryzen 3','ryzen 5','ryzen 7','ryzen 9']
+cpu_list = ['celeron', 'pentium', 'i3', 'i5', 'i7', 'athlon', 'ryzen 3', 'ryzen 5', 'ryzen 7', 'ryzen 9']
 
 """
 # GPU

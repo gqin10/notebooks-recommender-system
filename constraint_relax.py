@@ -1,95 +1,45 @@
-from Constraint import *
+import copy
+import math
+
 from item_extrator import extract_notebooks
-from constraint_processor import use_cpu_average, use_gpu_average
 
 
-def relax_constraints(constraint):
-    # search_minimal_failing_query(constraint)
-    return soft_relax(constraint)
+def search_mfq(constraint):
+    mfq, min_depth = search_failing_subquery(constraint)
+    for item in reversed(mfq):
+        if len(item) > min_depth:
+            mfq.remove(item)
+
+    return mfq, min_depth
 
 
-# hard relaxation on low priority constraint
-def hard_priority(constraint):
-    valid_constraint = [{"key": key, "attr": attr} for key, attr in constraint.__dict__.items() if
-                        (isinstance(attr, Attribute) and attr.priority > 0)]
-    sorted_constraint = sorted(valid_constraint, key=lambda item: item.get("attr").priority)
+def search_failing_subquery(constraint, depth=1, min_depth=math.inf):
+    if depth > min_depth:
+        return [], min_depth
 
-    dropped_constraints = set()
-    notebooks = pd.DataFrame()
+    mfq_group = list()
 
-    for c in sorted_constraint:
-        if (notebooks.shape)[0] <= 0:
-            dropped_constraints.add(c.get("key"))
-            constraint = drop_constraint(constraint, c.get("key"))
-            notebooks = extract_notebooks(constraint)
+    for key, attr in constraint.__dict__.items():
+        if attr.priority <= 0:
+            continue
+        temp_constraint = drop_constraint(copy.deepcopy(constraint), key)
+        notebooks = extract_notebooks(temp_constraint)
+        if (notebooks.shape)[0] > 0:
+            mfq_group.append(set([key]))
+            if depth < min_depth:
+                min_depth = depth
         else:
-            break
+            next_mfq, _ = search_failing_subquery(temp_constraint, depth=depth + 1, min_depth=min_depth)
+            if next_mfq != None and len(next_mfq) > 0:
+                if _ < min_depth: min_depth = _
+                temp = set([key])
+                for sub_mfq in next_mfq:
+                    temp2 = temp.union(sub_mfq)
+                if not temp2 in mfq_group: mfq_group.append(temp2)
 
-    return notebooks, dropped_constraints
+    return mfq_group, min_depth
 
-
-# soft relaxation on low priority constraint
-def soft_relax(constraint):
-
-    if constraint.cpu.priority > 0:
-        constraint = use_cpu_average(constraint)
-
-    if constraint.gpu.priority > 0:
-        constraint = use_gpu_average(constraint)
-
-    valid_constraint = [{"key": key, "attr": attr} for key, attr in constraint.__dict__.items() if
-                        (isinstance(attr, Attribute) and attr.priority > 0)]
-    sorted_constraint = sorted(valid_constraint, key=lambda item: item.get("attr").priority)
-    dropped_constraint = set()
-    notebooks = pd.DataFrame()
-
-    while (notebooks.shape)[0] <= 0:
-        for c in sorted_constraint:
-            if not isinstance(c.get("attr"), Number_Attribute):
-                continue
-
-            if (notebooks.shape)[0] <= 0:
-                dropped_constraint.add(c.get("key"))
-                constraint = loose_constraint(constraint, c.get("key"))
-                notebooks = extract_notebooks(constraint)
-            else:
-                break
-
-    return notebooks, dropped_constraint
-
-
-# hard relax attribute that has lower priority in minimal failing subquery
-
-# soft relax attribute that has lower priority in minimal failing subquery
-
-# high priority -> soft relaxation, low priority -> hard relaxation
 
 def drop_constraint(constraint, key):
-    print("dropping", key)
-    if isinstance(constraint.get(key), String_Attribute):
-        constraint.get(key).value = []
-    elif isinstance(constraint.get(key), Number_Attribute):
-        constraint.get(key).min_value = min(NOTEBOOK_LIST[key])
-        constraint.get(key).max_value = max(NOTEBOOK_LIST[key])
+    (constraint.get(key)).priority = 0
     return constraint
-
-
-def loose_constraint(constraint, key):
-    print("loosing", key)
-    print(constraint.get(key))
-    if isinstance(constraint.get(key), Number_Attribute):
-        print(key, (constraint.get(key)).increment)
-        if (constraint.get(key)).increment == 0:
-            constraint.get(key).min_value = constraint.get(key).min_value - (
-                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
-            constraint.get(key).max_value = constraint.get(key).max_value + (
-                    0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
-
-        else:
-            increment = (constraint.get(key)).increment
-            if constraint.get(key).min_value - increment > 0:
-                constraint.get(key).min_value = constraint.get(key).min_value - increment
-            constraint.get(key).max_value = constraint.get(key).max_value + increment
-    return constraint
-
-# mfq

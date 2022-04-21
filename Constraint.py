@@ -30,7 +30,7 @@ class String_Attribute(Attribute):
 
 
 class Number_Attribute(Attribute):
-    def __init__(self, nature, increment = 0):
+    def __init__(self, nature, increment=0):
         self.min_value = 0
         self.max_value = 0
         self.increment = increment
