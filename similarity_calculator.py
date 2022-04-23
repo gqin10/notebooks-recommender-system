@@ -29,7 +29,6 @@ def compute_similarity(constraint, item_list):
     if (item_list.shape)[0] <= 0:
         return
 
-    # assign 0 to each item's similarity
     item_list["similarity"] = [0 * i for i in range((item_list.shape)[0])]
     total_weight = sum_priority(constraint)
 
@@ -45,8 +44,8 @@ def compute_similarity(constraint, item_list):
 
         elif isinstance(attr, Number_Attribute) and (attr.min_value > 0 or attr.max_value > 0):
             item_list[key] = item_list[key].astype(float)
-            min_value = min(NOTEBOOK_LIST[key])
-            max_value = max(NOTEBOOK_LIST[key])
+            min_value = min(item_list[key])
+            max_value = max(item_list[key])
             # process number constraint
             if attr.nature == NATURE.MORE:
                 # ram, storage, cpu_average, gpu_average
