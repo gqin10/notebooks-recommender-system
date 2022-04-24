@@ -30,14 +30,14 @@ if __name__ == "__main__":
         mfq.sort(key=lambda x: sum([user_constraint.get(attr).priority for attr in x]), reverse=False)
         print(mfq)
         for item in mfq[0]:
-            user_constraint = drop_constraint(user_constraint, item)
-            # user_constraint = loose_constraint(user_constraint, item)
+            # user_constraint = drop_constraint(user_constraint, item)
+            user_constraint = loose_constraint(user_constraint, item)
 
         matching_notebooks = extract_notebooks(user_constraint)
 
     if (matching_notebooks.shape)[0] > 0:
-        user_constraint = use_cpu_average(user_constraint) if not is_using_cpu_average(
-            user_constraint) else user_constraint
+        copy_constraint = use_cpu_average(copy_constraint) if not is_using_cpu_average(
+            copy_constraint) else copy_constraint
         user_constraint = use_gpu_average(user_constraint) if not is_using_gpu_average(
             user_constraint) else user_constraint
         matching_notebooks = compute_similarity(copy_constraint, matching_notebooks)

@@ -55,12 +55,12 @@ def loose_constraint(constraint, key):
     if key == "cpu":
         constraint = use_cpu_average(constraint) if not is_using_cpu_average(
             constraint) else constraint
-        (constraint.get(key)).value = loose_value(constraint, "cpu_average")
+        (constraint.get("cpu_average")).value += loose_value(constraint, "cpu_average")
 
     elif key == "gpu":
         constraint = use_gpu_average(constraint) if not is_using_gpu_average(
             constraint) else constraint
-        (constraint.get(key)).value += loose_value(constraint, "gpu_average")
+        (constraint.get("gpu_average")).value += loose_value(constraint, "gpu_average")
 
     elif isinstance(constraint.get(key), String_Attribute):
         (constraint.get(key)).value = []
