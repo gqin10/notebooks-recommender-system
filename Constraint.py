@@ -16,6 +16,7 @@ class Attribute:
         self.priority = 0
         self.nature = nature
         self.value = ""
+        self.has_relaxed = False
 
     def __str__(self) -> str:
         res = ""

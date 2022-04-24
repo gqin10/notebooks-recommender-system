@@ -15,32 +15,45 @@ pd.set_option('display.max_rows', None)  # or 1000
 pd.set_option('display.max_colwidth', None)  # or 199
 
 if __name__ == "__main__":
+    relax_threshold = 0.5
+
     # print("Refer to notebook-spec-option.md for the available options")
 
     # user_constraint = get_user_requirements()
     # user_constraint = get_test_constraint()
     user_constraint = get_fail_constraint()
+
+    max_priority = max([attr.priority for _, attr in user_constraint.__dict__.items()])
+    for _, attr in user_constraint.__dict__.items():
+        attr.priority /= max_priority
+
     copy_constraint = copy.deepcopy(user_constraint)
 
     matching_notebooks = extract_notebooks(user_constraint)
 
-    while (matching_notebooks.shape)[0] <= 0:
+    mfq = None
+
+    if (matching_notebooks.shape)[0] <= 0:
         mfq, min_relax = search_mfq(user_constraint)
+
         # TODO relax constraint
         mfq.sort(key=lambda x: sum([user_constraint.get(attr).priority for attr in x]), reverse=False)
         print(mfq)
         for item in mfq[0]:
-            # user_constraint = drop_constraint(user_constraint, item)
-            user_constraint = loose_constraint(user_constraint, item)
+            print(item, ":", user_constraint.get(item).priority)
+            if user_constraint.get(item).priority > relax_threshold:
+                user_constraint = loose_constraint(user_constraint, item)
+            else:
+                user_constraint = drop_constraint(user_constraint, item)
 
         matching_notebooks = extract_notebooks(user_constraint)
 
     if (matching_notebooks.shape)[0] > 0:
-        copy_constraint = use_cpu_average(copy_constraint) if not is_using_cpu_average(
-            copy_constraint) else copy_constraint
+        user_constraint = use_cpu_average(user_constraint) if not is_using_cpu_average(
+            user_constraint) else user_constraint
         user_constraint = use_gpu_average(user_constraint) if not is_using_gpu_average(
             user_constraint) else user_constraint
-        matching_notebooks = compute_similarity(copy_constraint, matching_notebooks)
+        matching_notebooks = compute_similarity(user_constraint, matching_notebooks)
         matching_notebooks = matching_notebooks.sort_values(by=['similarity'], ascending=False)
 
     print(matching_notebooks)

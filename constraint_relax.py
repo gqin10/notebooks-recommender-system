@@ -19,10 +19,11 @@ def search_failing_subquery(constraint, depth=1, min_depth=math.inf):
     if depth > min_depth:
         return [], min_depth
 
+    key_queue = [key for key, _ in constraint.__dict__.items() if _.priority > 0]
     mfq_group = list()
 
     for key, attr in constraint.__dict__.items():
-        if attr.priority <= 0 or attr.value == [] or attr.value == 0:
+        if attr.priority <= 0 or attr.value == [] or attr.value == 0 or attr.has_relaxed == True:
             continue
 
         temp_constraint = drop_constraint(copy.deepcopy(constraint), key)
@@ -48,6 +49,7 @@ def drop_constraint(constraint, key):
         (constraint.get(key)).value = []
     elif isinstance(constraint.get(key), Number_Attribute):
         (constraint.get(key)).value = 0
+    (constraint.get(key)).has_relaxed = True
     return constraint
 
 
@@ -56,11 +58,13 @@ def loose_constraint(constraint, key):
         constraint = use_cpu_average(constraint) if not is_using_cpu_average(
             constraint) else constraint
         (constraint.get("cpu_average")).value += loose_value(constraint, "cpu_average")
+        (constraint.get("cpu_average")).has_relaxed = True
 
     elif key == "gpu":
         constraint = use_gpu_average(constraint) if not is_using_gpu_average(
             constraint) else constraint
         (constraint.get("gpu_average")).value += loose_value(constraint, "gpu_average")
+        (constraint.get("gpu_average")).has_relaxed = True
 
     elif isinstance(constraint.get(key), String_Attribute):
         (constraint.get(key)).value = []
@@ -68,6 +72,7 @@ def loose_constraint(constraint, key):
     elif isinstance(constraint.get(key), Number_Attribute):
         (constraint.get(key)).value += loose_value(constraint, key)
 
+    (constraint.get(key)).has_relaxed = True
     return constraint
 
 
@@ -75,12 +80,12 @@ def loose_value(constraint, key):
     if (constraint.get(key)).nature == NATURE.MORE:
         diff = -(constraint.get(key)).increment
         if diff == 0:
-            diff = -0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key]))
+            diff = -0.1 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key]))
 
     elif (constraint.get(key).nature) == NATURE.LESS:
         diff = (constraint.get(key)).increment
         if diff == 0:
-            diff = 0.05 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key]))
+            diff = 0.1 * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key]))
 
     elif (constraint.get(key).nature) == NATURE.NEAR:
         diff = 0
