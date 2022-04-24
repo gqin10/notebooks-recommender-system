@@ -6,15 +6,13 @@ def set_cpu_gpu_average(user_constraint):
         filtered_notebooks = NOTEBOOK_LIST.dropna(subset=["cpu"])
         filter = filtered_notebooks["cpu"].str.contains("|".join(user_constraint.cpu.value), regex=True, case=False)
         filtered_notebooks = filtered_notebooks[filter]
-        user_constraint.cpu_average.min_value = min(filtered_notebooks["cpu_average"])
-        user_constraint.cpu_average.max_value = max(filtered_notebooks["cpu_average"])
+        user_constraint.cpu_average.value = min(filtered_notebooks["cpu_average"])
 
     if user_constraint.gpu.priority > 0 and len(user_constraint.gpu.value) > 0:
         filtered_notebooks = NOTEBOOK_LIST.dropna(subset=["gpu"])
         filter = filtered_notebooks["gpu"].str.contains("|".join(user_constraint.gpu.value), regex=True, case=False)
         filtered_notebooks = filtered_notebooks[filter]
-        user_constraint.gpu_average.min_value = min(filtered_notebooks["gpu_average"])
-        user_constraint.gpu_average.max_value = max(filtered_notebooks["gpu_average"])
+        user_constraint.gpu_average.value = min(filtered_notebooks["gpu_average"])
 
     return user_constraint
 

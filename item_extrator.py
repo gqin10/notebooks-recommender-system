@@ -10,7 +10,7 @@ def extract_notebooks(constraint):
         if (filtered_notebooks.shape)[0] <= 0:
             break
 
-        if attr.priority <= 0:
+        if attr.priority <= 0 or attr.value == "":
             continue
 
         filtered_notebooks = filtered_notebooks.dropna(subset=[key])
@@ -25,6 +25,9 @@ def extract_notebooks(constraint):
             # get items that have attribute lesser than the given value
             filter = (filtered_notebooks[key].astype(float) <= attr.value)
 
-        filtered_notebooks = filtered_notebooks[filter]
+        elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.NEAR and attr.value > 0:
+            continue
+
+        filtered_notebooks = filtered_notebooks.loc[filter]
 
     return filtered_notebooks
