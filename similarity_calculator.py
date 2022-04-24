@@ -56,6 +56,5 @@ def compute_similarity(constraint, item_list):
                 diff = 1 - (abs(attr.value - item_list[key]) / (max_value - min_value))
 
         item_list["similarity"] += diff * attr.priority / total_weight
-        item_list["similarity_" + key] = diff * attr.priority / total_weight
 
     return item_list
