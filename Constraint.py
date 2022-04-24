@@ -15,6 +15,7 @@ class Attribute:
     def __init__(self, nature):
         self.priority = 0
         self.nature = nature
+        self.value = ""
 
     def __str__(self) -> str:
         res = ""
@@ -25,14 +26,11 @@ class Attribute:
 
 class String_Attribute(Attribute):
     def __init__(self, nature):
-        self.value = ""
         super().__init__(nature)
 
 
 class Number_Attribute(Attribute):
     def __init__(self, nature, increment=0):
-        self.min_value = 0
-        self.max_value = 0
         self.increment = increment
         super().__init__(nature)
 

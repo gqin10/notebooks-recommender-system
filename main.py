@@ -24,6 +24,7 @@ if __name__ == "__main__":
         mfq, min_relax = search_mfq(user_constraint)
         # TODO relax constraint
         mfq.sort(key = lambda x: sum([user_constraint.get(attr).priority for attr in x]), reverse=False)
+        print(mfq)
         for item in mfq[0]:
             (user_constraint.get(item)).priority = 0
         matching_notebooks = extract_notebooks(user_constraint)
