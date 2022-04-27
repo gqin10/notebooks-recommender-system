@@ -28,6 +28,7 @@ def extract_notebooks(constraint):
         elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.NEAR and attr.value > 0:
             continue
 
-        filtered_notebooks = filtered_notebooks.loc[filter]
+        if "filter" in locals():
+            filtered_notebooks = filtered_notebooks.loc[filter]
 
     return filtered_notebooks
