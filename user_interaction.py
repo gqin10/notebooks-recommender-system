@@ -1,4 +1,4 @@
-from Constraint import Constraint, String_Attribute, Number_Attribute, NATURE
+from Constraint import Constraint, String_Attribute, Number_Attribute, Boolean_Attribute, NATURE
 from spec_list import brand_list, cpu_list, gpu_list
 from constraint_processor import set_cpu_gpu_average
 
@@ -13,10 +13,13 @@ def get_user_requirements():
         priority = float(input(f"Enter {key} priority: "))
         setattr(user_constraint.get(key), "priority", priority)
         if priority > 0:
-            if isinstance(attr, String_Attribute):
+            if isinstance(attr, String_Attribute) or isinstance(attr, Boolean_Attribute):
                 temp = input(f"Enter {key} option: ")
                 temp = [x for x in temp.split(",")]
-                setattr(user_constraint.get(key), "value", temp)
+                if isinstance(attr, String_Attribute):
+                    setattr(user_constraint.get(key), "value", temp)
+                else:
+                    setattr(user_constraint.get(key), "value", bool(temp))
 
             elif isinstance(attr, Number_Attribute):
                 value = 0

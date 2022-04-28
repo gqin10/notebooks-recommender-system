@@ -2,7 +2,7 @@ import copy
 import math
 
 from item_extrator import extract_notebooks
-from Constraint import String_Attribute, Number_Attribute, NOTEBOOK_LIST, NATURE
+from Constraint import String_Attribute, Number_Attribute, Boolean_Attribute, NOTEBOOK_LIST, NATURE
 from constraint_processor import use_cpu_average, use_gpu_average, is_using_gpu_average, is_using_cpu_average
 
 
@@ -23,7 +23,16 @@ def search_failing_subquery(constraint, depth=1, min_depth=math.inf):
     mfq_group = list()
 
     for key, attr in constraint.__dict__.items():
-        if attr.priority <= 0 or attr.value == [] or attr.value == 0 or attr.has_relaxed == True:
+        if attr.priority <= 0 or attr.has_relaxed == True:
+            continue
+
+        if isinstance(attr, String_Attribute) and attr.value == []:
+            continue
+
+        if isinstance(attr, Number_Attribute) and attr.value == 0:
+            continue
+
+        if isinstance(attr, Boolean_Attribute) and (attr.value != True and attr.value != False):
             continue
 
         temp_constraint = drop_constraint(copy.deepcopy(constraint), key)
@@ -34,6 +43,7 @@ def search_failing_subquery(constraint, depth=1, min_depth=math.inf):
                 min_depth = depth
         else:
             next_mfq, _ = search_failing_subquery(temp_constraint, depth=depth + 1, min_depth=min_depth)
+
             if next_mfq != None and len(next_mfq) > 0:
                 if _ < min_depth: min_depth = _
                 temp = set([key])
@@ -49,6 +59,8 @@ def drop_constraint(constraint, key):
         (constraint.get(key)).value = []
     elif isinstance(constraint.get(key), Number_Attribute):
         (constraint.get(key)).value = 0
+    elif isinstance(constraint.get(key), Boolean_Attribute):
+        (constraint.get(key)).value = ""
     (constraint.get(key)).has_relaxed = True
     return constraint
 
@@ -71,6 +83,9 @@ def loose_constraint(constraint, key):
 
     elif isinstance(constraint.get(key), Number_Attribute):
         (constraint.get(key)).value += loose_value(constraint, key)
+
+    elif isinstance(constraint.get(key), Boolean_Attribute):
+        (constraint.get(key)).value = ""
 
     (constraint.get(key)).has_relaxed = True
     return constraint

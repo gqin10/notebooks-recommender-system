@@ -1,6 +1,6 @@
 import pandas as pd
 import Constraint
-from Constraint import String_Attribute, Number_Attribute, Attribute, NATURE
+from Constraint import String_Attribute, Number_Attribute, Boolean_Attribute, Attribute, NATURE
 from Constraint import NOTEBOOK_LIST
 
 
@@ -13,7 +13,7 @@ def sum_priority(constraint):
 
 
 def need_computation(key, attr):
-    if attr.priority <= 0 or attr.value == "":
+    if attr.priority <= 0:
         return False
 
     if isinstance(attr, String_Attribute) and len(attr.value) <= 0:
@@ -54,6 +54,12 @@ def compute_similarity(constraint, item_list):
                 diff = (max_value - item_list[key]) / (max_value - min_value)
             elif attr.nature == NATURE.NEAR:
                 diff = 1 - (abs(attr.value - item_list[key]) / (max_value - min_value))
+
+        elif isinstance(attr, Boolean_Attribute) and (attr.value == True or attr.value == False):
+            if attr.value == True:
+                diff = 1 * NOTEBOOK_LIST[key].notnull()
+            else:
+                diff = 1 * NOTEBOOK_LIST[key].isna()
 
         item_list["similarity"] += diff * attr.priority / total_weight
         item_list["similarity_" + key] = diff * attr.priority / total_weight

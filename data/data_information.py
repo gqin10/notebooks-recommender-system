@@ -11,14 +11,14 @@ All attributes of notebooks
 """
 notebook_required_attributes = [
     "Brand", "Model", "Processor Model", "RAM (GB)",
-    "Storage Size (GB)", "Screen Size (inches)", "Graphics Card Type", "Weight (kg)",
-    "Price (RM)"
+    "Storage Size (GB)", "Operating System", "Screen Size (inches)", "Graphics Card Type",
+    "Camera Resolution (MP)", "Weight (kg)", "Price (RM)"
 ]
 
 notebook_update_attribute_names = [
     "brand", "model", "cpu", "ram",
-    "storage", "screen_size", "gpu", "weight",
-    "price"
+    "storage", "os", "screen_size", "gpu",
+    "camera", "weight", "price"
 ]
 
 notebook_crawl_target = {

@@ -36,6 +36,11 @@ class Number_Attribute(Attribute):
         super().__init__(nature)
 
 
+class Boolean_Attribute(Attribute):
+    def __init__(self):
+        super().__init__(NATURE.EQUAL)
+
+
 class Constraint:
     def __init__(self):
         self.brand = String_Attribute(NATURE.EQUAL)
@@ -44,6 +49,8 @@ class Constraint:
         self.storage = Number_Attribute(NATURE.MORE, 216)
         self.screen_size = Number_Attribute(NATURE.NEAR, 0.5)
         self.gpu = String_Attribute(NATURE.MORE)
+        self.os = String_Attribute(NATURE.EQUAL)
+        self.camera = Boolean_Attribute()
         self.weight = Number_Attribute(NATURE.LESS)
         self.price = Number_Attribute(NATURE.LESS)
         self.cpu_average = Number_Attribute(NATURE.MORE)

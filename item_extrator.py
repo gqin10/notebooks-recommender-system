@@ -1,6 +1,6 @@
 import pandas as pd
 
-from Constraint import Number_Attribute, String_Attribute, NOTEBOOK_LIST, NATURE
+from Constraint import Number_Attribute, String_Attribute, Boolean_Attribute, NOTEBOOK_LIST, NATURE
 
 
 def extract_notebooks(constraint):
@@ -27,6 +27,12 @@ def extract_notebooks(constraint):
 
         elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.NEAR and attr.value > 0:
             continue
+
+        elif isinstance(attr, Boolean_Attribute) and (attr.value == True or attr.value == False):
+            if attr.value == True:
+                filter = filtered_notebooks[key].notnull()
+            elif attr.value == False:
+                filter = filtered_notebooks[key].isna()
 
         if "filter" in locals():
             filtered_notebooks = filtered_notebooks.loc[filter]

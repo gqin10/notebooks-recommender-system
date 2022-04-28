@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     mfq = None
 
-    if (matching_notebooks.shape)[0] <= 0:
+    if (matching_notebooks.shape)[0] <= 20:
         mfq, min_relax = search_mfq(user_constraint)
 
         # TODO relax constraint
@@ -53,7 +53,7 @@ if __name__ == "__main__":
             user_constraint) else user_constraint
         user_constraint = use_gpu_average(user_constraint) if not is_using_gpu_average(
             user_constraint) else user_constraint
-        matching_notebooks = compute_similarity(user_constraint, matching_notebooks)
+        matching_notebooks = compute_similarity(copy_constraint, matching_notebooks)
         matching_notebooks = matching_notebooks.sort_values(by=['similarity'], ascending=False)
 
     print(matching_notebooks)

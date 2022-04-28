@@ -38,6 +38,12 @@ def get_fail_constraint():
     user_constraint.ram.value = 8
     user_constraint.ram.priority = 3
 
+    user_constraint.os.value = "10"
+    user_constraint.os.priority = 3
+
+    user_constraint.camera.value = True
+    user_constraint.camera.priority = 8
+
     user_constraint.storage.value = 512
     user_constraint.storage.priority = 10
 
@@ -45,7 +51,7 @@ def get_fail_constraint():
     user_constraint.screen_size.priority = 5
 
     user_constraint.weight.value = 0.8
-    user_constraint.weight.priority = 4
+    user_constraint.weight.priority = 0
 
     user_constraint.price.value = 5000
     user_constraint.price.priority = 2
