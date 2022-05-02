@@ -51,7 +51,7 @@ class Number_Attribute(Attribute):
         super().__init__(nature)
 
     def has_value(self):
-        return self.value > 0
+        return self.value != "" and self.value > 0
 
 
 class Boolean_Attribute(Attribute):
@@ -59,7 +59,7 @@ class Boolean_Attribute(Attribute):
         super().__init__(NATURE.EQUAL)
 
     def has_value(self):
-        return self.value == True or self.value == False
+        return self.value != "" and (self.value == True or self.value == False)
 
 
 class Constraint:
