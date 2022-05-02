@@ -53,7 +53,7 @@ def get_fail_constraint():
     user_constraint.weight.value = 0.8
     user_constraint.weight.priority = 0
 
-    user_constraint.price.value = 5000
+    user_constraint.price.value = 2000
     user_constraint.price.priority = 2
 
     return set_cpu_gpu_average(user_constraint)

@@ -1,7 +1,7 @@
 import copy
 import math
 
-from item_extrator import extract_notebooks
+from item_extrator import extract_notebooks, has_item
 from Constraint import String_Attribute, Number_Attribute, Boolean_Attribute, NOTEBOOK_LIST, NATURE
 from constraint_processor import use_cpu_average, use_gpu_average, is_using_gpu_average, is_using_cpu_average
 
@@ -19,37 +19,33 @@ def search_failing_subquery(constraint, depth=1, min_depth=math.inf):
     if depth > min_depth:
         return [], min_depth
 
-    key_queue = [key for key, _ in constraint.__dict__.items() if _.priority > 0]
+    key_queue = [(key, attr) for key, attr in constraint.__dict__.items() if attr.priority > 0]
     mfq_group = list()
 
-    for key, attr in constraint.__dict__.items():
-        if attr.priority <= 0 or attr.has_relaxed == True:
-            continue
-
-        if isinstance(attr, String_Attribute) and attr.value == []:
-            continue
-
-        if isinstance(attr, Number_Attribute) and attr.value == 0:
-            continue
-
-        if isinstance(attr, Boolean_Attribute) and (attr.value != True and attr.value != False):
+    for key, attr in key_queue:
+        if not canRelax(attr):
             continue
 
         temp_constraint = drop_constraint(copy.deepcopy(constraint), key)
         notebooks = extract_notebooks(temp_constraint)
-        if (notebooks.shape)[0] > 0:
+        if has_item(notebooks):
             mfq_group.append(set([key]))
             if depth < min_depth:
                 min_depth = depth
         else:
-            next_mfq, _ = search_failing_subquery(temp_constraint, depth=depth + 1, min_depth=min_depth)
+            next_mfq, next_min_depth = search_failing_subquery(temp_constraint, depth=depth + 1, min_depth=min_depth)
 
             if next_mfq != None and len(next_mfq) > 0:
-                if _ < min_depth: min_depth = _
+                if next_min_depth < min_depth:
+                    min_depth = next_min_depth
+
                 temp = set([key])
+
                 for sub_mfq in next_mfq:
                     temp2 = temp.union(sub_mfq)
-                if not temp2 in mfq_group: mfq_group.append(temp2)
+
+                if not temp2 in mfq_group:
+                    mfq_group.append(temp2)
 
     return mfq_group, min_depth
 
@@ -106,3 +102,19 @@ def loose_value(constraint, key):
         diff = 0
 
     return diff
+
+
+def canRelax(attr):
+    if attr.priority <= 0 or attr.has_relaxed == True:
+        return False
+
+    if isinstance(attr, String_Attribute) and attr.value == []:
+        return False
+
+    if isinstance(attr, Number_Attribute) and attr.value == 0:
+        return False
+
+    if isinstance(attr, Boolean_Attribute) and (attr.value != True and attr.value != False):
+        return False
+
+    return True

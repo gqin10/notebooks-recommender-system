@@ -1,7 +1,6 @@
 import pandas as pd
 import Constraint
-from Constraint import String_Attribute, Number_Attribute, Boolean_Attribute, Attribute, NATURE
-from Constraint import NOTEBOOK_LIST
+from Constraint import *
 
 
 def sum_priority(constraint):
@@ -12,7 +11,7 @@ def sum_priority(constraint):
     return sum
 
 
-def need_computation(key, attr):
+def need_computation(attr):
     if attr.priority <= 0:
         return False
 
@@ -33,30 +32,30 @@ def compute_similarity(constraint, item_list):
     total_weight = sum_priority(constraint)
 
     for key, attr in constraint.__dict__.items():
-        if not need_computation(key, attr):
+        if not need_computation(attr):
             continue
 
         diff = 0
 
-        if isinstance(attr, String_Attribute):
+        if attr.is_str_attr():
             # since items already filtered, all items fulfill the constraints
             diff = 1
 
-        elif isinstance(attr, Number_Attribute) and attr.value > 0:
+        elif attr.is_num_attr() and attr.has_value() :
             item_list[key] = item_list[key].astype(float)
             min_value = min(NOTEBOOK_LIST[key])
             max_value = max(NOTEBOOK_LIST[key])
             if min_value == max_value:
                 diff = 1
             elif attr.nature == NATURE.MORE:
-                diff = (item_list[key] - min_value) / (max_value - min_value)
+                diff = (attr.value - min_value) / (max_value - min_value)
             elif attr.nature == NATURE.LESS:
-                diff = (max_value - item_list[key]) / (max_value - min_value)
+                diff = (max_value - attr.value) / (max_value - min_value)
             elif attr.nature == NATURE.NEAR:
                 diff = 1 - (abs(attr.value - item_list[key]) / (max_value - min_value))
 
-        elif isinstance(attr, Boolean_Attribute) and (attr.value == True or attr.value == False):
-            if attr.value == True:
+        elif attr.is_bool_attr() and attr.has_value():
+            if attr.value:
                 diff = 1 * NOTEBOOK_LIST[key].notnull()
             else:
                 diff = 1 * NOTEBOOK_LIST[key].isna()

@@ -24,10 +24,25 @@ class Attribute:
             res += f"\t{key}: {value}\n"
         return res
 
+    def isAttr(self, attr):
+        return isinstance(self, attr)
+
+    def is_str_attr(self):
+        return self.isAttr(String_Attribute)
+
+    def is_num_attr(self):
+        return self.isAttr(Number_Attribute)
+
+    def is_bool_attr(self):
+        return self.isAttr(Boolean_Attribute)
+
 
 class String_Attribute(Attribute):
     def __init__(self, nature):
         super().__init__(nature)
+
+    def has_value(self):
+        return self.value != [] and self.value != ""
 
 
 class Number_Attribute(Attribute):
@@ -35,10 +50,16 @@ class Number_Attribute(Attribute):
         self.increment = increment
         super().__init__(nature)
 
+    def has_value(self):
+        return self.value > 0
+
 
 class Boolean_Attribute(Attribute):
     def __init__(self):
         super().__init__(NATURE.EQUAL)
+
+    def has_value(self):
+        return self.value == True or self.value == False
 
 
 class Constraint:

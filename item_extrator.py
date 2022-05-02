@@ -7,7 +7,7 @@ def extract_notebooks(constraint):
     filtered_notebooks = NOTEBOOK_LIST
 
     for key, attr in constraint.__dict__.items():
-        if (filtered_notebooks.shape)[0] <= 0:
+        if not has_item(filtered_notebooks):
             break
 
         if attr.priority <= 0 or attr.value == "":
@@ -38,3 +38,9 @@ def extract_notebooks(constraint):
             filtered_notebooks = filtered_notebooks.loc[filter]
 
     return filtered_notebooks
+
+def has_item(itemDf):
+    return (itemDf.shape)[0] > 0
+
+def has_n_item(itemDf, n):
+    return (itemDf.shape)[0] > n

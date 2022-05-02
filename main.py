@@ -1,7 +1,7 @@
 import copy
 
 from constraint_processor import *
-from item_extrator import extract_notebooks
+from item_extrator import extract_notebooks, has_item, has_n_item
 from similarity_calculator import compute_similarity
 from constraint_relax import search_mfq, drop_constraint, loose_constraint
 from user_interaction import get_user_requirements
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     mfq = None
 
-    if (matching_notebooks.shape)[0] <= 20:
+    if not has_n_item(matching_notebooks, 3):
         mfq, min_relax = search_mfq(user_constraint)
 
         # TODO relax constraint
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
         matching_notebooks = extract_notebooks(user_constraint)
 
-    if (matching_notebooks.shape)[0] > 0:
+    if has_item(matching_notebooks):
         user_constraint = use_cpu_average(user_constraint) if not is_using_cpu_average(
             user_constraint) else user_constraint
         user_constraint = use_gpu_average(user_constraint) if not is_using_gpu_average(
