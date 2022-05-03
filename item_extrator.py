@@ -1,46 +1,37 @@
 import pandas as pd
+import Constraint
 
-from Constraint import Number_Attribute, String_Attribute, Boolean_Attribute, NOTEBOOK_LIST, NATURE
+data_path: str = "./data/data/notebook_data.csv"
 
 
-def extract_notebooks(constraint):
-    filtered_notebooks = NOTEBOOK_LIST
+def extract_notebooks(constraint_list: [Constraint]):
+    filtered_notebooks = pd.read_csv(data_path)
 
-    for key, attr in constraint.__dict__.items():
-        if not has_item(filtered_notebooks):
-            break
+    for constraint in constraint_list:
+        target_key = constraint.name
+        target_value = constraint.value
 
-        if attr.priority <= 0 or attr.value == "":
-            continue
+        item_filter = None
 
-        filtered_notebooks = filtered_notebooks.dropna(subset=[key])
-        if isinstance(attr, String_Attribute) and attr.value != "":
-            filter = filtered_notebooks[key].str.contains("|".join(attr.value), regex=True, case=False)
+        if constraint.nature == Constraint.Nature.BOOL:
+            if target_value == True:
+                item_filter = filtered_notebooks[target_key].notnull()
+            elif target_value == False:
+                item_filter = filtered_notebooks[target_key].isna()
 
-        elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.MORE and attr.value > 0:
-            # get items that have attribute more than the given value
-            filter = (filtered_notebooks[key].astype(float) >= attr.value)
+        else:
+            filtered_notebooks = filtered_notebooks.dropna(subset=[target_key])
 
-        elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.LESS and attr.value > 0:
-            # get items that have attribute lesser than the given value
-            filter = (filtered_notebooks[key].astype(float) <= attr.value)
+            if constraint.nature == Constraint.Nature.EQUAL:
+                item_filter = filtered_notebooks[target_key].str.contains(target_value, regex=True, case=False)
 
-        elif isinstance(attr, Number_Attribute) and attr.nature == NATURE.NEAR and attr.value > 0:
-            continue
+            elif constraint.nature == Constraint.Nature.LESS:
+                item_filter = filtered_notebooks[target_key] <= float(target_value)
 
-        elif isinstance(attr, Boolean_Attribute) and (attr.value == True or attr.value == False):
-            if attr.value == True:
-                filter = filtered_notebooks[key].notnull()
-            elif attr.value == False:
-                filter = filtered_notebooks[key].isna()
+            elif constraint.nature == Constraint.Nature.MORE:
+                item_filter = filtered_notebooks[target_key] >= float(target_value)
 
-        if "filter" in locals():
-            filtered_notebooks = filtered_notebooks.loc[filter]
+        if not item_filter is None:
+            filtered_notebooks = filtered_notebooks.loc[item_filter]
 
     return filtered_notebooks
-
-def has_item(itemDf):
-    return (itemDf.shape)[0] > 0
-
-def has_n_item(itemDf, n):
-    return (itemDf.shape)[0] > n

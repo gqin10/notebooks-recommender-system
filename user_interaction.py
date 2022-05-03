@@ -1,3 +1,4 @@
+# TODO
 from Constraint import Constraint, String_Attribute, Number_Attribute, Boolean_Attribute, NATURE
 from spec_list import brand_list, cpu_list, gpu_list
 from constraint_processor import set_cpu_gpu_average
