@@ -6,7 +6,6 @@ class Nature(Enum):
     EQUAL = "equal"
     MORE = "more"
     LESS = "less"
-    BOOL = "bool"
 
 
 class Constraint:
