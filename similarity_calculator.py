@@ -1,4 +1,3 @@
-import pandas as pd
 from Constraint import *
 from item_extrator import data_path
 
