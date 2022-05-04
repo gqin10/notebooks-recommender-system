@@ -17,8 +17,10 @@ if __name__ == "__main__":
     if solution is None or (solution.shape)[0] <= 0:
         mfs = search_mfs(problem.constraint_list, copy.copy(problem.constraint_list))
         for value in relax_values:
-            print((copy.deepcopy(problem)).relax(mfs, value))
+            print(get_prob_2().relax(mfs, value))
 
-    solution = problem.solve()
-    solution = compute_similarity(problem.constraint_list, solution)
-    print(solution)
+            solution = problem.solve()
+            solution = compute_similarity(problem.constraint_list, solution)
+            print(solution)
+
+            print("==============================================================")

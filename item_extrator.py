@@ -19,7 +19,7 @@ def extract_notebooks(constraint_list: [Constraint]):
             elif target_value == False:
                 item_filter = filtered_notebooks[target_key].isna()
 
-        else:
+        elif constraint.value != "":
             filtered_notebooks = filtered_notebooks.dropna(subset=[target_key])
 
             if constraint.nature == Constraint.Nature.EQUAL:

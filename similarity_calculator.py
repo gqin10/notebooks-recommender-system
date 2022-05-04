@@ -25,10 +25,10 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
                 diff = 1 * NOTEBOOK_LIST[constraint.name].notnull()
             else:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].isna()
-        else:
-            if (isinstance(constraint.value, int) or isinstance(constraint.value, float)):
-                min_value = min(NOTEBOOK_LIST[constraint.name])
-                max_value = max(NOTEBOOK_LIST[constraint.name])
+        elif constraint.value != "":
+            print("xxx", constraint.name, constraint.value)
+            min_value = min(NOTEBOOK_LIST[constraint.name])
+            max_value = max(NOTEBOOK_LIST[constraint.name])
             if constraint.nature == Nature.EQUAL:
                 diff = 1
             elif constraint.nature == Nature.MORE:
