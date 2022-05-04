@@ -30,16 +30,16 @@ class Problem:
         self.constraint_list: set() = set()
 
     def add_constraint(self, constraint: Constraint):
-        self.constraint_list.add(constraint)
+        self.constraint_list = self.constraint_list.add(constraint)
 
     def add_constraint_list(self, constraint_list: set()):
-        self.constraint_list.union(constraint_list)
+        self.constraint_list = self.constraint_list.union(constraint_list, )
 
     def remove_constraint(self, constraint: Constraint):
-        self.constraint_list.remove(constraint)
+        self.constraint_list = self.constraint_list.remove(constraint)
 
     def remove_constraint_list(self, constraint_list: set()):
-        self.constraint_list.difference_update(constraint_list)
+        self.constraint_list = self.constraint_list.difference_update(constraint_list)
 
     def solve(self):
         return item_extrator.extract_notebooks(self.constraint_list)

@@ -1,5 +1,4 @@
 import Constraint
-from Constraint import Nature
 from item_extrator import extract_notebooks
 
 
