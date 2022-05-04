@@ -12,9 +12,12 @@ if __name__ == "__main__":
     problem: Problem = get_prob_2()
     solution = problem.solve()
 
+    relax_values = [0, 0.25, 0.5, 0.75, 1]
+
     if solution is None or (solution.shape)[0] <= 0:
         mfs = search_mfs(problem.constraint_list, copy.copy(problem.constraint_list))
-        problem.relax(mfs)
+        for value in relax_values:
+            print((copy.deepcopy(problem)).relax(mfs, value))
 
     solution = problem.solve()
     solution = compute_similarity(problem.constraint_list, solution)

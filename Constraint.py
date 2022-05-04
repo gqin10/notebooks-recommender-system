@@ -44,8 +44,7 @@ class Problem:
     def solve(self):
         return item_extrator.extract_notebooks(self.constraint_list)
 
-    def relax(self, constraint_list: set()):
-        relax_threshold = 0.5
+    def relax(self, constraint_list: set(), relax_threshold: float):
         max_priority = max([item.priority for item in self.constraint_list])
 
         for constraint in constraint_list:
@@ -78,14 +77,27 @@ def soft_relax(constraint: Constraint):
     if constraint.name in ["brand", "camera"]:
         hard_relax(constraint)
     elif constraint.name in ["cpu", "gpu", "ram", "storage", "os"]:
-        recommend = set(constraint.value.split("|"))
-        for spec_value in constraint.value.split("|"):
-            curr_index = spec.get(constraint.name).index(spec_value)
-            if curr_index - 1 >= 0:
-                recommend.add(spec.get(constraint.name)[curr_index - 1])
-            if curr_index + 1 <= len(spec.get(constraint.name)) - 1:
-                recommend.add(spec.get(constraint.name)[curr_index + 1])
-        constraint.value = "|".join(recommend)
+        if isinstance(constraint.value, str):
+            recommend = set(constraint.value.split("|"))
+            for spec_value in constraint.value.split("|"):
+                curr_index = spec.get(constraint.name).index(spec_value)
+                if constraint.nature == Nature.EQUAL:
+                    if curr_index - 1 >= 0:
+                        recommend.add(spec.get(constraint.name)[curr_index - 1])
+                    if curr_index + 1 <= len(spec.get(constraint.name)) - 1:
+                        recommend.add(spec.get(constraint.name)[curr_index + 1])
+                elif constraint.nature == Nature.LESS:
+                    recommend = spec.get(constraint.name)[curr_index + 1]
+                elif constraint.nature == Nature.MORE:
+                    recommend = spec.get(constraint.name)[curr_index - 1]
+            constraint.value = "|".join(recommend)
+        else:
+            curr_index = spec.get(constraint.name).index(constraint.value)
+            if constraint.nature == Nature.LESS:
+                constraint.value = spec.get(constraint.name)[curr_index + 1]
+            elif constraint.nature == Nature.MORE:
+                constraint.value = spec.get(constraint.name)[curr_index - 1]
+
     elif constraint.name in ["weight", "price", "cpu_average", "gpu_average"]:
         max_value = max(NOTEBOOK_LIST[constraint.name])
         min_value = min(NOTEBOOK_LIST[constraint.name])
@@ -97,4 +109,5 @@ def soft_relax(constraint: Constraint):
 
 
 def hard_relax(constraint: Constraint):
+    # TODO hard relax
     print("hard:", constraint)
