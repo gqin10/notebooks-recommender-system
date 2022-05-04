@@ -9,18 +9,18 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_colwidth', None)
 
 if __name__ == "__main__":
-    problem: Problem = get_prob_2()
-    solution = problem.solve()
+    relax_values = [0, 0.5, 1]
 
-    relax_values = [0, 0.25, 0.5, 0.75, 1]
-
-    if solution is None or (solution.shape)[0] <= 0:
-        mfs = search_mfs(problem.constraint_list, copy.copy(problem.constraint_list))
-        for value in relax_values:
-            print(get_prob_2().relax(mfs, value))
-
+    for value in relax_values:
+        problem = get_prob_2()
+        solution = problem.solve()
+        if (solution.shape)[0] <= 0:
+            mfs = search_mfs(problem.constraint_list, copy.copy(problem.constraint_list))
+            problem.relax(mfs, value)
             solution = problem.solve()
+        if not solution is None or (solution.shape)[0] > 0:
             solution = compute_similarity(problem.constraint_list, solution)
             print(solution)
-
-            print("==============================================================")
+        else:
+            print("No solution")
+        print("==============================================================")

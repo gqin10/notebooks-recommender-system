@@ -110,4 +110,3 @@ def soft_relax(constraint: Constraint):
 
 def hard_relax(constraint: Constraint):
     constraint.value = ""
-    print("hard:", constraint)

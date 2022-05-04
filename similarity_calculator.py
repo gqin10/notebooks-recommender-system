@@ -19,18 +19,17 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
     total_weight = sum_priority(constraint_list)
 
     for constraint in constraint_list:
-        if constraint.value == True or constraint.value == False:
+        if constraint.name in ["camera"]:
             if constraint.value:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].notnull()
             else:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].isna()
-        elif constraint.value != "":
-            print("xxx", constraint.name, constraint.value)
+        elif constraint.name in ["brand", "cpu", "gpu", "os"]:
+            diff = 1
+        elif constraint.name in ["ram", "storage", "price", "weight", "cpu_average", "gpu_average"]:
             min_value = min(NOTEBOOK_LIST[constraint.name])
             max_value = max(NOTEBOOK_LIST[constraint.name])
-            if constraint.nature == Nature.EQUAL:
-                diff = 1
-            elif constraint.nature == Nature.MORE:
+            if constraint.nature == Nature.MORE:
                 diff = (constraint.value - min_value) / (max_value - min_value)
             elif constraint.nature == Nature.LESS:
                 diff = (max_value - constraint.value) / (max_value - min_value)
