@@ -19,7 +19,6 @@ def fastdiag(diagnose: set(), constraint: set(), constraint_knowledge: set()):
 
 
 def search_mfs(constraint: set(), constraint_knowledge: set()):
-    constraint_knowledge.add(Constraint.Constraint("price", 7000, 5, Nature.LESS))
     if len(constraint) <= 0 or not is_consistent(constraint_knowledge.difference(constraint)):
         return set()
     result = fastdiag(set(), constraint, constraint_knowledge)

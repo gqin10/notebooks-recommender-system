@@ -1,5 +1,10 @@
 from enum import Enum
 import item_extrator
+from spec_list import *
+import pandas as pd
+from item_extrator import data_path
+
+NOTEBOOK_LIST = pd.read_csv(data_path)
 
 
 class Nature(Enum):
@@ -39,6 +44,18 @@ class Problem:
     def solve(self):
         return item_extrator.extract_notebooks(self.constraint_list)
 
+    def relax(self, constraint_list: set()):
+        relax_threshold = 0.5
+        max_priority = max([item.priority for item in self.constraint_list])
+
+        for constraint in constraint_list:
+            if constraint.priority > max_priority * relax_threshold:
+                soft_relax(constraint)
+                print("soft relax", constraint.name, constraint.value)
+            else:
+                hard_relax(constraint)
+                print("hard relax", constraint.name, constraint.value)
+
 
 def split_constraint_list(constraint_set):
     constraint_list = list(constraint_set)
@@ -55,3 +72,29 @@ def split_constraint_list(constraint_set):
             constraint_right.add(constraint_list[index])
 
     return constraint_left, constraint_right
+
+
+def soft_relax(constraint: Constraint):
+    if constraint.name in ["brand", "camera"]:
+        hard_relax(constraint)
+    elif constraint.name in ["cpu", "gpu", "ram", "storage", "os"]:
+        recommend = set(constraint.value.split("|"))
+        for spec_value in constraint.value.split("|"):
+            curr_index = spec.get(constraint.name).index(spec_value)
+            if curr_index - 1 >= 0:
+                recommend.add(spec.get(constraint.name)[curr_index - 1])
+            if curr_index + 1 <= len(spec.get(constraint.name)) - 1:
+                recommend.add(spec.get(constraint.name)[curr_index + 1])
+        constraint.value = "|".join(recommend)
+    elif constraint.name in ["weight", "price", "cpu_average", "gpu_average"]:
+        max_value = max(NOTEBOOK_LIST[constraint.name])
+        min_value = min(NOTEBOOK_LIST[constraint.name])
+        rate = 0.2
+        if constraint.nature == Nature.MORE:
+            constraint.value -= rate * abs(max_value - min_value)
+        elif constraint.nature == Nature.LESS:
+            constraint.value += rate * abs(max_value - min_value)
+
+
+def hard_relax(constraint: Constraint):
+    print("hard:", constraint)
