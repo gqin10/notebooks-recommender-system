@@ -5,14 +5,14 @@ from item_extrator import data_path
 NOTEBOOK_LIST = pd.read_csv(data_path)
 
 
-def sum_priority(constraint_list: [Constraint]):
+def sum_priority(constraint_list: set()):
     sum = 0
     for constraint in constraint_list:
         sum += constraint.priority
     return sum
 
 
-def compute_similarity(constraint_list: [Constraint], item_list: pd.DataFrame):
+def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
     if (item_list.shape)[0] <= 0:
         return
 
