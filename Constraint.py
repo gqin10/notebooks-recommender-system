@@ -3,6 +3,7 @@ import item_extrator
 from spec_list import *
 import pandas as pd
 from item_extrator import data_path
+from Nature import Nature
 
 NOTEBOOK_LIST = pd.read_csv(data_path)
 
@@ -43,6 +44,7 @@ class Problem:
 
     def solve(self):
         return item_extrator.extract_notebooks(self.constraint_list)
+
 
     def relax(self, constraint_list: set(), relax_threshold: float):
         max_priority = max([item.priority for item in self.constraint_list])

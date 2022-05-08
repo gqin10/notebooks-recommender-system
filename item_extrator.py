@@ -1,5 +1,6 @@
 import pandas as pd
 import Constraint
+from Nature import Nature
 
 data_path: str = "./data/data/notebook_data.csv"
 
@@ -22,13 +23,13 @@ def extract_notebooks(constraint_list: [Constraint]):
         elif constraint.value != "":
             filtered_notebooks = filtered_notebooks.dropna(subset=[target_key])
 
-            if constraint.nature == Constraint.Nature.EQUAL:
+            if constraint.nature == Nature.EQUAL:
                 item_filter = filtered_notebooks[target_key].str.contains(target_value, regex=True, case=False)
 
-            elif constraint.nature == Constraint.Nature.LESS:
+            elif constraint.nature == Nature.LESS:
                 item_filter = filtered_notebooks[target_key] <= float(target_value)
 
-            elif constraint.nature == Constraint.Nature.MORE:
+            elif constraint.nature == Nature.MORE:
                 item_filter = filtered_notebooks[target_key] >= float(target_value)
 
         if not item_filter is None:

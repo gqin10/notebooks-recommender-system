@@ -1,5 +1,6 @@
 from Constraint import *
 from item_extrator import data_path
+from Nature import Nature
 
 NOTEBOOK_LIST = pd.read_csv(data_path)
 
