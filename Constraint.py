@@ -50,10 +50,10 @@ class Problem:
         for constraint in constraint_list:
             if constraint.priority > max_priority * relax_threshold:
                 soft_relax(constraint)
-                print("soft relax", constraint.name, constraint.value)
+                print("soft relax", constraint.name, str(constraint.value))
             else:
                 hard_relax(constraint)
-                print("hard relax", constraint.name, constraint.value)
+                print("hard relax", constraint.name, str(constraint.value))
 
 
 def split_constraint_list(constraint_set):
