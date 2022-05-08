@@ -20,6 +20,9 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
     total_weight = sum_priority(constraint_list)
 
     for constraint in constraint_list:
+        if constraint.value == "":
+            continue
+
         if constraint.name in ["camera"]:
             if constraint.value:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].notnull()

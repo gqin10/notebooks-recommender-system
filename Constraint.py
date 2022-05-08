@@ -4,6 +4,7 @@ from spec_list import *
 import pandas as pd
 from item_extrator import data_path
 from Nature import Nature
+from similarity_calculator import compute_similarity
 
 NOTEBOOK_LIST = pd.read_csv(data_path)
 
@@ -43,18 +44,21 @@ class Problem:
         self.constraint_list = self.constraint_list.difference_update(constraint_list)
 
     def solve(self):
-        return item_extrator.extract_notebooks(self.constraint_list)
-
+        solution = item_extrator.extract_notebooks(self.constraint_list)
+        solution = compute_similarity(self.constraint_list, solution)
+        if not solution is None:
+            solution = solution.sort_values(by=['similarity'])
+        return solution
 
     def relax(self, constraint_list: set(), relax_threshold: float):
         max_priority = max([item.priority for item in self.constraint_list])
 
         for constraint in constraint_list:
             if constraint.priority > max_priority * relax_threshold:
-                soft_relax(constraint)
+                constraint = soft_relax(constraint)
                 print("soft relax", constraint.name, str(constraint.value))
             else:
-                hard_relax(constraint)
+                constraint = hard_relax(constraint)
                 print("hard relax", constraint.name, str(constraint.value))
 
 
@@ -108,7 +112,9 @@ def soft_relax(constraint: Constraint):
             constraint.value -= rate * abs(max_value - min_value)
         elif constraint.nature == Nature.LESS:
             constraint.value += rate * abs(max_value - min_value)
+    return constraint
 
 
 def hard_relax(constraint: Constraint):
     constraint.value = ""
+    return constraint
