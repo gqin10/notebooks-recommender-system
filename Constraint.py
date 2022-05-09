@@ -87,30 +87,30 @@ def soft_relax(constraint: Constraint):
             recommend = set(constraint.value.split("|"))
             for spec_value in constraint.value.split("|"):
                 curr_index = spec.get(constraint.name).index(spec_value)
-                if constraint.nature == Nature.EQUAL:
+                if constraint.nature.name == Nature.EQUAL.name:
                     if curr_index - 1 >= 0:
                         recommend.add(spec.get(constraint.name)[curr_index - 1])
                     if curr_index + 1 <= len(spec.get(constraint.name)) - 1:
                         recommend.add(spec.get(constraint.name)[curr_index + 1])
-                elif constraint.nature == Nature.LESS:
+                elif constraint.nature.name == Nature.LESS.name:
                     recommend = spec.get(constraint.name)[curr_index + 1]
-                elif constraint.nature == Nature.MORE:
+                elif constraint.nature.name == Nature.MORE.name:
                     recommend = spec.get(constraint.name)[curr_index - 1]
             constraint.value = "|".join(recommend)
         else:
             curr_index = spec.get(constraint.name).index(constraint.value)
-            if constraint.nature == Nature.LESS:
+            if constraint.nature.name == Nature.LESS.name:
                 constraint.value = spec.get(constraint.name)[curr_index + 1]
-            elif constraint.nature == Nature.MORE:
+            elif constraint.nature.name == Nature.MORE.name:
                 constraint.value = spec.get(constraint.name)[curr_index - 1]
 
     elif constraint.name in ["weight", "price", "cpu_average", "gpu_average"]:
         max_value = max(NOTEBOOK_LIST[constraint.name])
         min_value = min(NOTEBOOK_LIST[constraint.name])
-        rate = 0.2
-        if constraint.nature == Nature.MORE:
+        rate = 0.05
+        if constraint.nature.name == Nature.MORE.name:
             constraint.value -= rate * abs(max_value - min_value)
-        elif constraint.nature == Nature.LESS:
+        elif constraint.nature.name == Nature.LESS.name:
             constraint.value += rate * abs(max_value - min_value)
     return constraint
 
