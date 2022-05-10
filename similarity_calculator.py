@@ -30,7 +30,7 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
                 diff = 1 * NOTEBOOK_LIST[constraint.name].isna()
         elif constraint.name in ["brand", "cpu", "gpu", "os"]:
             diff = 1
-        elif constraint.name in ["ram", "storage", "price", "weight", "cpu_average", "gpu_average"]:
+        elif constraint.name in ["ram", "storage", "price", "weight", "cpu_average", "gpu_average", "screen_size"]:
             min_value = min(NOTEBOOK_LIST[constraint.name])
             max_value = max(NOTEBOOK_LIST[constraint.name])
             if constraint.nature == Nature.MORE:
