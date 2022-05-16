@@ -9,13 +9,6 @@ from similarity_calculator import compute_similarity
 NOTEBOOK_LIST = pd.read_csv(data_path)
 
 
-class Nature(Enum):
-    NEAR = "near"
-    EQUAL = "equal"
-    MORE = "more"
-    LESS = "less"
-
-
 class Constraint:
     def __init__(self, name: str, value, priority: float, nature: Nature):
         self.name: str = name
