@@ -124,7 +124,7 @@ HP,ProBook 440 G8,Core i5-1135G7,8,512,Windows 10 Pro 64,14,Intel Iris Xe Graphi
 Lenovo,IdeaPad 3 (82H700D8MJ),Core i3-1115G4,4,512,Windows 10 Home,14,Intel UHD Graphics Xe G4 48EUs,"720p, with privacy shutter, fixed focus",1.41,2499,0.353830895397641,0.09286152580090647
 Acer,Enduro Urban N3 (EUN314-51W-72QE),Core i7-1165G7,8,512,Windows 10 Home,14,Intel Iris Xe Graphics,HD,1.85,3899,0.43833718708445074,0.21857164806713886
 HP,Laptop 14S-FQ1044AU,Ryzen 3 5300U,8,512,Windows 10 Home Single Language 64,14,AMD Radeon RX Vega 6,HP True Vision 720p HD camera with integrated dual array digital microphones,1.47,2197,0.32386473884531497,0.12047669467665492
-HP,Pavilion Aero 13.3 (13-BE0029AU),Ryzen 7 5800U,8,51,Windows 10 Home Single Language 64,13.3,AMD Radeon RX Vega 8,HP Wide Vision 720p HD camera with integrated dual array digital microphones,1,3999,0.4680123745313514,0.19858980106687615
+HP,Pavilion Aero 13.3 (13-BE0029AU),Ryzen 7 5800U,8,512,Windows 10 Home Single Language 64,13.3,AMD Radeon RX Vega 8,HP Wide Vision 720p HD camera with integrated dual array digital microphones,1,3999,0.4680123745313514,0.19858980106687615
 Lenovo,ThinkBook 14 Gen 2 (20VD003HMJ),Core i5-1135G7,8,512,Windows 10 Pro,14,Intel Iris Xe Graphics G7 80EUs,720p HD,1.4,3599,0.39537805929935477,0.16999545173507827
 HP,Laptop 14s-dq3001TU,Celeron N4500,4,512,Windows 10 Home,14,Intel UHD Graphics,HP True Vision 720p HD camera with integrated dual array digital microphones,1.47,1999,0.12428536677150118,0.03132765202692601
 Dell,Latitude 3420,Core i5-1135G7,8,256,Windows 10 Pro 64,14,Intel Iris Xe Graphics G7 80EUs,720p,1.52,3599,0.39537805929935477,0.16999545173507827
