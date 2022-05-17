@@ -44,12 +44,15 @@ if __name__ == "__main__":
     constraint_list = []
     for index, row in NOTEBOOK_LIST.iterrows():
         problem = Problem()
-        for key in row.keys():
-            if not key in attribute_list:
-                continue
 
-            # randomize whether to constraint an attribute
-            if random.randint(0, 1) == 0:
+        #randomize attribute to restrict
+        selected_attribute = random.sample(attribute_list, k=random.randint(
+            math.ceil((len(attribute_list) - 1) / 2),
+            (len(attribute_list) - 1)
+        ))
+
+        for key in selected_attribute:
+            if not key in attribute_list:
                 continue
 
             curr_value = row.get(key)
@@ -58,7 +61,7 @@ if __name__ == "__main__":
             if key in ['brand']:
                 min_limit = 1
                 max_limit = math.ceil((len(spec.get('brand')) - 1) / 2)
-                new_value = random.choices(spec.get('brand'), k = random.randint(min_limit, max_limit))
+                new_value = random.sample(spec.get('brand'), k=random.randint(min_limit, max_limit))
                 new_value = "|".join(new_value)
             elif key in ['cpu', 'gpu', 'ram', 'storage', 'os']:
                 if key == 'cpu':
@@ -79,7 +82,7 @@ if __name__ == "__main__":
                     start_index = max(0, curr_index - 2)
                     end_index = min(curr_index + 2, len(spec.get(key)))
                     n = random.randint(1, math.floor((end_index - start_index + 1) / 2))
-                    new_value = random.choices(spec.get(key)[start_index:end_index], k=n)
+                    new_value = random.sample(spec.get(key)[start_index:end_index], k=n)
                     new_value = "|".join(new_value)
                 elif key in ['ram', 'storage', 'os']:
                     new_index = random.randint(max(0, curr_index - 1), min(curr_index + 1, len(spec.get(key)) - 1))
