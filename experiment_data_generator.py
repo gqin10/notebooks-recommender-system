@@ -110,4 +110,4 @@ if __name__ == "__main__":
         count += 1
 
     constraint_df = pd.DataFrame.from_dict(str_list, orient='index')
-    constraint_df.to_csv('./experiment/experiment_constraint_data.csv', index=False)
+    constraint_df.to_csv('./experiment_constraint_data.csv', index=False)
