@@ -1,5 +1,4 @@
 from enum import Enum
-from Nature import Nature
 
 
 class Attribute(Enum):
@@ -14,19 +13,6 @@ class Attribute(Enum):
     WEIGHT = "weight"
     SCREEN_SIZE = "screen_size"
 
-
-attribute_nature = {
-    'brand': Nature.EQUAL,
-    'cpu': Nature.EQUAL,
-    'gpu': Nature.EQUAL,
-    'storage': Nature.MORE,
-    'ram': Nature.MORE,
-    'os': Nature.EQUAL,
-    'camera': Nature.EQUAL,
-    'price': Nature.LESS,
-    'weight': Nature.LESS,
-    'screen_size': Nature.NEAR
-}
 
 spec = {
     'brand': ['acer', 'asus', 'dell', 'hp', 'huawei', 'lenovo', 'microsoft', 'msi'],
