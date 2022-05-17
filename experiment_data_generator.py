@@ -1,26 +1,12 @@
 import math
-
-import pandas as pd
 import random
 
-from Constraint import Constraint, Problem
-from Nature import Nature
+import pandas as pd
+
+from Constraint import Constraint, Problem, data_path
 from spec_list import spec, attribute_nature
 
-data_path = "./data/data/notebook_data.csv"
 NOTEBOOK_LIST = pd.read_csv(data_path)
-
-
-def create_constraint(constraints: {}) -> [Constraint]:
-    constraint_list = []
-    for item, value in constraints.__dict__.items():
-        constraint: Constraint = Constraint()
-
-        # TODO add constraint
-
-        constraint_list.append(constraint)
-    return constraint_list
-
 
 def get_cpu_category(cpu_name):
     if pd.isna(cpu_name):
@@ -53,6 +39,7 @@ def get_str_len(str):
 
 
 if __name__ == "__main__":
+    constraint_list = []
     for index, row in NOTEBOOK_LIST.iterrows():
         problem = Problem()
         for key in row.keys():
@@ -104,7 +91,23 @@ if __name__ == "__main__":
             elif key in ['price', 'weight', 'screen_size']:
                 percentage = random.random() / 10
                 increase_value = random.randint(-1, 1)
-                new_value = max(0, curr_value + increase_value * percentage * (max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
+                new_value = max(0, curr_value + increase_value * percentage * (
+                        max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
                 new_value = round(new_value, 2)
             constraint = Constraint(key, new_value, random.randint(1, 5), attribute_nature.get(key))
             problem.add_constraint(constraint)
+        constraint_list.append(problem.constraint_list)
+
+    index = 0
+    count = 0
+    str_list = {}
+    for constraint_set in constraint_list:
+        for constraint in constraint_set:
+            constraint.__dict__.update({'index': count})
+            str_list.update({index: constraint.__dict__})
+            index += 1
+        count += 1
+    print(str_list)
+
+    constraint_df = pd.DataFrame.from_dict(str_list, orient='index')
+    constraint_df.to_csv('./experiment/experiment_constraint_data.csv')
