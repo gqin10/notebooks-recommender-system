@@ -4,9 +4,11 @@ import random
 import pandas as pd
 
 from Constraint import Constraint, Problem, data_path
-from spec_list import spec, attribute_nature
+from spec_list import spec, attribute_list
+from Nature import attribute_nature
 
 NOTEBOOK_LIST = pd.read_csv(data_path)
+
 
 def get_cpu_category(cpu_name):
     if pd.isna(cpu_name):
@@ -43,7 +45,7 @@ if __name__ == "__main__":
     for index, row in NOTEBOOK_LIST.iterrows():
         problem = Problem()
         for key in row.keys():
-            if not key in ['cpu', 'gpu', 'ram', 'storage', 'os', 'screen_size', 'camera', 'weight', 'price']:
+            if not key in attribute_list:
                 continue
 
             # randomize whether to constraint an attribute
@@ -54,7 +56,10 @@ if __name__ == "__main__":
             new_value = ''
             # attributes that have values defined in spec_list.py
             if key in ['brand']:
-                curr_value = random.choices(spec.get('brand'), k=random.randint(1, len(spec.get('brand') / 2)))
+                min_limit = 1
+                max_limit = math.ceil((len(spec.get('brand')) - 1) / 2)
+                new_value = random.choices(spec.get('brand'), k = random.randint(min_limit, max_limit))
+                new_value = "|".join(new_value)
             elif key in ['cpu', 'gpu', 'ram', 'storage', 'os']:
                 if key == 'cpu':
                     curr_value = get_cpu_category(curr_value)

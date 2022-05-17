@@ -1,10 +1,10 @@
-from enum import Enum
-import item_extrator
-from spec_list import *
 import pandas as pd
-from item_extrator import data_path
+
+import item_extrator
 from Nature import Nature
+from item_extrator import data_path
 from similarity_calculator import compute_similarity
+from spec_list import *
 
 NOTEBOOK_LIST = pd.read_csv(data_path)
 

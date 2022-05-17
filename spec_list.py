@@ -1,5 +1,18 @@
 from enum import Enum
 
+attribute_list = [
+    'brand',
+    'cpu',
+    'gpu',
+    'storage',
+    'ram',
+    'os',
+    'camera',
+    'price',
+    'weight',
+    'screen_size'
+]
+
 
 class Attribute(Enum):
     BRAND = "brand"
