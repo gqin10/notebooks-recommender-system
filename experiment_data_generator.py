@@ -104,10 +104,10 @@ if __name__ == "__main__":
     for constraint_set in constraint_list:
         for constraint in constraint_set:
             constraint.__dict__.update({'index': count})
+            constraint.__dict__.pop('nature')
             str_list.update({index: constraint.__dict__})
             index += 1
         count += 1
-    print(str_list)
 
     constraint_df = pd.DataFrame.from_dict(str_list, orient='index')
     constraint_df.to_csv('./experiment/experiment_constraint_data.csv')
