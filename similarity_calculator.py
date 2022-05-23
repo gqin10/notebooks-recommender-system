@@ -47,6 +47,5 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
                 diff = 1 - (abs(constraint.value - item_list[constraint.name]) / (max_value - min_value))
 
         item_list["similarity"] += diff * constraint.priority / total_weight
-        item_list["similarity_" + constraint.name] = diff * constraint.priority / total_weight
 
     return item_list
