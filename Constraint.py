@@ -2,7 +2,7 @@ import pandas as pd
 
 import item_extrator
 from Nature import Nature
-from item_extrator import data_path
+from item_extrator import data_path, dummy_data_path
 from similarity_calculator import compute_similarity
 from spec_list import *
 
@@ -23,6 +23,7 @@ class Constraint:
 class Problem:
     def __init__(self):
         self.constraint_list: set() = set()
+        self.data_path: str = data_path
 
     def add_constraint(self, constraint: Constraint):
         self.constraint_list = self.constraint_list.add(constraint)
@@ -37,7 +38,7 @@ class Problem:
         self.constraint_list = self.constraint_list.difference_update(list)
 
     def solve(self):
-        solution = item_extrator.extract_notebooks(self.constraint_list)
+        solution = item_extrator.extract_notebooks(self.constraint_list, self.data_path)
         solution = compute_similarity(self.constraint_list, solution)
         if not solution is None:
             solution = solution.sort_values(by=['similarity'])

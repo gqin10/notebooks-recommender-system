@@ -3,11 +3,13 @@ import Constraint
 from Nature import Nature
 
 data_path: str = "./data/data/notebook_data.csv"
+dummy_data_path: str = "./dummy_item.csv"
 NOTEBOOK_DATA = pd.read_csv(data_path)
+DUMMY_DATA = pd.read_csv(dummy_data_path)
 
 
-def extract_notebooks(constraint_list: [Constraint]):
-    filtered_notebooks = pd.read_csv(data_path)
+def extract_notebooks(constraint_list: [Constraint], path):
+    filtered_notebooks = pd.read_csv(path)
 
     for constraint in constraint_list:
         target_key = constraint.name
@@ -37,7 +39,8 @@ def extract_notebooks(constraint_list: [Constraint]):
                 min_value = min(NOTEBOOK_DATA[target_key])
                 max_value = max(NOTEBOOK_DATA[target_key])
                 range_diff = 0.1 * (max_value - min_value)
-                item_filter = (filtered_notebooks[target_key] >= (constraint.value - range_diff)) & (filtered_notebooks[target_key] <= (constraint.value + range_diff))
+                item_filter = (filtered_notebooks[target_key] >= (constraint.value - range_diff)) & (
+                        filtered_notebooks[target_key] <= (constraint.value + range_diff))
 
         if not item_filter is None:
             filtered_notebooks = filtered_notebooks.loc[item_filter]

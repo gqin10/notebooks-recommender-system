@@ -24,7 +24,7 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
             continue
 
         if constraint.name in ["camera"]:
-            if constraint.value:
+            if constraint.value == True:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].notnull()
             else:
                 diff = 1 * NOTEBOOK_LIST[constraint.name].isna()
