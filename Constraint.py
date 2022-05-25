@@ -26,7 +26,7 @@ class Problem:
         self.data_path: str = data_path
 
     def add_constraint(self, constraint: Constraint):
-        self.constraint_list = self.constraint_list.add(constraint)
+        self.constraint_list.add(constraint)
 
     def add_constraint_list(self, list: set()):
         self.constraint_list = self.constraint_list.union(list)
