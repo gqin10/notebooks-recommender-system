@@ -25,27 +25,27 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
 
         if constraint.name in ["camera"]:
             if constraint.value == True:
-                diff = 1 * NOTEBOOK_LIST[constraint.name].notnull()
+                similarity = 1 * NOTEBOOK_LIST[constraint.name].notnull()
             else:
-                diff = 1 * NOTEBOOK_LIST[constraint.name].isna()
+                similarity = 1 * NOTEBOOK_LIST[constraint.name].isna()
         elif constraint.name in ["brand", "os"]:
-            diff = 1
+            similarity = 1
         elif constraint.name in ['cpu', 'gpu']:
             key = constraint.name
             average_benchmark = item_list[key + '_average'].mean()
             min_value = min(NOTEBOOK_LIST[key + '_average'])
             max_value = max(NOTEBOOK_LIST[key + '_average'])
-            diff = (item_list[key + '_average'] - min_value) / (max_value - min_value)
+            similarity = (average_benchmark - min_value) / (max_value - min_value)
         elif constraint.name in ["ram", "storage", "price", "weight", "screen_size"]:
             min_value = min(NOTEBOOK_LIST[constraint.name])
             max_value = max(NOTEBOOK_LIST[constraint.name])
             if constraint.nature == Nature.MORE:
-                diff = (constraint.value - min_value) / (max_value - min_value)
+                similarity = (constraint.value - min_value) / (max_value - min_value)
             elif constraint.nature == Nature.LESS:
-                diff = (max_value - constraint.value) / (max_value - min_value)
+                similarity = (max_value - constraint.value) / (max_value - min_value)
             elif constraint.nature == Nature.NEAR:
-                diff = 1 - (abs(constraint.value - item_list[constraint.name]) / (max_value - min_value))
+                similarity = 1 - (abs(constraint.value - item_list[constraint.name]) / (max_value - min_value))
 
-        item_list["similarity"] += diff * constraint.priority / total_weight
+        item_list["similarity"] += similarity * constraint.priority / total_weight
 
     return item_list
