@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 new_value = max(0, curr_value + increase_value * percentage * (
                         max(NOTEBOOK_LIST[key]) - min(NOTEBOOK_LIST[key])))
                 new_value = round(new_value, 2)
-            constraint = Constraint(key, new_value, random.randint(1, 5), attribute_nature.get(key))
+            constraint = Constraint(key, new_value, random.randint(1, 10), attribute_nature.get(key))
             problem.add_constraint(constraint)
         constraint_list.append(problem.constraint_list)
 
