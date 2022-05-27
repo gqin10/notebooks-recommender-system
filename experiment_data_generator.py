@@ -42,7 +42,9 @@ def get_str_len(str):
 
 if __name__ == "__main__":
     constraint_list = []
-    for index, row in NOTEBOOK_LIST.iterrows():
+    for i in range(1000):
+        random_item = NOTEBOOK_LIST.sample(n=1)
+
         problem = Problem()
 
         #randomize attribute to restrict
@@ -55,7 +57,7 @@ if __name__ == "__main__":
             if not key in attribute_list:
                 continue
 
-            curr_value = row.get(key)
+            curr_value = random_item.loc[:, key].values[0]
             new_value = ''
             # attributes that have values defined in spec_list.py
             if key in ['brand']:
