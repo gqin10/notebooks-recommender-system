@@ -13,6 +13,8 @@ def sum_priority(constraint_list: set()):
 
 
 def compute_similarity(constraint_list: set(), item_list: pd.DataFrame):
+    if item_list is None:
+        return
     if (item_list.shape)[0] <= 0:
         return
 
