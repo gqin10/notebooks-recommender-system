@@ -42,7 +42,7 @@ def get_str_len(str):
 
 if __name__ == "__main__":
     constraint_list = []
-    for i in range(1000):
+    for i in range(500):
         random_item = NOTEBOOK_LIST.sample(n=1)
 
         problem = Problem()
