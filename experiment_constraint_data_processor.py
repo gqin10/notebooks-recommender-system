@@ -1,0 +1,29 @@
+import pandas as pd
+
+from Constraint import Problem, Constraint
+from Nature import attribute_nature
+
+
+def process_experiment_constraint_data(path: str):
+    experiment_constraint_data = pd.read_csv(path)
+
+    # read experiment constraints data
+    problem_list = list()
+    unique_constraint_no = experiment_constraint_data['constraint_no'].unique()
+    for no in unique_constraint_no:
+        problem: Problem = Problem()
+        constraint_list = list()
+        for index, item in experiment_constraint_data[experiment_constraint_data['constraint_no'] == no].iterrows():
+            constraint = None
+            if item.get('name') in ['brand', 'cpu', 'gpu', 'os']:
+                constraint: Constraint = Constraint(item.get('name'), item.get('value'), item.get('priority'), attribute_nature.get(item.get('name')))
+            elif item.get('name') in ['storage', 'ram', 'price', 'weight']:
+                constraint: Constraint = Constraint(item.get('name'), float(item.get('value')), item.get('priority'), attribute_nature.get(item.get('name')))
+            elif item.get('name') in ['camera']:
+                constraint: Constraint = Constraint(item.get('name'), bool(item.get('value')), item.get('priority'), attribute_nature.get(item.get('name')))
+            if constraint != None:
+                constraint_list.append(constraint)
+        problem.constraint_list = set(constraint_list)
+        problem_list.append(problem)
+
+    return problem_list
