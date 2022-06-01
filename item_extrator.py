@@ -2,13 +2,9 @@ import pandas as pd
 import Constraint
 from Nature import Nature
 
-data_path: str = "./data/data/notebook_data.csv"
-dummy_data_path: str = "./dummy_item.csv"
-NOTEBOOK_DATA = pd.read_csv(data_path)
-DUMMY_DATA = pd.read_csv(dummy_data_path)
-
 
 def extract_notebooks(constraint_list: [Constraint], path):
+    all_notebooks = pd.read_csv(path)
     filtered_notebooks = pd.read_csv(path)
 
     for constraint in constraint_list:
@@ -36,8 +32,8 @@ def extract_notebooks(constraint_list: [Constraint], path):
                 item_filter = filtered_notebooks[target_key] >= float(target_value)
 
             elif constraint.nature == Nature.NEAR:
-                min_value = min(NOTEBOOK_DATA[target_key])
-                max_value = max(NOTEBOOK_DATA[target_key])
+                min_value = min(all_notebooks[target_key])
+                max_value = max(all_notebooks[target_key])
                 range_diff = 0.1 * (max_value - min_value)
                 item_filter = (filtered_notebooks[target_key] >= (constraint.value - range_diff)) & (
                         filtered_notebooks[target_key] <= (constraint.value + range_diff))

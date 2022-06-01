@@ -2,11 +2,8 @@ import pandas as pd
 
 import item_extrator
 from Nature import Nature
-from item_extrator import data_path, dummy_data_path
 from similarity_calculator import compute_similarity
-from spec_list import *
-
-NOTEBOOK_LIST = pd.read_csv(data_path)
+from values import *
 
 
 class Constraint:
@@ -21,9 +18,9 @@ class Constraint:
 
 
 class Problem:
-    def __init__(self):
+    def __init__(self, item_path=real_data_path):
         self.constraint_list: set() = set()
-        self.data_path: str = data_path
+        self.item_path: str = item_path
 
     def add_constraint(self, constraint: Constraint):
         self.constraint_list.add(constraint)
@@ -38,8 +35,8 @@ class Problem:
         self.constraint_list = self.constraint_list.difference_update(list)
 
     def solve(self):
-        solution = item_extrator.extract_notebooks(self.constraint_list, self.data_path)
-        solution = compute_similarity(self.constraint_list, solution)
+        solution = item_extrator.extract_notebooks(self.constraint_list, self.item_path)
+        solution = compute_similarity(self.constraint_list, solution, self.item_path)
         if not solution is None:
             solution = solution.sort_values(by=['similarity'])
         return solution
@@ -49,9 +46,9 @@ class Problem:
 
         for constraint in constraint_list:
             if constraint.priority > max_priority * relax_threshold:
-                constraint = soft_relax(constraint)
+                constraint = soft_relax(constraint, self.item_path)
             else:
-                constraint = hard_relax(constraint)
+                constraint = hard_relax(constraint, self.item_path)
 
 
 def split_constraint_list(constraint_set):
@@ -68,10 +65,9 @@ def split_constraint_list(constraint_set):
         else:
             constraint_right.add(constraint_list[index])
 
-    return constraint_left, constraint_right
 
-
-def soft_relax(constraint: Constraint):
+def soft_relax(constraint: Constraint, item_path: str):
+    all_items = pd.read_csv(item_path)
     if constraint.name in ["brand", "camera"]:
         hard_relax(constraint)
     elif constraint.name in ["cpu", "gpu", "ram", "storage", "os"]:
@@ -97,8 +93,8 @@ def soft_relax(constraint: Constraint):
                 constraint.value = spec.get(constraint.name)[curr_index - 1]
 
     elif constraint.name in ["weight", "price", "cpu_average", "gpu_average"]:
-        max_value = max(NOTEBOOK_LIST[constraint.name])
-        min_value = min(NOTEBOOK_LIST[constraint.name])
+        max_value = max(all_items[constraint.name])
+        min_value = min(all_items[constraint.name])
         rate = 0.05
         if constraint.nature.name == Nature.MORE.name:
             constraint.value -= rate * abs(max_value - min_value)

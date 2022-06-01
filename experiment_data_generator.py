@@ -3,11 +3,11 @@ import random
 
 import pandas as pd
 
-from Constraint import Constraint, Problem, data_path
-from spec_list import spec, attribute_list
+from Constraint import Constraint, Problem
 from Nature import attribute_nature
+from values import spec, attribute_list, real_data_path
 
-NOTEBOOK_LIST = pd.read_csv(data_path)
+NOTEBOOK_LIST = pd.read_csv(real_data_path)
 
 
 def get_cpu_category(cpu_name):
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
             curr_value = random_item.loc[:, key].values[0]
             new_value = ''
-            # attributes that have values defined in spec_list.py
+            # attributes that have values defined in values.py
             if key in ['brand']:
                 min_limit = 1
                 max_limit = math.ceil((len(spec.get('brand')) - 1) / 2)
@@ -120,4 +120,5 @@ if __name__ == "__main__":
         count += 1
 
     constraint_df = pd.DataFrame.from_dict(str_list, orient='index')
+
     constraint_df.to_csv('./experiment_constraint_data.csv', index=False)

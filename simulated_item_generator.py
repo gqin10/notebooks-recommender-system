@@ -1,14 +1,15 @@
 import math
 import random
+import os
 
 import numpy as np
 import pandas as pd
 
-from Constraint import Constraint, Problem, data_path
-from spec_list import spec, attribute_list
+from Constraint import Constraint, Problem, real_data_path
+from values import spec, attribute_list
 from Nature import attribute_nature
 
-NOTEBOOK_LIST = pd.read_csv(data_path)
+NOTEBOOK_LIST = pd.read_csv(real_data_path)
 
 
 def get_cpu_category(cpu_name):
@@ -71,12 +72,12 @@ if __name__ == "__main__":
                     population_filter = NOTEBOOK_LIST[key].str.contains((spec.get(key))[curr_index], regex=False, case=False)
                     population_filter.replace(np.nan, False, inplace=True)
                     if key in ['cpu', 'gpu']:
-                        population = (NOTEBOOK_LIST[population_filter])[[key, key +'_average']]
+                        population = (NOTEBOOK_LIST[population_filter])[[key, key + '_average']]
                         sample = population.sample()
                         constraint_dict.update({
-                            key+'_average': sample.iloc[0,1]
+                            key + '_average': sample.iloc[0, 1]
                         })
-                        new_value = sample.iloc[0,0]
+                        new_value = sample.iloc[0, 0]
                     else:
                         population = (NOTEBOOK_LIST[population_filter])[key]
                         new_value = random.choice(population.tolist())
@@ -101,4 +102,8 @@ if __name__ == "__main__":
         })
 
     constraint_df = pd.DataFrame.from_dict(constraint_dict_list, orient='index')
-    constraint_df.to_csv('./dummy_item.csv', index=False)
+
+    if not os.path.isdir('./data/data'):
+        os.mkdir('data')
+
+    constraint_df.to_csv('./data/data/simulated_data.csv', index=False)

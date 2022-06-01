@@ -1,5 +1,8 @@
 from enum import Enum
 
+real_data_path: str = "./data/data/notebook_data.csv"
+simulated_data_path: str = "./data/data/simulated_data.csv"
+
 attribute_list = [
     'brand',
     'cpu',
