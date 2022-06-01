@@ -9,7 +9,7 @@ def is_consistent(constraint: set(), path):
 def fastdiag(diagnose: set(), constraint: set(), constraint_knowledge: set(), path: str):
     if len(diagnose) > 0 and is_consistent(constraint_knowledge, path):
         return set()
-    elif len(constraint) == 1:
+    elif len(constraint) == 1 :
         return constraint
     constraint_left, constraint_right = Constraint.split_constraint_list(constraint)
     diagnose_left: set() = fastdiag(constraint_left, constraint_right, constraint_knowledge.difference(constraint_left), path)

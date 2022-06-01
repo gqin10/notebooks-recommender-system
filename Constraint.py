@@ -48,7 +48,7 @@ class Problem:
             if constraint.priority > max_priority * relax_threshold:
                 constraint = soft_relax(constraint, self.item_path)
             else:
-                constraint = hard_relax(constraint, self.item_path)
+                constraint = hard_relax(constraint)
 
 
 def split_constraint_list(constraint_set):
@@ -64,6 +64,7 @@ def split_constraint_list(constraint_set):
             constraint_left.add(constraint_list[index])
         else:
             constraint_right.add(constraint_list[index])
+    return constraint_left, constraint_right
 
 
 def soft_relax(constraint: Constraint, item_path: str):
