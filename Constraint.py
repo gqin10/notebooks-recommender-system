@@ -1,17 +1,17 @@
 import pandas as pd
 
 import item_extrator
-from Nature import Nature
+from Nature import Nature, attribute_nature
 from similarity_calculator import compute_similarity
 from values import *
 
 
 class Constraint:
-    def __init__(self, name: str, value, priority: float, nature: Nature):
+    def __init__(self, name: str, value, priority: float):
         self.name: str = name
         self.value = value
         self.priority: float = priority
-        self.nature: Nature = nature
+        self.nature: Nature = attribute_nature.get(name)
 
     def __str__(self):
         return f"{self.name}: {self.value}: {self.priority}: {self.nature}"
