@@ -11,7 +11,10 @@ class Constraint:
         self.name: str = name
         self.value = value
         self.priority: float = priority
-        self.nature: Nature = attribute_nature.get(name)
+        if isinstance(name, Attribute):
+            self.nature: Nature = attribute_nature.get(name.value)
+        else:
+            self.nature: Nature = attribute_nature.get(name)
 
     def __str__(self):
         return f"{self.name}: {self.value}: {self.priority}: {self.nature}"
@@ -38,7 +41,18 @@ class Problem:
         solution = self.solve()
         if solution is None:
             return None
-        return self.solve().drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
+        else:
+            solution = solution.sort_values(by=['similarity'])
+        return solution.drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
+
+    def retrieve_items_top3(self):
+        solution = self.solve()
+        if solution is None:
+            return None
+        else:
+            solution = solution.head(3)
+            solution = solution.sort_values(by=['cpu_average', 'gpu_average', 'ram', 'storage'], ascending=False)
+        return solution.drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
 
     def solve(self):
         solution = item_extrator.extract_notebooks(self.constraint_list, self.item_path)
