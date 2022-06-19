@@ -1,7 +1,6 @@
 import pandas as pd
 
 from Constraint import Problem, Constraint
-from Nature import attribute_nature
 
 
 def process_experiment_constraint_data(constraint_path: str, item_path: str):
@@ -16,11 +15,11 @@ def process_experiment_constraint_data(constraint_path: str, item_path: str):
         for index, item in experiment_constraint_data[experiment_constraint_data['constraint_no'] == no].iterrows():
             constraint = None
             if item.get('name') in ['brand', 'cpu', 'gpu', 'os']:
-                constraint: Constraint = Constraint(item.get('name'), item.get('value'), item.get('priority'), attribute_nature.get(item.get('name')))
+                constraint: Constraint = Constraint(item.get('name'), item.get('value'), item.get('priority'))
             elif item.get('name') in ['storage', 'ram', 'price', 'weight']:
-                constraint: Constraint = Constraint(item.get('name'), float(item.get('value')), item.get('priority'), attribute_nature.get(item.get('name')))
+                constraint: Constraint = Constraint(item.get('name'), float(item.get('value')), item.get('priority'))
             elif item.get('name') in ['camera']:
-                constraint: Constraint = Constraint(item.get('name'), bool(item.get('value')), item.get('priority'), attribute_nature.get(item.get('name')))
+                constraint: Constraint = Constraint(item.get('name'), bool(item.get('value')), item.get('priority'))
             if constraint != None:
                 constraint_list.append(constraint)
         problem.constraint_list = set(constraint_list)

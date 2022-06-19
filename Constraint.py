@@ -34,6 +34,12 @@ class Problem:
     def remove_constraint_list(self, list: set()):
         self.constraint_list = self.constraint_list.difference_update(list)
 
+    def retrieve_items(self):
+        solution = self.solve()
+        if solution is None:
+            return None
+        return self.solve().drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
+
     def solve(self):
         solution = item_extrator.extract_notebooks(self.constraint_list, self.item_path)
         solution = compute_similarity(self.constraint_list, solution, self.item_path)
