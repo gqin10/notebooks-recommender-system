@@ -52,7 +52,8 @@ class Problem:
         else:
             solution = solution.head(3)
             solution = solution.sort_values(by=['cpu_average', 'gpu_average', 'ram', 'storage'], ascending=False)
-        return solution.drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
+        # return solution.drop(columns=['cpu_average', 'gpu_average', 'similarity'], axis=1)
+        return solution
 
     def solve(self):
         solution = item_extrator.extract_notebooks(self.constraint_list, self.item_path)

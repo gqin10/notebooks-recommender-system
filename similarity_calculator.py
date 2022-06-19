@@ -31,11 +31,11 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame, path):
         elif constraint.name in ["brand", "os"]:
             similarity = 1
         elif constraint.name in ['cpu', 'gpu']:
-            key = constraint.name
-            average_benchmark = item_list[key + '_average'].mean()
-            min_value = min(all_items[key + '_average'])
-            max_value = max(all_items[key + '_average'])
-            similarity = (average_benchmark - min_value) / (max_value - min_value)
+            key = constraint.name + '_average'
+            value = (all_items[all_items[constraint.name].str.contains(constraint.value, regex=True)])[key].mean()
+            min_value = min(all_items[key])
+            max_value = max(all_items[key])
+            similarity = 1 - (abs(value - item_list[key]) / (max_value - min_value))
         elif constraint.name in ["ram", "storage", "price", "weight", "screen_size"]:
             min_value = min(all_items[constraint.name])
             max_value = max(all_items[constraint.name])
