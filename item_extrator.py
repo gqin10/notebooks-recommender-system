@@ -13,7 +13,7 @@ def extract_notebooks(constraint_list: [Constraint], path):
 
         item_filter = None
 
-        if constraint.value == True or constraint.value == False:
+        if constraint.nature == Nature.EQUAL and (constraint.value == True or constraint.value == False):
             if target_value == True:
                 item_filter = filtered_notebooks[target_key].notnull()
             elif target_value == False:
