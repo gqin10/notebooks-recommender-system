@@ -32,7 +32,7 @@ def compute_similarity(constraint_list: set(), item_list: pd.DataFrame, path):
             similarity = 1
         elif constraint.name in ['cpu', 'gpu']:
             key = constraint.name + '_average'
-            value = (all_items[all_items[constraint.name].str.contains(constraint.value, regex=True)])[key].mean()
+            value = (all_items[all_items[constraint.name].str.contains(constraint.value, regex=True).replace(float('nan'), False)])[key].mean()
             min_value = min(all_items[key])
             max_value = max(all_items[key])
             similarity = 1 - (abs(value - item_list[key]) / (max_value - min_value))
