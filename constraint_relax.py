@@ -19,7 +19,7 @@ def fastdiag(diagnose: set(), constraint: set(), constraint_knowledge: set(), pa
     return diagnose_left.union(diagnose_right)
 
 
-def search_mfs(constraint: set(), path: str):
+def search_preferred_diagnosis(constraint: set(), path: str):
     constraint_knowledge = copy.copy(constraint)
     if len(constraint) <= 0 or not is_consistent(constraint_knowledge.difference(constraint), path):
         return set()
