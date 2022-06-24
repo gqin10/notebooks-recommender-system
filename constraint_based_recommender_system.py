@@ -14,9 +14,6 @@ class ConstraintRS:
             constraint.name = constraint.name.value
         self.csp.add_constraint(constraint)
 
-    def remove_constraint(self, constraint):
-        self.csp.remove_constraint(constraint)
-
     def get_constraints(self):
         return self.csp.constraint_list
 
