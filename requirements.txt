@@ -3,3 +3,4 @@ scrapy
 sklearn
 jupyter
 numpy
+matplotlib
