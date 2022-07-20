@@ -3,7 +3,11 @@ A constraint-based recommender system for notebooks
 
 # Setup the Project
 1. Clone or download this repository
-2. Install python packages listed in requirements.txt with PyPI
+```
+git clone https://github.com/gqin10/notebooks-recommender-system.git
+```
+2. Configure Python environment
+3. Install python packages listed in requirements.txt with PyPI
 ```
 pip install -r requirements.txt
 ```
